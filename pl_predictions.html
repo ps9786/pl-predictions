@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions</title>
+<script src="pl_config.js"></script>
+<style>
+  :root {
+    --bg: #eef1f7;
+    --card: #ffffff;
+    --header: #38003c;
+    --text: #1a1a2e;
+    --text2: #6b7280;
+    --border: #dde3ed;
+    --input-bg: #f3f6fb;
+    --btn: #e5e9f2;
+    --btn-text: #1a1a2e;
+    --shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  [data-theme="dark"] {
+    --bg: #0d0f18;
+    --card: #1a1d2e;
+    --header: #1a0020;
+    --text: #e8eaf6;
+    --text2: #8892a4;
+    --border: #2a2d3e;
+    --input-bg: #22253a;
+    --btn: #2a2d3e;
+    --btn-text: #e8eaf6;
+    --shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+    padding-bottom: 90px; /* room for sticky submit */
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--header);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  }
+  .header-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; }
+  .header-sub   { font-size: 0.75rem; opacity: 0.65; margin-top: 1px; }
+  .theme-btn {
+    background: rgba(255,255,255,0.15);
+    border: none; color: #fff;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    cursor: pointer; font-size: 1.3rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; flex-shrink: 0;
+  }
+  .theme-btn:active { background: rgba(255,255,255,0.25); }
+
+  /* ── Loading ── */
+  #loading {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 20px; gap: 22px;
+  }
+  #loading p { color: var(--text2); font-size: 1rem; }
+
+  .clock-svg { width: 70px; height: 70px; overflow: visible; }
+  .clock-face { fill: var(--card); stroke: #38003c; stroke-width: 3; transition: fill 0.3s; }
+  .clock-tick { stroke: #38003c; stroke-width: 1.5; opacity: 0.3; }
+  .hand-hour {
+    stroke: var(--text); stroke-width: 3.5; stroke-linecap: round;
+    transform-origin: 35px 35px;
+    animation: rot-hour 43200s linear infinite; transition: stroke 0.3s;
+  }
+  .hand-min {
+    stroke: #38003c; stroke-width: 2.5; stroke-linecap: round;
+    transform-origin: 35px 35px;
+    animation: rot-min 60s linear infinite;
+  }
+  .hand-sec {
+    stroke: #e53e3e; stroke-width: 1.5; stroke-linecap: round;
+    transform-origin: 35px 35px;
+    animation: rot-sec 1s steps(60, end) infinite;
+  }
+  @keyframes rot-hour { to { transform: rotate(360deg); } }
+  @keyframes rot-min  { to { transform: rotate(360deg); } }
+  @keyframes rot-sec  { to { transform: rotate(360deg); } }
+
+  /* ── Content ── */
+  .content { padding: 14px 14px 10px; max-width: 520px; margin: 0 auto; }
+
+  /* ── Name card ── */
+  .name-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: background 0.3s, border 0.3s;
+  }
+  .name-label {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text2); margin-bottom: 8px;
+  }
+  .name-input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+  }
+  .name-input::placeholder { color: var(--text2); font-weight: 400; }
+  .name-input:focus { border-color: #38003c; }
+
+  /* ── Day groups ── */
+  .day-group { margin-bottom: 22px; }
+  .day-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text2); margin-bottom: 8px; padding: 0 4px;
+  }
+
+  /* ── Match Card ── */
+  .card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 14px 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: background 0.3s, border 0.3s;
+  }
+  .match-time {
+    text-align: center; font-size: 0.75rem; font-weight: 600;
+    color: var(--text2); margin-bottom: 10px; letter-spacing: 0.03em;
+  }
+  .teams-row {
+    display: grid; grid-template-columns: 1fr 28px 1fr;
+    align-items: center; gap: 4px; margin-bottom: 14px;
+  }
+  .team { font-size: 1rem; font-weight: 700; line-height: 1.25; }
+  .team-home { text-align: right; }
+  .team-away { text-align: left; }
+  .vs-badge {
+    text-align: center; font-size: 0.7rem; font-weight: 700;
+    color: var(--text2); background: var(--input-bg);
+    border-radius: 6px; padding: 3px 0;
+  }
+  .predict-label {
+    text-align: center; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text2); margin-bottom: 8px;
+  }
+  .scores-row {
+    display: grid; grid-template-columns: 1fr 20px 1fr;
+    align-items: center; gap: 6px;
+  }
+  .score-dash { text-align: center; font-size: 1.1rem; font-weight: 700; color: var(--text2); }
+
+  .score-ctrl {
+    display: flex; align-items: center;
+    background: var(--input-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .score-ctrl:focus-within { border-color: #38003c; }
+  .sc-btn {
+    background: var(--btn); border: none; color: var(--btn-text);
+    font-size: 1.3rem; font-weight: 700;
+    width: 40px; height: 46px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; user-select: none;
+    transition: background 0.12s; line-height: 1;
+  }
+  .sc-btn:active { background: var(--border); }
+  .sc-input {
+    flex: 1; border: none; background: transparent;
+    text-align: center; font-size: 1.5rem; font-weight: 800;
+    color: var(--text); width: 0; min-width: 0;
+    outline: none; -moz-appearance: textfield; padding: 0;
+  }
+  .sc-input::-webkit-inner-spin-button,
+  .sc-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+  .score-ctrl.qp-active { border-color: #00cc6a; }
+
+  /* ── Quick pick ── */
+  .quick-section { margin-top: 10px; }
+  .quick-indicator {
+    display: grid; grid-template-columns: 1fr 20px 1fr;
+    gap: 6px; margin-bottom: 5px;
+  }
+  .qi-side {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; text-align: center;
+    padding: 3px 4px; border-radius: 6px;
+    color: var(--text2); transition: background 0.2s, color 0.2s;
+  }
+  .qi-side.active { background: #38003c; color: #fff; }
+  .quick-row { display: flex; gap: 5px; }
+  .qp-btn {
+    flex: 1; background: var(--btn); border: 1.5px solid var(--border);
+    color: var(--btn-text); border-radius: 8px; height: 34px;
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    transition: background 0.12s, border-color 0.12s, transform 0.1s;
+  }
+  .qp-btn:active { background: #38003c; color: #fff; border-color: #38003c; transform: scale(0.93); }
+
+  /* ── Sticky Submit ── */
+  .submit-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    padding: 12px 14px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    z-index: 40;
+    transition: background 0.3s, border 0.3s;
+  }
+  .submit-btn {
+    width: 100%; max-width: 520px;
+    display: block; margin: 0 auto;
+    background: #38003c;
+    color: #fff;
+    border: none; border-radius: 14px;
+    padding: 15px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:active { transform: scale(0.98); }
+  .submit-btn:disabled { background: var(--btn); color: var(--text2); cursor: default; }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: #1a1a2e; color: #fff;
+    padding: 12px 22px; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 600;
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none; z-index: 100;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.success { background: #276749; }
+  .toast.error   { background: #9b2c2c; }
+
+  /* ── Error ── */
+  #error {
+    display: none; text-align: center;
+    padding: 60px 24px; color: var(--text2); line-height: 1.6;
+  }
+  #error span { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions</div>
+    <div class="header-sub" id="month-label">Loading fixtures…</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<div id="loading">
+  <svg class="clock-svg" viewBox="0 0 70 70">
+    <circle class="clock-face" cx="35" cy="35" r="32"/>
+    <line class="clock-tick" x1="35" y1="5"  x2="35" y2="10"/>
+    <line class="clock-tick" x1="35" y1="60" x2="35" y2="65"/>
+    <line class="clock-tick" x1="5"  y1="35" x2="10" y2="35"/>
+    <line class="clock-tick" x1="60" y1="35" x2="65" y2="35"/>
+    <line class="hand-hour" x1="35" y1="35" x2="35" y2="18"/>
+    <line class="hand-min"  x1="35" y1="35" x2="35" y2="10"/>
+    <line class="hand-sec"  x1="35" y1="40" x2="35" y2="8"/>
+    <circle fill="#38003c" cx="35" cy="35" r="3"/>
+  </svg>
+  <p>Fetching Premier League fixtures…</p>
+</div>
+
+<div id="error"><span>😕</span>Could not load fixtures.<br>Check your connection and try again.</div>
+
+<div class="content" id="content" style="display:none"></div>
+
+<div class="submit-bar" id="submit-bar" style="display:none">
+  <button class="submit-btn" id="submit-btn" onclick="submitPredictions()">
+    Send Predictions via Pushover
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Match registry (id → {home, away, date}) populated during render ────────
+const matchRegistry = {};
+const inputRefs     = {};  // matchId → { home: {wrap, input}, away: {wrap, input} }
+const quickState    = {};  // matchId → 'home' | 'away'
+const cardRefs      = {};  // matchId → card element
+const matchOrder    = [];  // match IDs in display order
+
+// ── Theme ──────────────────────────────────────────────────────────────────
+applyTheme(localStorage.getItem('pl-theme') || 'light');
+
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('theme-icon').textContent = t === 'dark' ? '☀️' : '🌙';
+}
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('pl-theme', next);
+}
+
+// ── Toast ──────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg, type = '') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast show ' + type;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = 'toast'; }, 3500);
+}
+
+// ── Dates ──────────────────────────────────────────────────────────────────
+function getNextMonthDates() {
+  const today = new Date();
+  const year  = today.getMonth() === 11 ? today.getFullYear() + 1 : today.getFullYear();
+  const month = (today.getMonth() + 1) % 12;
+  const days  = new Date(year, month + 1, 0).getDate();
+  return Array.from({ length: days }, (_, i) => new Date(year, month, i + 1));
+}
+
+function fmtDateKey(d) {
+  return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function toLocalTime(isoStr) {
+  return new Date(isoStr).toLocaleTimeString('en-GB', {
+    hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London'
+  });
+}
+
+function tzLabel(isoStr) {
+  return new Date(isoStr)
+    .toLocaleDateString('en-GB', { timeZone: 'Europe/London', timeZoneName: 'short' })
+    .split(',').pop().trim();
+}
+
+// ── Fixtures ───────────────────────────────────────────────────────────────
+async function fetchDay(date) {
+  const key = fmtDateKey(date);
+  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=${key}&limit=20`;
+  const res = await fetch(url);
+  if (!res.ok) return [];
+  const data = await res.json();
+  return (data.events || []).map(ev => {
+    const comp = ev.competitions[0];
+    const home = comp.competitors.find(c => c.homeAway === 'home');
+    const away = comp.competitors.find(c => c.homeAway === 'away');
+    return { id: ev.id, date: ev.date, home: home.team.shortDisplayName, away: away.team.shortDisplayName };
+  });
+}
+
+// ── Storage ────────────────────────────────────────────────────────────────
+function loadPredictions() {
+  try { return JSON.parse(localStorage.getItem('pl-predictions') || '{}'); } catch { return {}; }
+}
+function savePrediction(id, side, val) {
+  const p = loadPredictions();
+  if (!p[id]) p[id] = {};
+  p[id][side] = val;
+  localStorage.setItem('pl-predictions', JSON.stringify(p));
+}
+
+// ── Score control ──────────────────────────────────────────────────────────
+function scoreCtrl(matchId, side) {
+  const saved = loadPredictions()[matchId]?.[side];
+  const val   = saved !== undefined ? saved : '';
+
+  const wrap  = document.createElement('div');
+  wrap.className = 'score-ctrl';
+
+  const minus = document.createElement('button');
+  minus.className = 'sc-btn';
+  minus.textContent = '−';
+  minus.setAttribute('aria-label', 'Decrease');
+
+  const input = document.createElement('input');
+  input.className   = 'sc-input';
+  input.type        = 'number';
+  input.min         = '0'; input.max = '20';
+  input.inputMode   = 'numeric';
+  input.pattern     = '[0-9]*';
+  input.value       = val;
+  input.placeholder = '–';
+  input.setAttribute('aria-label', side === 'home' ? 'Home score' : 'Away score');
+
+  const plus = document.createElement('button');
+  plus.className = 'sc-btn';
+  plus.textContent = '+';
+  plus.setAttribute('aria-label', 'Increase');
+
+  function update(newVal) {
+    const n = Math.max(0, Math.min(20, parseInt(newVal, 10)));
+    if (!isNaN(n)) { input.value = n; savePrediction(matchId, side, n); }
+  }
+
+  minus.addEventListener('click', () => { const c = parseInt(input.value, 10); update(isNaN(c) ? 0 : c - 1); });
+  plus.addEventListener('click',  () => { const c = parseInt(input.value, 10); update(isNaN(c) ? 0 : c + 1); });
+  input.addEventListener('change', () => update(input.value));
+  input.addEventListener('input', () => {
+    const n = parseInt(input.value, 10);
+    if (!isNaN(n) && n > 20) input.value = 20;
+    if (!isNaN(n) && n < 0)  input.value = 0;
+    if (!isNaN(n)) savePrediction(matchId, side, parseInt(input.value, 10));
+  });
+
+  // Store refs so quick-pick buttons can target this input
+  if (!inputRefs[matchId]) inputRefs[matchId] = {};
+  inputRefs[matchId][side] = { wrap, input };
+
+  wrap.append(minus, input, plus);
+  return wrap;
+}
+
+// ── Quick pick ─────────────────────────────────────────────────────────────
+function handleQuickPick(matchId, val) {
+  const side = quickState[matchId] || 'home';
+  const ref  = inputRefs[matchId]?.[side];
+  if (!ref) return;
+
+  ref.input.value = val;
+  savePrediction(matchId, side, val);
+
+  if (side === 'away') {
+    // Away done — reset this card and advance to next match's home
+    quickState[matchId] = 'home';
+    updateQuickIndicator(matchId);
+
+    const idx    = matchOrder.indexOf(matchId);
+    const nextId = matchOrder[idx + 1];
+    if (nextId) {
+      quickState[nextId] = 'home';
+      updateQuickIndicator(nextId);
+      cardRefs[nextId]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  } else {
+    // Home done — move to away on this same card
+    quickState[matchId] = 'away';
+    updateQuickIndicator(matchId);
+  }
+}
+
+function updateQuickIndicator(matchId) {
+  const side    = quickState[matchId] || 'home';
+  const homeRef = inputRefs[matchId]?.home;
+  const awayRef = inputRefs[matchId]?.away;
+
+  if (homeRef) homeRef.wrap.classList.toggle('qp-active', side === 'home');
+  if (awayRef) awayRef.wrap.classList.toggle('qp-active', side === 'away');
+
+  const qi = document.getElementById(`qi-${matchId}`);
+  if (qi) {
+    qi.querySelector('.qi-home').classList.toggle('active', side === 'home');
+    qi.querySelector('.qi-away').classList.toggle('active', side === 'away');
+  }
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function renderMatches(grouped) {
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  // Name card
+  const nameCard = document.createElement('div');
+  nameCard.className = 'name-card';
+  const nameLabel = document.createElement('div');
+  nameLabel.className = 'name-label';
+  nameLabel.textContent = 'Your name';
+  const nameInput = document.createElement('input');
+  nameInput.className   = 'name-input';
+  nameInput.type        = 'text';
+  nameInput.placeholder = 'Enter your name…';
+  nameInput.value       = localStorage.getItem('pl-name') || '';
+  nameInput.autocomplete = 'given-name';
+  nameInput.addEventListener('input', () => localStorage.setItem('pl-name', nameInput.value.trim()));
+  nameCard.append(nameLabel, nameInput);
+  content.appendChild(nameCard);
+
+  const tz = tzLabel(Object.values(grouped)[0][0].date);
+
+  for (const [dayStr, matches] of Object.entries(grouped)) {
+    const group = document.createElement('div');
+    group.className = 'day-group';
+
+    const label = document.createElement('div');
+    label.className = 'day-label';
+    label.textContent = dayStr;
+    group.appendChild(label);
+
+    for (const m of matches) {
+      matchRegistry[m.id] = m;
+      matchOrder.push(m.id);
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      cardRefs[m.id] = card;
+
+      const time = document.createElement('div');
+      time.className = 'match-time';
+      time.textContent = `${toLocalTime(m.date)} ${tz}`;
+      card.appendChild(time);
+
+      const teamsRow = document.createElement('div');
+      teamsRow.className = 'teams-row';
+      const homeEl = document.createElement('div');
+      homeEl.className = 'team team-home';
+      homeEl.textContent = m.home;
+      const vsEl = document.createElement('div');
+      vsEl.className = 'vs-badge';
+      vsEl.textContent = 'vs';
+      const awayEl = document.createElement('div');
+      awayEl.className = 'team team-away';
+      awayEl.textContent = m.away;
+      teamsRow.append(homeEl, vsEl, awayEl);
+      card.appendChild(teamsRow);
+
+      const pl = document.createElement('div');
+      pl.className = 'predict-label';
+      pl.textContent = 'Your prediction';
+      card.appendChild(pl);
+
+      const scoresRow = document.createElement('div');
+      scoresRow.className = 'scores-row';
+      const dash = document.createElement('div');
+      dash.className = 'score-dash';
+      dash.textContent = '–';
+      scoresRow.append(scoreCtrl(m.id, 'home'), dash, scoreCtrl(m.id, 'away'));
+      card.appendChild(scoresRow);
+
+      // Quick-pick section
+      quickState[m.id] = 'home';
+
+      const qiRow  = document.createElement('div');
+      qiRow.className = 'quick-indicator';
+      qiRow.id = `qi-${m.id}`;
+      const qiHome = document.createElement('div');
+      qiHome.className = 'qi-side qi-home active';
+      qiHome.textContent = '← Home';
+      const qiAway = document.createElement('div');
+      qiAway.className = 'qi-side qi-away';
+      qiAway.textContent = 'Away →';
+      qiRow.append(qiHome, document.createElement('div'), qiAway);
+
+      const quickRow = document.createElement('div');
+      quickRow.className = 'quick-row';
+      for (let n = 0; n <= 4; n++) {
+        const btn = document.createElement('button');
+        btn.className = 'qp-btn';
+        btn.textContent = n;
+        btn.setAttribute('aria-label', `Quick pick ${n}`);
+        const val = n;
+        btn.addEventListener('click', () => handleQuickPick(m.id, val));
+        quickRow.appendChild(btn);
+      }
+
+      const quickSection = document.createElement('div');
+      quickSection.className = 'quick-section';
+      quickSection.append(qiRow, quickRow);
+      card.appendChild(quickSection);
+
+      // Highlight initial active side
+      updateQuickIndicator(m.id);
+
+      group.appendChild(card);
+    }
+
+    content.appendChild(group);
+  }
+}
+
+// ── Submit via Pushover ────────────────────────────────────────────────────
+async function submitPredictions() {
+  const name = (localStorage.getItem('pl-name') || '').trim();
+  if (!name) { showToast('Please enter your name first', 'error'); return; }
+
+  if (typeof PUSHOVER_TOKEN === 'undefined' || PUSHOVER_TOKEN === 'your_app_token_here' ||
+      typeof PUSHOVER_USER  === 'undefined' || PUSHOVER_USER  === 'your_user_key_here') {
+    showToast('Pushover keys not set in pl_config.js', 'error');
+    return;
+  }
+
+  const predictions = loadPredictions();
+  const monthLabel  = document.getElementById('month-label').textContent;
+
+  // Build message lines grouped by day
+  const lines = [`${name}'s PL Predictions — ${monthLabel}\n`];
+  let lastDay = '';
+
+  for (const [id, m] of Object.entries(matchRegistry)) {
+    const d = new Date(m.date).toLocaleDateString('en-GB', {
+      weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Europe/London'
+    });
+    if (d !== lastDay) { lines.push(`\n${d}`); lastDay = d; }
+
+    const p    = predictions[id] || {};
+    const home = p.home !== undefined ? p.home : '?';
+    const away = p.away !== undefined ? p.away : '?';
+    lines.push(`${m.home} ${home}–${away} ${m.away}`);
+  }
+
+  const message = lines.join('\n');
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const body = new FormData();
+    body.append('token',   PUSHOVER_TOKEN);
+    body.append('user',    PUSHOVER_USER);
+    body.append('title',   `⚽ ${name}'s PL Predictions`);
+    body.append('message', message);
+
+    const res = await fetch('https://api.pushover.net/1/messages.json', { method: 'POST', body });
+    const json = await res.json();
+
+    if (json.status === 1) {
+      showToast('Predictions sent!', 'success');
+    } else {
+      showToast('Pushover error: ' + (json.errors || []).join(', '), 'error');
+    }
+  } catch (e) {
+    showToast('Failed to send — check connection', 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Predictions via Pushover';
+  }
+}
+
+// ── Main ───────────────────────────────────────────────────────────────────
+(async () => {
+  const dates      = getNextMonthDates();
+  const monthLabel = dates[0].toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+  document.getElementById('month-label').textContent = monthLabel;
+
+  try {
+    const allMatches = [];
+    for (let i = 0; i < dates.length; i += 7) {
+      const results = await Promise.all(dates.slice(i, i + 7).map(fetchDay));
+      results.forEach(r => allMatches.push(...r));
+    }
+
+    const grouped = {};
+    for (const m of allMatches) {
+      const dayStr = new Date(m.date).toLocaleDateString('en-GB', {
+        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/London'
+      });
+      if (!grouped[dayStr]) grouped[dayStr] = [];
+      grouped[dayStr].push(m);
+    }
+
+    document.getElementById('loading').style.display = 'none';
+
+    if (Object.keys(grouped).length === 0) {
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').innerHTML = '<span>📅</span>No fixtures found for ' + monthLabel + '.';
+      return;
+    }
+
+    document.getElementById('content').style.display = 'block';
+    document.getElementById('submit-bar').style.display = 'block';
+    renderMatches(grouped);
+  } catch (e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+})();
+</script>
+</body>
+</html>

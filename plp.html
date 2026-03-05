@@ -421,11 +421,14 @@ function clearPredictions() {
   showToast('All predictions cleared');
 }
 
+// Weighted pool: 0 = 35%, 1 = 35%, 2 = 20%, 3 = 10%
+const SCORE_POOL = [0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,3,3];
+
 function randomScores() {
   const p = {};
   for (const [id, refs] of Object.entries(inputRefs)) {
-    const h = Math.floor(Math.random() * 4);
-    const a = Math.floor(Math.random() * 4);
+    const h = SCORE_POOL[Math.floor(Math.random() * SCORE_POOL.length)];
+    const a = SCORE_POOL[Math.floor(Math.random() * SCORE_POOL.length)];
     refs.home.input.value = h;
     refs.away.input.value = a;
     p[id] = { home: h, away: a };
@@ -689,37 +692,23 @@ async function submitPredictions() {
   btn.textContent = 'Sending…';
 
   try {
-    console.log('[PLP] Sending to:', apiUrl);
-    const payload = {
-      title:   `⚽ ${name}'s PL Predictions`,
-      message: lines.join('\n'),
-    };
-    console.log('[PLP] Payload:', payload);
-
-    const res = await fetch(apiUrl, {
+    const res  = await fetch(apiUrl, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
+      body:    JSON.stringify({
+        title:   `⚽ ${name}'s PL Predictions`,
+        message: lines.join('\n'),
+      }),
     });
-
-    console.log('[PLP] HTTP status:', res.status, res.statusText);
-    console.log('[PLP] Response headers:', [...res.headers.entries()]);
-
-    const text = await res.text();
-    console.log('[PLP] Raw response body:', text);
-
-    let json;
-    try { json = JSON.parse(text); } catch { json = {}; }
+    const json = await res.json();
 
     if (res.ok && json.status === 1) {
       showToast('Predictions sent!', 'success');
     } else {
       const detail = json.errors ? json.errors.join(', ') : `HTTP ${res.status}`;
       showToast('Error: ' + detail, 'error');
-      console.error('[PLP] Error detail:', json);
     }
   } catch (e) {
-    console.error('[PLP] Fetch threw:', e);
     showToast('Failed: ' + e.message, 'error');
   } finally {
     btn.disabled = false;

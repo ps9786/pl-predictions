@@ -241,36 +241,6 @@
   .action-btn.danger:active  { border-color: #c53030; color: #c53030; }
   .action-btn.random:active  { border-color: #2b6cb0; color: #2b6cb0; }
 
-  /* ── Settings panel ── */
-  .settings-toggle {
-    width: 100%; background: var(--card);
-    border: 1.5px solid var(--border); color: var(--text2);
-    border-radius: 12px; padding: 10px 14px;
-    font-size: 0.82rem; font-weight: 600; cursor: pointer;
-    text-align: left; font-family: inherit;
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 8px; transition: border-color 0.2s;
-  }
-  .settings-toggle:active { background: var(--btn); }
-  .settings-panel {
-    background: var(--card); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 14px; margin-bottom: 20px;
-    display: none;
-  }
-  .settings-panel.open { display: block; }
-  .settings-field { margin-bottom: 12px; }
-  .settings-field:last-child { margin-bottom: 0; }
-  .settings-label {
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em;
-    text-transform: uppercase; color: var(--text2); margin-bottom: 5px;
-  }
-  .settings-input {
-    width: 100%; background: var(--input-bg);
-    border: 1.5px solid var(--border); border-radius: 10px;
-    padding: 10px 12px; font-size: 0.9rem; color: var(--text);
-    outline: none; font-family: monospace; transition: border-color 0.2s;
-  }
-  .settings-input:focus { border-color: #38003c; }
 
   /* ── Sticky Submit ── */
   .submit-bar {
@@ -350,13 +320,15 @@
 
 <div class="submit-bar" id="submit-bar" style="display:none">
   <button class="submit-btn" id="submit-btn" onclick="submitPredictions()">
-    Send Predictions via Pushover
+    Send Predictions
   </button>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+const API_URL = 'https://ra0y15vog2.execute-api.us-east-1.amazonaws.com/default/send_to_pushover';
+
 // ── Match registry (id → {home, away, date}) populated during render ────────
 const matchRegistry = {};
 const inputRefs     = {};  // matchId → { home: {wrap, input}, away: {wrap, input} }
@@ -594,43 +566,6 @@ function renderMatches(grouped) {
   actionRow.append(clearBtn, randomBtn);
   content.appendChild(actionRow);
 
-  // Pushover settings (collapsible)
-  const settingsToggle = document.createElement('button');
-  settingsToggle.className = 'settings-toggle';
-  settingsToggle.innerHTML = '<span>⚙️ Pushover Settings</span><span id="settings-arrow">▸</span>';
-
-  const settingsPanel = document.createElement('div');
-  settingsPanel.className = 'settings-panel';
-
-  function makeSettingsField(labelText, storageKey, placeholder) {
-    const field = document.createElement('div');
-    field.className = 'settings-field';
-    const lbl = document.createElement('div');
-    lbl.className = 'settings-label';
-    lbl.textContent = labelText;
-    const inp = document.createElement('input');
-    inp.className = 'settings-input';
-    inp.type = 'password';
-    inp.placeholder = placeholder;
-    inp.value = localStorage.getItem(storageKey) || '';
-    inp.addEventListener('input', () => localStorage.setItem(storageKey, inp.value.trim()));
-    field.append(lbl, inp);
-    return field;
-  }
-
-  settingsPanel.append(
-    makeSettingsField('App Token', 'pl-pushover-token', 'Pushover app token'),
-    makeSettingsField('User Key',  'pl-pushover-user',  'Pushover user key')
-  );
-
-  settingsToggle.addEventListener('click', () => {
-    const open = settingsPanel.classList.toggle('open');
-    document.getElementById('settings-arrow').textContent = open ? '▾' : '▸';
-  });
-
-  content.appendChild(settingsToggle);
-  content.appendChild(settingsPanel);
-
   const tz = tzLabel(Object.values(grouped)[0][0].date);
 
   for (const [dayStr, matches] of Object.entries(grouped)) {
@@ -728,12 +663,7 @@ async function submitPredictions() {
   const name = (localStorage.getItem('pl-name') || '').trim();
   if (!name) { showToast('Please enter your name first', 'error'); return; }
 
-  const PUSHOVER_TOKEN = (localStorage.getItem('pl-pushover-token') || '').trim();
-  const PUSHOVER_USER  = (localStorage.getItem('pl-pushover-user')  || '').trim();
-  if (!PUSHOVER_TOKEN || !PUSHOVER_USER) {
-    showToast('Set your Pushover credentials in ⚙️ Settings', 'error');
-    return;
-  }
+  const apiUrl = API_URL;
 
   const predictions = loadPredictions();
   const monthLabel  = document.getElementById('month-label').textContent;
@@ -754,32 +684,31 @@ async function submitPredictions() {
     lines.push(`${m.home} ${home}–${away} ${m.away}`);
   }
 
-  const message = lines.join('\n');
-
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
   try {
-    const body = new FormData();
-    body.append('token',   PUSHOVER_TOKEN);
-    body.append('user',    PUSHOVER_USER);
-    body.append('title',   `⚽ ${name}'s PL Predictions`);
-    body.append('message', message);
-
-    const res = await fetch('https://api.pushover.net/1/messages.json', { method: 'POST', body });
+    const res  = await fetch(apiUrl, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        title:   `⚽ ${name}'s PL Predictions`,
+        message: lines.join('\n'),
+      }),
+    });
     const json = await res.json();
 
     if (json.status === 1) {
       showToast('Predictions sent!', 'success');
     } else {
-      showToast('Pushover error: ' + (json.errors || []).join(', '), 'error');
+      showToast('Error: ' + (json.errors || []).join(', '), 'error');
     }
   } catch (e) {
     showToast('Failed to send — check connection', 'error');
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Send Predictions via Pushover';
+    btn.textContent = 'Send Predictions';
   }
 }
 

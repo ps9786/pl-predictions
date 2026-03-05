@@ -327,7 +327,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const API_URL = 'https://ra0y15vog2.execute-api.us-east-1.amazonaws.com/default/send_to_pushover';
+const API_URL = 'https://2r5067bw1c.execute-api.us-east-1.amazonaws.com/default/send_to_pushover';
 
 // ── Match registry (id → {home, away, date}) populated during render ────────
 const matchRegistry = {};
@@ -689,23 +689,38 @@ async function submitPredictions() {
   btn.textContent = 'Sending…';
 
   try {
-    const res  = await fetch(apiUrl, {
+    console.log('[PLP] Sending to:', apiUrl);
+    const payload = {
+      title:   `⚽ ${name}'s PL Predictions`,
+      message: lines.join('\n'),
+    };
+    console.log('[PLP] Payload:', payload);
+
+    const res = await fetch(apiUrl, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({
-        title:   `⚽ ${name}'s PL Predictions`,
-        message: lines.join('\n'),
-      }),
+      body:    JSON.stringify(payload),
     });
-    const json = await res.json();
 
-    if (json.status === 1) {
+    console.log('[PLP] HTTP status:', res.status, res.statusText);
+    console.log('[PLP] Response headers:', [...res.headers.entries()]);
+
+    const text = await res.text();
+    console.log('[PLP] Raw response body:', text);
+
+    let json;
+    try { json = JSON.parse(text); } catch { json = {}; }
+
+    if (res.ok && json.status === 1) {
       showToast('Predictions sent!', 'success');
     } else {
-      showToast('Error: ' + (json.errors || []).join(', '), 'error');
+      const detail = json.errors ? json.errors.join(', ') : `HTTP ${res.status}`;
+      showToast('Error: ' + detail, 'error');
+      console.error('[PLP] Error detail:', json);
     }
   } catch (e) {
-    showToast('Failed to send — check connection', 'error');
+    console.error('[PLP] Fetch threw:', e);
+    showToast('Failed: ' + e.message, 'error');
   } finally {
     btn.disabled = false;
     btn.textContent = 'Send Predictions';

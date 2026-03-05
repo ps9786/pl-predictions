@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Premier League Predictions</title>
-<script src="pl_config.js"></script>
 <style>
   :root {
     --bg: #eef1f7;
@@ -226,6 +225,53 @@
   }
   .qp-btn:active { background: #38003c; color: #fff; border-color: #38003c; transform: scale(0.93); }
 
+  /* ── Action buttons (clear / random) ── */
+  .action-row {
+    display: flex; gap: 8px; margin-bottom: 20px;
+  }
+  .action-btn {
+    flex: 1; background: var(--card);
+    border: 1.5px solid var(--border); color: var(--text2);
+    border-radius: 12px; padding: 10px 6px;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    font-family: inherit; text-align: center;
+  }
+  .action-btn:active { background: var(--btn); }
+  .action-btn.danger:active  { border-color: #c53030; color: #c53030; }
+  .action-btn.random:active  { border-color: #2b6cb0; color: #2b6cb0; }
+
+  /* ── Settings panel ── */
+  .settings-toggle {
+    width: 100%; background: var(--card);
+    border: 1.5px solid var(--border); color: var(--text2);
+    border-radius: 12px; padding: 10px 14px;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    text-align: left; font-family: inherit;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px; transition: border-color 0.2s;
+  }
+  .settings-toggle:active { background: var(--btn); }
+  .settings-panel {
+    background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 14px; margin-bottom: 20px;
+    display: none;
+  }
+  .settings-panel.open { display: block; }
+  .settings-field { margin-bottom: 12px; }
+  .settings-field:last-child { margin-bottom: 0; }
+  .settings-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--text2); margin-bottom: 5px;
+  }
+  .settings-input {
+    width: 100%; background: var(--input-bg);
+    border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 10px 12px; font-size: 0.9rem; color: var(--text);
+    outline: none; font-family: monospace; transition: border-color 0.2s;
+  }
+  .settings-input:focus { border-color: #38003c; }
+
   /* ── Sticky Submit ── */
   .submit-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
@@ -317,6 +363,7 @@ const inputRefs     = {};  // matchId → { home: {wrap, input}, away: {wrap, in
 const quickState    = {};  // matchId → 'home' | 'away'
 const cardRefs      = {};  // matchId → card element
 const matchOrder    = [];  // match IDs in display order
+let   PREDICTIONS_KEY = 'pl-predictions'; // set per-month in main()
 
 // ── Theme ──────────────────────────────────────────────────────────────────
 applyTheme(localStorage.getItem('pl-theme') || 'light');
@@ -383,13 +430,36 @@ async function fetchDay(date) {
 
 // ── Storage ────────────────────────────────────────────────────────────────
 function loadPredictions() {
-  try { return JSON.parse(localStorage.getItem('pl-predictions') || '{}'); } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem(PREDICTIONS_KEY) || '{}'); } catch { return {}; }
 }
 function savePrediction(id, side, val) {
   const p = loadPredictions();
   if (!p[id]) p[id] = {};
   p[id][side] = val;
-  localStorage.setItem('pl-predictions', JSON.stringify(p));
+  localStorage.setItem(PREDICTIONS_KEY, JSON.stringify(p));
+}
+
+// ── Clear & Random ──────────────────────────────────────────────────────────
+function clearPredictions() {
+  localStorage.removeItem(PREDICTIONS_KEY);
+  for (const refs of Object.values(inputRefs)) {
+    refs.home.input.value = '';
+    refs.away.input.value = '';
+  }
+  showToast('All predictions cleared');
+}
+
+function randomScores() {
+  const p = {};
+  for (const [id, refs] of Object.entries(inputRefs)) {
+    const h = Math.floor(Math.random() * 4);
+    const a = Math.floor(Math.random() * 4);
+    refs.home.input.value = h;
+    refs.away.input.value = a;
+    p[id] = { home: h, away: a };
+  }
+  localStorage.setItem(PREDICTIONS_KEY, JSON.stringify(p));
+  showToast('Random scores applied');
 }
 
 // ── Score control ──────────────────────────────────────────────────────────
@@ -507,6 +577,60 @@ function renderMatches(grouped) {
   nameCard.append(nameLabel, nameInput);
   content.appendChild(nameCard);
 
+  // Action buttons
+  const actionRow = document.createElement('div');
+  actionRow.className = 'action-row';
+
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'action-btn danger';
+  clearBtn.textContent = '🗑 Clear all scores';
+  clearBtn.addEventListener('click', clearPredictions);
+
+  const randomBtn = document.createElement('button');
+  randomBtn.className = 'action-btn random';
+  randomBtn.textContent = '🎲 Random scores';
+  randomBtn.addEventListener('click', randomScores);
+
+  actionRow.append(clearBtn, randomBtn);
+  content.appendChild(actionRow);
+
+  // Pushover settings (collapsible)
+  const settingsToggle = document.createElement('button');
+  settingsToggle.className = 'settings-toggle';
+  settingsToggle.innerHTML = '<span>⚙️ Pushover Settings</span><span id="settings-arrow">▸</span>';
+
+  const settingsPanel = document.createElement('div');
+  settingsPanel.className = 'settings-panel';
+
+  function makeSettingsField(labelText, storageKey, placeholder) {
+    const field = document.createElement('div');
+    field.className = 'settings-field';
+    const lbl = document.createElement('div');
+    lbl.className = 'settings-label';
+    lbl.textContent = labelText;
+    const inp = document.createElement('input');
+    inp.className = 'settings-input';
+    inp.type = 'password';
+    inp.placeholder = placeholder;
+    inp.value = localStorage.getItem(storageKey) || '';
+    inp.addEventListener('input', () => localStorage.setItem(storageKey, inp.value.trim()));
+    field.append(lbl, inp);
+    return field;
+  }
+
+  settingsPanel.append(
+    makeSettingsField('App Token', 'pl-pushover-token', 'Pushover app token'),
+    makeSettingsField('User Key',  'pl-pushover-user',  'Pushover user key')
+  );
+
+  settingsToggle.addEventListener('click', () => {
+    const open = settingsPanel.classList.toggle('open');
+    document.getElementById('settings-arrow').textContent = open ? '▾' : '▸';
+  });
+
+  content.appendChild(settingsToggle);
+  content.appendChild(settingsPanel);
+
   const tz = tzLabel(Object.values(grouped)[0][0].date);
 
   for (const [dayStr, matches] of Object.entries(grouped)) {
@@ -604,9 +728,10 @@ async function submitPredictions() {
   const name = (localStorage.getItem('pl-name') || '').trim();
   if (!name) { showToast('Please enter your name first', 'error'); return; }
 
-  if (typeof PUSHOVER_TOKEN === 'undefined' || PUSHOVER_TOKEN === 'your_app_token_here' ||
-      typeof PUSHOVER_USER  === 'undefined' || PUSHOVER_USER  === 'your_user_key_here') {
-    showToast('Pushover keys not set in pl_config.js', 'error');
+  const PUSHOVER_TOKEN = (localStorage.getItem('pl-pushover-token') || '').trim();
+  const PUSHOVER_USER  = (localStorage.getItem('pl-pushover-user')  || '').trim();
+  if (!PUSHOVER_TOKEN || !PUSHOVER_USER) {
+    showToast('Set your Pushover credentials in ⚙️ Settings', 'error');
     return;
   }
 
@@ -661,7 +786,9 @@ async function submitPredictions() {
 // ── Main ───────────────────────────────────────────────────────────────────
 (async () => {
   const dates      = getNextMonthDates();
-  const monthLabel = dates[0].toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+  const d0         = dates[0];
+  PREDICTIONS_KEY  = `pl-predictions-${d0.getFullYear()}-${String(d0.getMonth()+1).padStart(2,'0')}`;
+  const monthLabel = d0.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
   document.getElementById('month-label').textContent = monthLabel;
 
   try {

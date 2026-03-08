@@ -279,6 +279,39 @@
   .toast.success { background: #276749; }
   .toast.error   { background: #9b2c2c; }
 
+  /* ── Note button & modal ── */
+  .card { position: relative; }
+  .note-btn {
+    position: absolute; top: 10px; right: 10px;
+    background: none; border: none; cursor: pointer;
+    font-size: 1rem; color: var(--text2); padding: 2px 4px;
+    line-height: 1; transition: color 0.2s;
+  }
+  .note-btn:active { color: #38003c; }
+  #note-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    align-items: center; justify-content: center;
+  }
+  #note-modal.open { display: flex; }
+  #note-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+  }
+  #note-box {
+    position: relative; z-index: 1;
+    background: var(--card); border-radius: 18px;
+    padding: 24px 20px; margin: 20px;
+    max-width: 400px; width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  #note-text { font-size: 1rem; line-height: 1.6; color: var(--text); margin-bottom: 16px; }
+  #note-close {
+    background: #38003c; color: #fff; border: none;
+    border-radius: 10px; padding: 10px 28px;
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    font-family: inherit;
+  }
+
   /* ── Error ── */
   #error {
     display: none; text-align: center;
@@ -326,6 +359,14 @@
 
 <div class="toast" id="toast"></div>
 
+<div id="note-modal">
+  <div id="note-overlay" onclick="closeNote()"></div>
+  <div id="note-box">
+    <p id="note-text"></p>
+    <button id="note-close" onclick="closeNote()">Close</button>
+  </div>
+</div>
+
 <script>
 const API_URL = 'https://2r5067bw1c.execute-api.us-east-1.amazonaws.com/default/send_to_pushover';
 
@@ -369,35 +410,32 @@ function getNextMonthDates() {
   return Array.from({ length: days }, (_, i) => new Date(year, month, i + 1));
 }
 
-function fmtDateKey(d) {
-  return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+// ── Load games from file ───────────────────────────────────────────────────
+async function fetchGames() {
+  const res = await fetch('games.txt');
+  if (!res.ok) throw new Error(`Could not load games.txt (${res.status})`);
+  const text = await res.text();
+  return text.split('\n')
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith('#'))
+    .map((line, i) => {
+      const commaIdx = line.indexOf(',');
+      const game     = (commaIdx === -1 ? line : line.slice(0, commaIdx)).trim();
+      const note     = commaIdx === -1 ? '' : line.slice(commaIdx + 1).trim();
+      const dashIdx  = game.indexOf(' - ');
+      const home     = dashIdx === -1 ? game : game.slice(0, dashIdx).trim();
+      const away     = dashIdx === -1 ? '' : game.slice(dashIdx + 3).trim();
+      return { id: String(i), home, away, note };
+    });
 }
 
-function toLocalTime(isoStr) {
-  return new Date(isoStr).toLocaleTimeString('en-GB', {
-    hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London'
-  });
+// ── Note popup ─────────────────────────────────────────────────────────────
+function openNote(text) {
+  document.getElementById('note-text').textContent = text;
+  document.getElementById('note-modal').classList.add('open');
 }
-
-function tzLabel(isoStr) {
-  return new Date(isoStr)
-    .toLocaleDateString('en-GB', { timeZone: 'Europe/London', timeZoneName: 'short' })
-    .split(',').pop().trim();
-}
-
-// ── Fixtures ───────────────────────────────────────────────────────────────
-async function fetchDay(date) {
-  const key = fmtDateKey(date);
-  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=${key}&limit=20`;
-  const res = await fetch(url);
-  if (!res.ok) return [];
-  const data = await res.json();
-  return (data.events || []).map(ev => {
-    const comp = ev.competitions[0];
-    const home = comp.competitors.find(c => c.homeAway === 'home');
-    const away = comp.competitors.find(c => c.homeAway === 'away');
-    return { id: ev.id, date: ev.date, home: home.team.shortDisplayName, away: away.team.shortDisplayName };
-  });
+function closeNote() {
+  document.getElementById('note-modal').classList.remove('open');
 }
 
 // ── Storage ────────────────────────────────────────────────────────────────
@@ -569,16 +607,16 @@ function renderMatches(grouped) {
   actionRow.append(clearBtn, randomBtn);
   content.appendChild(actionRow);
 
-  const tz = tzLabel(Object.values(grouped)[0][0].date);
-
   for (const [dayStr, matches] of Object.entries(grouped)) {
     const group = document.createElement('div');
     group.className = 'day-group';
 
-    const label = document.createElement('div');
-    label.className = 'day-label';
-    label.textContent = dayStr;
-    group.appendChild(label);
+    if (dayStr) {
+      const label = document.createElement('div');
+      label.className = 'day-label';
+      label.textContent = dayStr;
+      group.appendChild(label);
+    }
 
     for (const m of matches) {
       matchRegistry[m.id] = m;
@@ -588,10 +626,14 @@ function renderMatches(grouped) {
       card.className = 'card';
       cardRefs[m.id] = card;
 
-      const time = document.createElement('div');
-      time.className = 'match-time';
-      time.textContent = `${toLocalTime(m.date)} ${tz}`;
-      card.appendChild(time);
+      if (m.note) {
+        const noteBtn = document.createElement('button');
+        noteBtn.className = 'note-btn';
+        noteBtn.textContent = 'ℹ️';
+        noteBtn.setAttribute('aria-label', 'Show note');
+        noteBtn.addEventListener('click', () => openNote(m.note));
+        card.appendChild(noteBtn);
+      }
 
       const teamsRow = document.createElement('div');
       teamsRow.className = 'teams-row';
@@ -671,20 +713,13 @@ async function submitPredictions() {
   const predictions = loadPredictions();
   const monthLabel  = document.getElementById('month-label').textContent;
 
-  // Build message lines grouped by day
-  const lines = [`${name}'s PL Predictions — ${monthLabel}\n`];
-  let lastDay = '';
-
+  // Build one line per match: Name, Home - Away, HomeScore - AwayScore
+  const lines = [];
   for (const [id, m] of Object.entries(matchRegistry)) {
-    const d = new Date(m.date).toLocaleDateString('en-GB', {
-      weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Europe/London'
-    });
-    if (d !== lastDay) { lines.push(`\n${d}`); lastDay = d; }
-
     const p    = predictions[id] || {};
     const home = p.home !== undefined ? p.home : '?';
     const away = p.away !== undefined ? p.away : '?';
-    lines.push(`${m.home} ${home}–${away} ${m.away}`);
+    lines.push(`${name}, ${m.home} - ${m.away}, ${home} - ${away}`);
   }
 
   const btn = document.getElementById('submit-btn');
@@ -718,42 +753,27 @@ async function submitPredictions() {
 
 // ── Main ───────────────────────────────────────────────────────────────────
 (async () => {
-  const dates      = getNextMonthDates();
-  const d0         = dates[0];
-  PREDICTIONS_KEY  = `pl-predictions-${d0.getFullYear()}-${String(d0.getMonth()+1).padStart(2,'0')}`;
-  const monthLabel = d0.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
-  document.getElementById('month-label').textContent = monthLabel;
+  const now = new Date();
+  PREDICTIONS_KEY = `pl-predictions-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 
   try {
-    const allMatches = [];
-    for (let i = 0; i < dates.length; i += 7) {
-      const results = await Promise.all(dates.slice(i, i + 7).map(fetchDay));
-      results.forEach(r => allMatches.push(...r));
-    }
-
-    const grouped = {};
-    for (const m of allMatches) {
-      const dayStr = new Date(m.date).toLocaleDateString('en-GB', {
-        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/London'
-      });
-      if (!grouped[dayStr]) grouped[dayStr] = [];
-      grouped[dayStr].push(m);
-    }
-
+    const matches = await fetchGames();
+    document.getElementById('month-label').textContent = `${matches.length} fixtures`;
     document.getElementById('loading').style.display = 'none';
 
-    if (Object.keys(grouped).length === 0) {
+    if (matches.length === 0) {
       document.getElementById('error').style.display = 'block';
-      document.getElementById('error').innerHTML = '<span>📅</span>No fixtures found for ' + monthLabel + '.';
+      document.getElementById('error').innerHTML = '<span>📅</span>No fixtures found in games.txt.';
       return;
     }
 
     document.getElementById('content').style.display = 'block';
     document.getElementById('submit-bar').style.display = 'block';
-    renderMatches(grouped);
+    renderMatches({ '': matches });
   } catch (e) {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('error').style.display = 'block';
+    document.getElementById('error').innerHTML = `<span>😕</span>${e.message}`;
   }
 })();
 </script>

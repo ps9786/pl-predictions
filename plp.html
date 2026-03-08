@@ -713,14 +713,17 @@ async function submitPredictions() {
   const predictions = loadPredictions();
   const monthLabel  = document.getElementById('month-label').textContent;
 
-  // Build output: name at top, one line per match
+  // Build output: name at top, one line per match, then scores-only section
   const lines = [name, ''];
+  const scoresOnly = [];
   for (const [id, m] of Object.entries(matchRegistry)) {
     const p    = predictions[id] || {};
     const home = p.home !== undefined ? p.home : '?';
     const away = p.away !== undefined ? p.away : '?';
     lines.push(`${m.home} - ${m.away}, ${home} - ${away}`);
+    scoresOnly.push(`${home} - ${away}`);
   }
+  lines.push('', ...scoresOnly);
 
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;

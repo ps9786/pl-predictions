@@ -353,7 +353,7 @@
 
 <div class="submit-bar" id="submit-bar" style="display:none">
   <button class="submit-btn" id="submit-btn" onclick="submitPredictions()">
-    Send Predictions
+    Send Predictions by Email
   </button>
 </div>
 
@@ -747,7 +747,7 @@ async function submitPredictions() {
     showToast('Failed: ' + e.message, 'error');
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Send Predictions';
+    btn.textContent = 'Send Predictions by Email';
   }
 }
 

@@ -708,9 +708,18 @@ async function submitPredictions() {
   const name = (localStorage.getItem('pl-name') || '').trim();
   if (!name) { showToast('Please enter your name first', 'error'); return; }
 
-  const apiUrl = API_URL;
-
   const predictions = loadPredictions();
+
+  const incomplete = Object.keys(matchRegistry).some(id => {
+    const p = predictions[id] || {};
+    return p.home === undefined || p.home === '' || p.away === undefined || p.away === '';
+  });
+  if (incomplete) {
+    alert('You have not filled in all the scores yet');
+    return;
+  }
+
+  const apiUrl = API_URL;
   const monthLabel  = document.getElementById('month-label').textContent;
 
   // Build output: name at top, one line per match, then scores-only section

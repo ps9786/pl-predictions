@@ -730,7 +730,7 @@ async function submitPredictions() {
     const home = p.home !== undefined ? p.home : '?';
     const away = p.away !== undefined ? p.away : '?';
     lines.push(`${m.home} - ${m.away}, ${home} - ${away}`);
-    scoresOnly.push(`${home} - ${away}`);
+    scoresOnly.push(`${home}-${away}`);
   }
   lines.push('', ...scoresOnly);
 

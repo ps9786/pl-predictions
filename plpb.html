@@ -225,6 +225,21 @@
   }
   .qp-btn:active { background: #38003c; color: #fff; border-color: #38003c; transform: scale(0.93); }
 
+  /* ── Team form squares ── */
+  .form-row {
+    display: flex; justify-content: center; gap: 4px; margin-top: 5px;
+  }
+  .form-sq {
+    width: 22px; height: 22px; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .form-sq.W { background: #276749; }
+  .form-sq.D { background: #b7791f; }
+  .form-sq.L { background: #9b2c2c; }
+  .team-home .form-row { justify-content: flex-end; }
+  .team-away .form-row { justify-content: flex-start; }
+
   /* ── Match history ── */
   .hist-section {
     margin-top: 10px; padding-top: 10px;
@@ -413,6 +428,39 @@ async function fetchMatchHistory() {
       if (scores.length) matchHistory[`${home.toLowerCase()}|${away.toLowerCase()}`] = scores;
     }
   } catch (_) { /* history is optional */ }
+}
+
+// ── Team form (loaded from team_form_summary.csv) ─────────────────────────
+let teamForm = {}; // "team name" → ["W","L","D","W","L"]
+
+async function fetchTeamForm() {
+  try {
+    const res = await fetch('team_form_summary.csv');
+    if (!res.ok) return;
+    const lines = (await res.text()).split('\n');
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      const parts  = line.split(',');
+      const team   = parts[0]?.trim();
+      if (!team) continue;
+      const results = parts.slice(1).map(s => s.trim().toUpperCase()).filter(s => ['W','D','L'].includes(s));
+      if (results.length) teamForm[team.toLowerCase()] = results;
+    }
+  } catch (_) { /* form is optional */ }
+}
+
+function formSquares(teamName) {
+  const results = teamForm[teamName.toLowerCase()];
+  if (!results || !results.length) return null;
+  const row = document.createElement('div');
+  row.className = 'form-row';
+  for (const r of results) {
+    const sq = document.createElement('div');
+    sq.className = `form-sq ${r}`;
+    sq.textContent = r;
+    row.appendChild(sq);
+  }
+  return row;
 }
 
 // ── Theme ──────────────────────────────────────────────────────────────────
@@ -677,12 +725,19 @@ function renderMatches(grouped) {
       const homeEl = document.createElement('div');
       homeEl.className = 'team team-home';
       homeEl.textContent = m.home;
+      const homeForm = formSquares(m.home);
+      if (homeForm) homeEl.appendChild(homeForm);
+
       const vsEl = document.createElement('div');
       vsEl.className = 'vs-badge';
       vsEl.textContent = 'vs';
+
       const awayEl = document.createElement('div');
       awayEl.className = 'team team-away';
       awayEl.textContent = m.away;
+      const awayForm = formSquares(m.away);
+      if (awayForm) awayEl.appendChild(awayForm);
+
       teamsRow.append(homeEl, vsEl, awayEl);
       card.appendChild(teamsRow);
 
@@ -827,7 +882,7 @@ async function submitPredictions() {
   PREDICTIONS_KEY = `pl-predictions-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 
   try {
-    const [matches] = await Promise.all([fetchGames(), fetchMatchHistory()]);
+    const [matches] = await Promise.all([fetchGames(), fetchMatchHistory(), fetchTeamForm()]);
     document.getElementById('month-label').textContent = `${matches.length} fixtures`;
     document.getElementById('loading').style.display = 'none';
 

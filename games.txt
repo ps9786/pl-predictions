@@ -1,30 +1,31 @@
+Team1 - Team2
 Burnley - Bournemouth
-Sunderland - Brighton
+Sunderland - Brighton and Hove Albion
 Arsenal - Everton
-Chelsea - Newcastle
-West Ham - Manchester City
-Crystal Palace - Leeds
+Chelsea - Newcastle United
+West Ham United - Manchester City
+Crystal Palace - Leeds United
 Manchester United - Aston Villa
 Nottingham Forest - Fulham
 Liverpool - Tottenham Hotspur
-Brentford - Wolves
+Brentford - Wolverhampton Wanderers
 Bournemouth - Manchester United
-Brighton - Liverpool
+Brighton and Hove Albion - Liverpool
 Fulham - Burnley
 Queens Park Rangers - Portsmouth
 Everton - Chelsea
-Leeds - Brentford
-Newcastle - Sunderland
-Aston Villa - West Ham
+Leeds United - Brentford
+Newcastle United - Sunderland
+Aston Villa - West Ham United
 Tottenham Hotspur - Nottingham Forest
-Arsenal - Manchester City, (EFL Cup Final) Extra Time does not count
-Blackpool - Burton
-Bolton - Stevenage
-Bradford - Plymouth Argyle
+Arsenal - Manchester City
+Blackpool - Burton Albion
+Bolton Wanderers - Stevenage
+Bradford_City - Plymouth Argyle
 Doncaster Rovers - Lincoln City
-Exeter - Leyton Orient
-Huddersfield - Cardiff
-Northampton - Barnsley
-Peterborough - Mansfield Town
-Reading - Wigan
-Wycombe - Port Vale
+Exeter City - Leyton Orient
+Huddersfield Town - Cardiff City
+Northampton Town - Barnsley
+Peterborough United - Mansfield Town
+Reading - Wigan Athletic
+Wycombe Wanderers - Port Vale

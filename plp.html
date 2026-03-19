@@ -250,7 +250,17 @@
   .hist-label {
     font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--text2); margin-bottom: 6px;
+    display: flex; align-items: center; justify-content: space-between;
   }
+  .hist-swap-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--text2); border-radius: 6px; padding: 2px 7px;
+    font-size: 0.85rem; cursor: pointer; line-height: 1;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-family: inherit; letter-spacing: 0;
+  }
+  .hist-swap-btn:active { background: var(--btn); }
+  .hist-swap-btn.swapped { color: #38003c; border-color: #38003c; }
   .hist-scores { display: flex; flex-wrap: wrap; gap: 5px; }
   .hist-badge {
     background: var(--input-bg); border: 1.5px solid var(--border);
@@ -549,6 +559,29 @@ function clearPredictions() {
 // Weighted pool: 0 = 35%, 1 = 35%, 2 = 20%, 3 = 10%
 const SCORE_POOL = [0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,3,3];
 
+function copyFirstPrediction() {
+  const firstId = matchOrder[0];
+  if (!firstId) return;
+  const firstRefs = inputRefs[firstId];
+  if (!firstRefs) return;
+  const h = firstRefs.home.input.value;
+  const a = firstRefs.away.input.value;
+  if (h === '' && a === '') { showToast('First game has no scores to copy', 'error'); return; }
+  const p = loadPredictions();
+  for (const id of matchOrder.slice(1)) {
+    const refs = inputRefs[id];
+    if (!refs) continue;
+    refs.home.input.value = h;
+    refs.away.input.value = a;
+    if (!p[id]) p[id] = {};
+    const hNum = parseInt(h, 10); const aNum = parseInt(a, 10);
+    if (!isNaN(hNum)) p[id].home = hNum;
+    if (!isNaN(aNum)) p[id].away = aNum;
+  }
+  localStorage.setItem(PREDICTIONS_KEY, JSON.stringify(p));
+  showToast('First game scores copied to all games');
+}
+
 function randomScores() {
   const p = {};
   for (const [id, refs] of Object.entries(inputRefs)) {
@@ -691,7 +724,12 @@ function renderMatches(grouped) {
   randomBtn.textContent = '🎲 Random scores';
   randomBtn.addEventListener('click', randomScores);
 
-  actionRow.append(clearBtn, randomBtn);
+  const copyBtn = document.createElement('button');
+  copyBtn.className = 'action-btn';
+  copyBtn.textContent = '⎘ Copy 1st to all';
+  copyBtn.addEventListener('click', copyFirstPrediction);
+
+  actionRow.append(clearBtn, randomBtn, copyBtn);
   content.appendChild(actionRow);
 
   for (const [dayStr, matches] of Object.entries(grouped)) {
@@ -795,15 +833,31 @@ function renderMatches(grouped) {
         histSection.className = 'hist-section';
         const histLabel = document.createElement('div');
         histLabel.className = 'hist-label';
-        histLabel.textContent = 'Previous meetings';
+        const histLabelText = document.createElement('span');
+        histLabelText.textContent = 'Previous meetings';
+        const swapBtn = document.createElement('button');
+        swapBtn.className = 'hist-swap-btn';
+        swapBtn.textContent = '⇄';
+        swapBtn.setAttribute('aria-label', 'Swap scores');
+        histLabel.append(histLabelText, swapBtn);
         const histScores = document.createElement('div');
         histScores.className = 'hist-scores';
         for (const score of history) {
           const badge = document.createElement('span');
           badge.className = 'hist-badge';
           badge.textContent = score;
+          badge.dataset.orig = score;
           histScores.appendChild(badge);
         }
+        let histSwapped = false;
+        swapBtn.addEventListener('click', () => {
+          histSwapped = !histSwapped;
+          swapBtn.classList.toggle('swapped', histSwapped);
+          for (const badge of histScores.querySelectorAll('.hist-badge')) {
+            const parts = badge.dataset.orig.split('-');
+            badge.textContent = histSwapped ? `${parts[1]}-${parts[0]}` : badge.dataset.orig;
+          }
+        });
         histSection.append(histLabel, histScores);
         card.appendChild(histSection);
       }

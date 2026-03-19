@@ -1,3 +1,4 @@
+cp ../ClaudeCode/plp.html ./plp.html
 cp ../ClaudeCode/plp.html ./plpb.html
 cp ../football-predictions/matchup_summary.csv .
 cp ../football-predictions/team_form_summary.csv .

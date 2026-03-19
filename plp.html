@@ -173,7 +173,13 @@
     display: grid; grid-template-columns: 1fr 20px 1fr;
     align-items: center; gap: 6px;
   }
-  .score-dash { text-align: center; font-size: 1.1rem; font-weight: 700; color: var(--text2); }
+  .score-dash {
+    text-align: center; font-size: 1rem; font-weight: 700; color: var(--text2);
+    background: none; border: none; cursor: pointer; padding: 0;
+    font-family: inherit; line-height: 1;
+    transition: color 0.15s, transform 0.15s;
+  }
+  .score-dash:active { transform: scale(0.85); }
 
   .score-ctrl {
     display: flex; align-items: center;
@@ -250,17 +256,7 @@
   .hist-label {
     font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--text2); margin-bottom: 6px;
-    display: flex; align-items: center; justify-content: space-between;
   }
-  .hist-swap-btn {
-    background: none; border: 1px solid var(--border);
-    color: var(--text2); border-radius: 6px; padding: 2px 7px;
-    font-size: 0.85rem; cursor: pointer; line-height: 1;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-    font-family: inherit; letter-spacing: 0;
-  }
-  .hist-swap-btn:active { background: var(--btn); }
-  .hist-swap-btn.swapped { color: #38003c; border-color: #38003c; }
   .hist-scores { display: flex; flex-wrap: wrap; gap: 5px; }
   .hist-badge {
     background: var(--input-bg); border: 1.5px solid var(--border);
@@ -788,9 +784,25 @@ function renderMatches(grouped) {
 
       const scoresRow = document.createElement('div');
       scoresRow.className = 'scores-row';
-      const dash = document.createElement('div');
+      const dash = document.createElement('button');
       dash.className = 'score-dash';
-      dash.textContent = '–';
+      dash.textContent = '⇄';
+      dash.setAttribute('aria-label', 'Swap prediction scores');
+      dash.addEventListener('click', () => {
+        const hRef = inputRefs[m.id]?.home;
+        const aRef = inputRefs[m.id]?.away;
+        if (!hRef || !aRef) return;
+        const hVal = hRef.input.value;
+        const aVal = aRef.input.value;
+        hRef.input.value = aVal;
+        aRef.input.value = hVal;
+        const p = loadPredictions();
+        if (!p[m.id]) p[m.id] = {};
+        const hNum = parseInt(aVal, 10); const aNum = parseInt(hVal, 10);
+        if (!isNaN(hNum)) p[m.id].home = hNum; else delete p[m.id].home;
+        if (!isNaN(aNum)) p[m.id].away = aNum; else delete p[m.id].away;
+        localStorage.setItem(PREDICTIONS_KEY, JSON.stringify(p));
+      });
       scoresRow.append(scoreCtrl(m.id, 'home'), dash, scoreCtrl(m.id, 'away'));
       card.appendChild(scoresRow);
 
@@ -833,31 +845,15 @@ function renderMatches(grouped) {
         histSection.className = 'hist-section';
         const histLabel = document.createElement('div');
         histLabel.className = 'hist-label';
-        const histLabelText = document.createElement('span');
-        histLabelText.textContent = 'Previous meetings';
-        const swapBtn = document.createElement('button');
-        swapBtn.className = 'hist-swap-btn';
-        swapBtn.textContent = '⇄';
-        swapBtn.setAttribute('aria-label', 'Swap scores');
-        histLabel.append(histLabelText, swapBtn);
+        histLabel.textContent = 'Previous meetings';
         const histScores = document.createElement('div');
         histScores.className = 'hist-scores';
         for (const score of history) {
           const badge = document.createElement('span');
           badge.className = 'hist-badge';
           badge.textContent = score;
-          badge.dataset.orig = score;
           histScores.appendChild(badge);
         }
-        let histSwapped = false;
-        swapBtn.addEventListener('click', () => {
-          histSwapped = !histSwapped;
-          swapBtn.classList.toggle('swapped', histSwapped);
-          for (const badge of histScores.querySelectorAll('.hist-badge')) {
-            const parts = badge.dataset.orig.split('-');
-            badge.textContent = histSwapped ? `${parts[1]}-${parts[0]}` : badge.dataset.orig;
-          }
-        });
         histSection.append(histLabel, histScores);
         card.appendChild(histSection);
       }

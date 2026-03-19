@@ -237,6 +237,8 @@
   .form-sq.W { background: #276749; }
   .form-sq.D { background: #b7791f; }
   .form-sq.L { background: #9b2c2c; }
+  .form-sq.P { background: #718096; }
+  .form-sq.C { background: #718096; }
   .team-home .form-row { justify-content: flex-end; }
   .team-away .form-row { justify-content: flex-start; }
 
@@ -443,7 +445,7 @@ async function fetchTeamForm() {
       const parts  = line.split(',');
       const team   = parts[0]?.trim();
       if (!team) continue;
-      const results = parts.slice(1).map(s => s.trim().toUpperCase()).filter(s => ['W','D','L'].includes(s));
+      const results = parts.slice(1).map(s => s.trim().toUpperCase()).filter(s => ['W','D','L','P','C'].includes(s));
       if (results.length) teamForm[team.toLowerCase()] = results;
     }
   } catch (_) { /* form is optional */ }

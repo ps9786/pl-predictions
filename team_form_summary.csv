@@ -32,12 +32,12 @@ Lincoln City,W,W,W,W,D
 Exeter City,D,L,L,L,L
 Leyton Orient,L,L,W,W,W
 Huddersfield Town,W,L,W,D,D
-Cardiff City,W,L,D,W,L
+Cardiff City,,,,,
 Northampton Town,D,L,L,L,L
 Barnsley,L,W,D,D,D
-Peterborough United,,D,D,L,W
-Mansfield Town,,L,W,D,D
+Peterborough United,D,D,P,L,W
+Mansfield Town,P,L,W,D,D
 Reading,W,W,L,D,W
 Wigan Athletic,W,D,L,W,D
 Wycombe Wanderers,W,W,L,L,W
-Port Vale,,W,L,D,L
+Port Vale,P,W,L,D,L

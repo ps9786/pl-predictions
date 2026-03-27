@@ -3,19 +3,19 @@ Burnley,L,D,L,L,D
 Bournemouth,W,D,D,D,D
 Sunderland,L,D,W,L,L
 Brighton and Hove Albion,L,W,W,L,W
-Arsenal,W,W,D,W,W
+Arsenal,W,D,W,W,L
 Everton,L,L,W,W,L
 Chelsea,W,L,L,L,L
 Newcastle United,W,L,D,W,L
-West Ham United,D,L,W,D,D
+West Ham United,L,W,W,D,L
 Manchester City,D,W,L,D,L
 Crystal Palace,W,L,W,D,D
-Leeds United,D,L,L,W,D
+Leeds United,L,L,W,D,D
 Manchester United,D,W,W,L,W
 Aston Villa,D,L,L,W,L
 Nottingham Forest,L,L,D,L,D
 Fulham,W,W,L,L,D
-Liverpool,L,W,L,D,W
+Liverpool,W,L,D,W,L
 Tottenham Hotspur,L,L,L,D,W
 Brentford,L,W,D,D,D
 Wolverhampton Wanderers,L,W,W,L,D
@@ -40,5 +40,5 @@ Mansfield Town,P,L,W,D,D
 Reading,W,W,L,D,W
 Wigan Athletic,W,D,L,W,D
 Wycombe Wanderers,W,W,L,L,W
-Port Vale,P,W,L,D,L
+Port Vale,L,D,L,W,L
 Southampton,W,D,W,W,W

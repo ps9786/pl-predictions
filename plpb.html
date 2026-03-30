@@ -423,7 +423,7 @@ let matchHistory = {}; // "home|away" → ["0-0", "1-1", ...]
 
 async function fetchMatchHistory() {
   try {
-    const res = await fetch('matchup_summary.csv');
+    const res = await fetch('matchup_summary_b.csv');
     if (!res.ok) return;
     const lines = (await res.text()).split('\n').slice(1); // skip header
     for (const line of lines) {
@@ -443,7 +443,7 @@ let teamForm = {}; // "team name" → ["W","L","D","W","L"]
 
 async function fetchTeamForm() {
   try {
-    const res = await fetch('team_form_summary.csv');
+    const res = await fetch('team_form_summary_b.csv');
     if (!res.ok) return;
     const lines = (await res.text()).split('\n');
     for (const line of lines) {
@@ -505,7 +505,7 @@ function getNextMonthDates() {
 
 // ── Load games from file ───────────────────────────────────────────────────
 async function fetchGames() {
-  const res = await fetch('games.txt');
+  const res = await fetch('games_b.txt');
   if (!res.ok) throw new Error(`Could not load games.txt (${res.status})`);
   const text = await res.text();
   return text.split('\n')

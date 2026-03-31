@@ -1,4 +1,30 @@
-Manchester City - Liverpool
-Chelsea - Port Vale
-Southampton - Arsenal
-West Ham United - Leeds United
+West Ham United - Wolverhampton Wanderers
+Arsenal - Bournemouth
+Brentford - Everton
+Burnley - Brighton and Hove Albion
+Liverpool - Fulham
+Crystal Palace - Newcastle
+Nottingham Forest - Aston Villa
+Sunderland - Tottenham Hotspur
+Chelsea - Manchester City
+Manchester United - Leeds United
+Brentford - Fulham
+Leeds United - Wolverhampton Wanderers
+Newcastle - Bournemouth
+Tottenham Hotspur - Brighton and Hove Albion
+Chelsea - Manchester United
+Aston Villa - Sunderland
+Everton - Liverpool
+Nottingham Forest - Burnley
+Manchester City - Arsenal
+Crystal Palace - West Ham United
+Sunderland - Nottingham Forest
+Fulham - Aston Villa
+Bournemouth - Leeds United
+Liverpool - Crystal Palace
+West Ham United - Everton
+Wolverhampton Wanderers - Tottenham Hotspur
+Arsenal - Newcastle
+Burnley - Manchester City
+Brighton and Hove Albion - Chelsea
+Manchester United - Brentford

@@ -1,5 +1,5 @@
 Liverpool - Chelsea
-Everton - Wolverhampton Wanderers
+Brighton and Hove Albion - Wolverhampton Wanderers
 Fulham - Bournemouth
 Sunderland - Manchester United
 Manchester City - Brentford
@@ -12,13 +12,13 @@ Aston Villa - Liverpool
 Manchester United - Nottingham Forest
 Brentford - Crystal Palace
 Everton - Sunderland
-Leeds United - Everton
+Leeds United - Brighton and Hove Albion
 Wolverhampton Wanderers - Fulham
 Newcastle United - West Ham United
 Arsenal - Burnley
 Bournemouth - Manchester City
 Chelsea - Tottenham Hotspur
-Everton - Manchester United
+Brighton and Hove Albion - Manchester United
 Burnley - Wolverhampton Wanderers
 Crystal Palace - Arsenal
 Fulham - Newcastle United

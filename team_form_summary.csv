@@ -1,7 +1,7 @@
 Team,Game 5,Game 4,Game 3,Game 2,Game 1
 Liverpool,L,W,L,W,W
 Chelsea,W,L,L,L,W
-Everton,L,W,D,L,L
+Brighton and Hove Albion,W,W,W,D,W
 Wolverhampton Wanderers,L,D,L,L,L
 Fulham,D,W,L,D,W
 Bournemouth,D,D,W,W,D
@@ -12,6 +12,7 @@ Brentford,D,D,D,D,L
 Burnley,D,L,L,L,L
 Aston Villa,W,D,W,W,L
 Crystal Palace,W,W,L,D,L
+Everton,L,W,D,L,L
 Nottingham Forest,D,D,W,W,W
 Newcastle United,L,L,L,L,L
 West Ham United,L,D,W,D,W

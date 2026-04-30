@@ -1,30 +1,30 @@
-West Ham United - Wolverhampton Wanderers
-Arsenal - Bournemouth
-Brentford - Everton
-Burnley - Brighton and Hove Albion
-Liverpool - Fulham
-Crystal Palace - Newcastle
-Nottingham Forest - Aston Villa
-Sunderland - Tottenham Hotspur
-Chelsea - Manchester City
-Manchester United - Leeds United
-Brentford - Fulham
-Leeds United - Wolverhampton Wanderers
-Newcastle - Bournemouth
-Tottenham Hotspur - Brighton and Hove Albion
-Chelsea - Manchester United
-Aston Villa - Sunderland
-Everton - Liverpool
-Nottingham Forest - Burnley
-Manchester City - Arsenal
-Crystal Palace - West Ham United
-Sunderland - Nottingham Forest
-Fulham - Aston Villa
-Bournemouth - Leeds United
-Liverpool - Crystal Palace
-West Ham United - Everton
-Wolverhampton Wanderers - Tottenham Hotspur
-Arsenal - Newcastle
-Burnley - Manchester City
-Brighton and Hove Albion - Chelsea
-Manchester United - Brentford
+Liverpool - Chelsea
+Everton - Wolverhampton Wanderers
+Fulham - Bournemouth
+Sunderland - Manchester United
+Manchester City - Brentford
+Burnley - Aston Villa
+Crystal Palace - Everton
+Nottingham Forest - Newcastle United
+West Ham United - Arsenal
+Tottenham Hotspur - Leeds United
+Aston Villa - Liverpool
+Manchester United - Nottingham Forest
+Brentford - Crystal Palace
+Everton - Sunderland
+Leeds United - Everton
+Wolverhampton Wanderers - Fulham
+Newcastle United - West Ham United
+Arsenal - Burnley
+Bournemouth - Manchester City
+Chelsea - Tottenham Hotspur
+Everton - Manchester United
+Burnley - Wolverhampton Wanderers
+Crystal Palace - Arsenal
+Fulham - Newcastle United
+Liverpool - Brentford
+Manchester City - Aston Villa
+Nottingham Forest - Bournemouth
+Sunderland - Chelsea
+Tottenham Hotspur - Everton
+West Ham United - Leeds United

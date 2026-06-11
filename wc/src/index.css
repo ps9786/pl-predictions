@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  
+  --color-world-pitch: #047857; /* Emerald Pitch */
+  --color-world-volt: #ccff00;  /* Bright WC Volt/Lime */
+  --color-world-purple: #581c87; /* Deep Passionate Purple */
+  --color-world-navy: #050614;   /* Midnight Stadium */
+  --color-world-pink: #db2777;   /* Electric Magenta */
+}
+
+/* Base custom styles to ensure an immersive World Cup 2026 feel */
+body {
+  background-color: var(--color-world-navy);
+  color: #f8fafc;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbars for nice stadium dashboard list elements */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0f28;
+}
+::-webkit-scrollbar-thumb {
+  background: #25285c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-world-volt);
+}
+
+/* Animated neon glows */
+.text-neon-glow {
+  text-shadow: 0 0 10px rgba(204, 255, 0, 0.5), 0 0 20px rgba(204, 255, 0, 0.2);
+}
+
+.border-neon-glow:hover {
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.25);
+  border-color: var(--color-world-volt);
+}
+

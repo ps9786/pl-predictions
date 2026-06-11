@@ -1,0 +1,6 @@
+{
+  "name": "World Cup 2026 Selections Explorer",
+  "description": "An interactive viewer for the World Cup 2026 predictions of 30 friends, featuring daily selections ordered by score, unique prediction highlights, individual profiles, team-by-team prediction breakdown, and quirky stats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

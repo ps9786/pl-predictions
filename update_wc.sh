@@ -22,6 +22,7 @@ rm -fr dist/
 npm run build
 cp -a dist/wc/* ~/vscode/pl-predictions/wc
 cd ~/vscode/pl-predictions
+date +%d > wc/current_date.txt
 git add .
 NOW=$(date)
 git commit -m "New update: ${NOW}"

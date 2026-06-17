@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/openfootball/worldcup.json/refs/heads/mas
 python3 calculate_league_table.py --output public/league_table.csv
 rm -fr dist/
 npm run build
-rm -fr ~/vscode/pl-predictions/wc
+rm -fr ~/vscode/pl-predictions/wc/*
 cp -a dist/wc/* ~/vscode/pl-predictions/wc
 cd ~/vscode/pl-predictions
 git add .

@@ -2,13 +2,17 @@ cd ~/vscode/world-cup-2026-selections-explorer
 git pull
 cd ~/vscode/pl-predictions
 git pull
-#if [ -f ~/Downloads/world-cup-2026-selections-explorer.zip ]; then
-#  cd ~/Downloads
-#  cp world-cup-2026-selections-explorer.zip ~/vscode/world-cup-2026-selections-explorer
-#  rm world-cup-2026-selections-explorer.zip
-#  cd ~/vscode/world-cup-2026-selections-explorer
-#  unzip -o world-cup-2026-selections-explorer.zip
-#fi
+if [ -f ~/Downloads/world-cup-2026-selections-explorer.zip ]; then
+  cd ~/Downloads
+  cp world-cup-2026-selections-explorer.zip ~/vscode/world-cup-2026-selections-explorer
+  rm world-cup-2026-selections-explorer.zip
+  cd ~/vscode/world-cup-2026-selections-explorer
+  unzip -o world-cup-2026-selections-explorer.zip
+  git add .
+  NOW=$(date)
+  git commit -m "New update of world-cup-2026-selections-explorer: ${NOW}"
+  git push
+fi
 cd ~/vscode/world-cup-2026-selections-explorer
 curl https://fixturedownload.com/download/fifa-world-cup-2026-UTC.csv -o ./public/wc2026.csv
 curl https://raw.githubusercontent.com/openfootball/worldcup.json/refs/heads/master/2026/worldcup.json -o ./public/worldcup.json

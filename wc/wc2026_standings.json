@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-06-19T13:35:54Z",
+  "retrieved_at": "2026-06-20T07:27:10Z",
   "league": "FIFA World Cup 2026",
   "league_id": 1,
   "season": 2026,
@@ -40,7 +40,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -74,7 +74,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -108,7 +108,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -142,7 +142,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -181,7 +181,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -215,7 +215,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -249,7 +249,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -283,7 +283,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -292,18 +292,18 @@
       "teams": [
         {
           "rank": 1,
-          "team_id": 1108,
-          "team_name": "Scotland",
-          "team_logo": "https://media.api-sports.io/football/teams/1108.png",
-          "played": 1,
+          "team_id": 6,
+          "team_name": "Brazil",
+          "team_logo": "https://media.api-sports.io/football/teams/6.png",
+          "played": 2,
           "win": 1,
-          "draw": 0,
+          "draw": 1,
           "lose": 0,
-          "goals_for": 1,
-          "goals_against": 0,
-          "goal_difference": 1,
-          "points": 3,
-          "form": "W",
+          "goals_for": 4,
+          "goals_against": 1,
+          "goal_difference": 3,
+          "points": 4,
+          "form": "WD",
           "status": "same",
           "description": "Round of 32",
           "home": {
@@ -322,22 +322,22 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
           "team_id": 31,
           "team_name": "Morocco",
           "team_logo": "https://media.api-sports.io/football/teams/31.png",
-          "played": 1,
-          "win": 0,
+          "played": 2,
+          "win": 1,
           "draw": 1,
           "lose": 0,
-          "goals_for": 1,
+          "goals_for": 2,
           "goals_against": 1,
-          "goal_difference": 0,
-          "points": 1,
-          "form": "D",
+          "goal_difference": 1,
+          "points": 4,
+          "form": "WD",
           "status": "same",
           "description": "Round of 32",
           "home": {
@@ -356,22 +356,22 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
-          "team_id": 6,
-          "team_name": "Brazil",
-          "team_logo": "https://media.api-sports.io/football/teams/6.png",
-          "played": 1,
-          "win": 0,
-          "draw": 1,
-          "lose": 0,
+          "team_id": 1108,
+          "team_name": "Scotland",
+          "team_logo": "https://media.api-sports.io/football/teams/1108.png",
+          "played": 2,
+          "win": 1,
+          "draw": 0,
+          "lose": 1,
           "goals_for": 1,
           "goals_against": 1,
           "goal_difference": 0,
-          "points": 1,
-          "form": "D",
+          "points": 3,
+          "form": "LW",
           "status": "same",
           "description": null,
           "home": {
@@ -390,22 +390,22 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
           "team_id": 2386,
           "team_name": "Haiti",
           "team_logo": "https://media.api-sports.io/football/teams/2386.png",
-          "played": 1,
+          "played": 2,
           "win": 0,
           "draw": 0,
-          "lose": 1,
+          "lose": 2,
           "goals_for": 0,
-          "goals_against": 1,
-          "goal_difference": -1,
+          "goals_against": 4,
+          "goal_difference": -4,
           "points": 0,
-          "form": "L",
+          "form": "LL",
           "status": "same",
           "description": null,
           "home": {
@@ -424,7 +424,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -436,15 +436,15 @@
           "team_id": 2384,
           "team_name": "USA",
           "team_logo": "https://media.api-sports.io/football/teams/2384.png",
-          "played": 1,
-          "win": 1,
+          "played": 2,
+          "win": 2,
           "draw": 0,
           "lose": 0,
-          "goals_for": 4,
+          "goals_for": 6,
           "goals_against": 1,
-          "goal_difference": 3,
-          "points": 3,
-          "form": "W",
+          "goal_difference": 5,
+          "points": 6,
+          "form": "WW",
           "status": "same",
           "description": "Round of 32",
           "home": {
@@ -463,22 +463,22 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
           "team_id": 20,
           "team_name": "Australia",
           "team_logo": "https://media.api-sports.io/football/teams/20.png",
-          "played": 1,
+          "played": 2,
           "win": 1,
           "draw": 0,
-          "lose": 0,
+          "lose": 1,
           "goals_for": 2,
-          "goals_against": 0,
-          "goal_difference": 2,
+          "goals_against": 2,
+          "goal_difference": 0,
           "points": 3,
-          "form": "W",
+          "form": "LW",
           "status": "same",
           "description": "Round of 32",
           "home": {
@@ -497,56 +497,22 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
-          "team_id": 777,
-          "team_name": "Türkiye",
-          "team_logo": "https://media.api-sports.io/football/teams/777.png",
-          "played": 1,
-          "win": 0,
-          "draw": 0,
-          "lose": 1,
-          "goals_for": 0,
-          "goals_against": 2,
-          "goal_difference": -2,
-          "points": 0,
-          "form": "L",
-          "status": "same",
-          "description": null,
-          "home": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "away": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "last_updated": "2026-06-19T00:00:00+00:00"
-        },
-        {
-          "rank": 4,
           "team_id": 2380,
           "team_name": "Paraguay",
           "team_logo": "https://media.api-sports.io/football/teams/2380.png",
-          "played": 1,
-          "win": 0,
+          "played": 2,
+          "win": 1,
           "draw": 0,
           "lose": 1,
-          "goals_for": 1,
+          "goals_for": 2,
           "goals_against": 4,
-          "goal_difference": -3,
-          "points": 0,
-          "form": "L",
+          "goal_difference": -2,
+          "points": 3,
+          "form": "WL",
           "status": "same",
           "description": null,
           "home": {
@@ -565,7 +531,41 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team_id": 777,
+          "team_name": "Türkiye",
+          "team_logo": "https://media.api-sports.io/football/teams/777.png",
+          "played": 2,
+          "win": 0,
+          "draw": 0,
+          "lose": 2,
+          "goals_for": 0,
+          "goals_against": 3,
+          "goal_difference": -3,
+          "points": 0,
+          "form": "LL",
+          "status": "same",
+          "description": null,
+          "home": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "away": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -604,7 +604,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -638,7 +638,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -672,7 +672,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -706,7 +706,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -745,7 +745,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -779,7 +779,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -813,7 +813,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -847,7 +847,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -886,7 +886,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -920,7 +920,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -954,7 +954,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -988,7 +988,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1027,7 +1027,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -1061,7 +1061,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -1095,7 +1095,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -1129,7 +1129,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1168,7 +1168,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -1202,7 +1202,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -1236,7 +1236,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -1270,7 +1270,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1309,7 +1309,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -1343,7 +1343,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -1377,7 +1377,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -1411,7 +1411,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1450,7 +1450,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -1484,7 +1484,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -1518,7 +1518,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -1552,7 +1552,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1591,7 +1591,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 2,
@@ -1625,7 +1625,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 3,
@@ -1659,7 +1659,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
           "rank": 4,
@@ -1693,7 +1693,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     },
@@ -1702,6 +1702,74 @@
       "teams": [
         {
           "rank": 1,
+          "team_id": 1108,
+          "team_name": "Scotland",
+          "team_logo": "https://media.api-sports.io/football/teams/1108.png",
+          "played": 2,
+          "win": 1,
+          "draw": 0,
+          "lose": 1,
+          "goals_for": 1,
+          "goals_against": 1,
+          "goal_difference": 0,
+          "points": 3,
+          "form": "LW",
+          "status": "same",
+          "description": "Round of 32",
+          "home": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "away": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "last_updated": "2026-06-20T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team_id": 2380,
+          "team_name": "Paraguay",
+          "team_logo": "https://media.api-sports.io/football/teams/2380.png",
+          "played": 2,
+          "win": 1,
+          "draw": 0,
+          "lose": 1,
+          "goals_for": 2,
+          "goals_against": 4,
+          "goal_difference": -2,
+          "points": 3,
+          "form": "WL",
+          "status": "same",
+          "description": "Round of 32",
+          "home": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "away": {
+            "played": 0,
+            "win": 0,
+            "draw": 0,
+            "lose": 0,
+            "goals_for": 0,
+            "goals_against": 0
+          },
+          "last_updated": "2026-06-20T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
           "team_id": 1118,
           "team_name": "Netherlands",
           "team_logo": "https://media.api-sports.io/football/teams/1118.png",
@@ -1732,44 +1800,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 2,
-          "team_id": 6,
-          "team_name": "Brazil",
-          "team_logo": "https://media.api-sports.io/football/teams/6.png",
-          "played": 1,
-          "win": 0,
-          "draw": 1,
-          "lose": 0,
-          "goals_for": 1,
-          "goals_against": 1,
-          "goal_difference": 0,
-          "points": 1,
-          "form": "D",
-          "status": "same",
-          "description": "Round of 32",
-          "home": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "away": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "last_updated": "2026-06-19T00:00:00+00:00"
-        },
-        {
-          "rank": 3,
+          "rank": 4,
           "team_id": 1,
           "team_name": "Belgium",
           "team_logo": "https://media.api-sports.io/football/teams/1.png",
@@ -1800,10 +1834,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "team_id": 27,
           "team_name": "Portugal",
           "team_logo": "https://media.api-sports.io/football/teams/27.png",
@@ -1834,10 +1868,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 5,
+          "rank": 6,
           "team_id": 9,
           "team_name": "Spain",
           "team_logo": "https://media.api-sports.io/football/teams/9.png",
@@ -1868,10 +1902,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 6,
+          "rank": 7,
           "team_id": 770,
           "team_name": "Czechia",
           "team_logo": "https://media.api-sports.io/football/teams/770.png",
@@ -1902,10 +1936,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 7,
+          "rank": 8,
           "team_id": 1113,
           "team_name": "Bosnia & Herzegovina",
           "team_logo": "https://media.api-sports.io/football/teams/1113.png",
@@ -1936,10 +1970,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 8,
+          "rank": 9,
           "team_id": 2382,
           "team_name": "Ecuador",
           "team_logo": "https://media.api-sports.io/football/teams/2382.png",
@@ -1953,7 +1987,7 @@
           "points": 0,
           "form": "L",
           "status": "same",
-          "description": "Round of 32",
+          "description": null,
           "home": {
             "played": 0,
             "win": 0,
@@ -1970,10 +2004,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 9,
+          "rank": 10,
           "team_id": 11,
           "team_name": "Panama",
           "team_logo": "https://media.api-sports.io/football/teams/11.png",
@@ -2004,10 +2038,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 10,
+          "rank": 11,
           "team_id": 13,
           "team_name": "Senegal",
           "team_logo": "https://media.api-sports.io/football/teams/13.png",
@@ -2038,10 +2072,10 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         },
         {
-          "rank": 11,
+          "rank": 12,
           "team_id": 1548,
           "team_name": "Jordan",
           "team_logo": "https://media.api-sports.io/football/teams/1548.png",
@@ -2072,41 +2106,7 @@
             "goals_for": 0,
             "goals_against": 0
           },
-          "last_updated": "2026-06-19T00:00:00+00:00"
-        },
-        {
-          "rank": 12,
-          "team_id": 777,
-          "team_name": "Türkiye",
-          "team_logo": "https://media.api-sports.io/football/teams/777.png",
-          "played": 1,
-          "win": 0,
-          "draw": 0,
-          "lose": 1,
-          "goals_for": 0,
-          "goals_against": 2,
-          "goal_difference": -2,
-          "points": 0,
-          "form": "L",
-          "status": "same",
-          "description": null,
-          "home": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "away": {
-            "played": 0,
-            "win": 0,
-            "draw": 0,
-            "lose": 0,
-            "goals_for": 0,
-            "goals_against": 0
-          },
-          "last_updated": "2026-06-19T00:00:00+00:00"
+          "last_updated": "2026-06-20T00:00:00+00:00"
         }
       ]
     }

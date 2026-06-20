@@ -1,306 +1,18 @@
 [
   {
-    "match_date": "2026-06-19",
-    "fixture": {
-      "fixture_id": 1489388,
-      "date_utc": "2026-06-19T01:00:00+00:00",
-      "status": "Match Finished",
-      "venue": "Estadio Akron",
-      "city": "Guadalajara",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Mexico",
-      "away_team": "South Korea",
-      "goals_home": 1,
-      "goals_away": 0
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 16,
-        "name": "Mexico",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": null,
-      "goals": {
-        "home": "-2.5",
-        "away": "-2.5"
-      },
-      "advice": "Double chance : Mexico or draw",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "88%",
-          "away": "13%"
-        },
-        "goals": {
-          "home": "58%",
-          "away": "42%"
-        },
-        "total": {
-          "home": "61.5%",
-          "away": "38.8%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-19",
-    "fixture": {
-      "fixture_id": 1489391,
-      "date_utc": "2026-06-19T19:00:00+00:00",
-      "status": "Not Started",
-      "venue": "Lumen Field",
-      "city": "Seattle",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "USA",
-      "away_team": "Australia",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 2384,
-        "name": "USA",
-        "comment": null
-      },
-      "win_or_draw": false,
-      "under_over": null,
-      "goals": {
-        "home": "-4.5",
-        "away": "-2.5"
-      },
-      "advice": "Winner : USA",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "att": {
-          "home": "67%",
-          "away": "33%"
-        },
-        "def": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "67%",
-          "away": "33%"
-        },
-        "total": {
-          "home": "61.3%",
-          "away": "38.7%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "22%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 4,
-            "average": "4.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-19",
-    "fixture": {
-      "fixture_id": 1489390,
-      "date_utc": "2026-06-19T22:00:00+00:00",
-      "status": "Not Started",
-      "venue": "Gillette Stadium",
-      "city": "Boston",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Scotland",
-      "away_team": "Morocco",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 1108,
-        "name": "Scotland",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": "-3.5",
-      "goals": {
-        "home": "-1.5",
-        "away": "-1.5"
-      },
-      "advice": "Combo Double chance : Scotland or draw and -3.5 goals",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "75%",
-          "away": "25%"
-        },
-        "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "62.5%",
-          "away": "37.5%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "6%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "33%",
-        "att": "6%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
     "match_date": "2026-06-20",
     "fixture": {
       "fixture_id": 1489389,
       "date_utc": "2026-06-20T00:30:00+00:00",
-      "status": "Not Started",
+      "status": "Match Finished",
       "venue": "Lincoln Financial Field",
       "city": "Philadelphia",
       "league": "World Cup",
       "round": "Group Stage - 2",
       "home_team": "Brazil",
       "away_team": "Haiti",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 3,
+      "goals_away": 0
     },
     "prediction": {
       "available": true,
@@ -353,8 +65,8 @@
       },
       "home_last5": {
         "form": "33%",
-        "att": "6%",
-        "def": "94%",
+        "att": "7%",
+        "def": "93%",
         "goals": {
           "for": {
             "total": 1,
@@ -369,7 +81,7 @@
       "away_last5": {
         "form": "0%",
         "att": "0%",
-        "def": "94%",
+        "def": "93%",
         "goals": {
           "for": {
             "total": 0,
@@ -388,15 +100,15 @@
     "fixture": {
       "fixture_id": 1539006,
       "date_utc": "2026-06-20T03:00:00+00:00",
-      "status": "Not Started",
+      "status": "Match Finished",
       "venue": "Levi's Stadium",
-      "city": "San Francisco Bay Area",
+      "city": "Santa Clara",
       "league": "World Cup",
       "round": "Group Stage - 2",
       "home_team": "Türkiye",
       "away_team": "Paraguay",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 0,
+      "goals_away": 1
     },
     "prediction": {
       "available": true,
@@ -450,7 +162,7 @@
       "home_last5": {
         "form": "0%",
         "att": "0%",
-        "def": "89%",
+        "def": "85%",
         "goals": {
           "for": {
             "total": 0,
@@ -464,8 +176,8 @@
       },
       "away_last5": {
         "form": "0%",
-        "att": "6%",
-        "def": "78%",
+        "att": "8%",
+        "def": "69%",
         "goals": {
           "for": {
             "total": 1,
@@ -545,8 +257,8 @@
       },
       "home_last5": {
         "form": "33%",
-        "att": "11%",
-        "def": "89%",
+        "att": "15%",
+        "def": "85%",
         "goals": {
           "for": {
             "total": 2,
@@ -560,8 +272,8 @@
       },
       "away_last5": {
         "form": "100%",
-        "att": "28%",
-        "def": "94%",
+        "att": "38%",
+        "def": "92%",
         "goals": {
           "for": {
             "total": 5,
@@ -641,8 +353,8 @@
       },
       "home_last5": {
         "form": "100%",
-        "att": "39%",
-        "def": "94%",
+        "att": "54%",
+        "def": "92%",
         "goals": {
           "for": {
             "total": 7,
@@ -656,12 +368,492 @@
       },
       "away_last5": {
         "form": "100%",
-        "att": "6%",
+        "att": "8%",
         "def": "100%",
         "goals": {
           "for": {
             "total": 1,
             "average": "1.0"
+          },
+          "against": {
+            "total": 0,
+            "average": "0.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-06-21",
+    "fixture": {
+      "fixture_id": 1489392,
+      "date_utc": "2026-06-21T00:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Arrowhead Stadium",
+      "city": "Kansas City",
+      "league": "World Cup",
+      "round": "Group Stage - 2",
+      "home_team": "Ecuador",
+      "away_team": "Curaçao",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": null,
+        "name": null,
+        "comment": null
+      },
+      "win_or_draw": false,
+      "under_over": null,
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "advice": "No predictions available",
+      "win_probabilities": {
+        "home": "33%",
+        "draw": "33%",
+        "away": "33%"
+      },
+      "comparison": {
+        "form": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "att": {
+          "home": "0%",
+          "away": "100%"
+        },
+        "def": {
+          "home": "88%",
+          "away": "13%"
+        },
+        "poisson_distribution": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "88.0%",
+          "away": "13.0%"
+        }
+      },
+      "home_last5": {
+        "form": "0%",
+        "att": "0%",
+        "def": "92%",
+        "goals": {
+          "for": {
+            "total": 0,
+            "average": "0.0"
+          },
+          "against": {
+            "total": 1,
+            "average": "1.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "0%",
+        "att": "8%",
+        "def": "46%",
+        "goals": {
+          "for": {
+            "total": 1,
+            "average": "1.0"
+          },
+          "against": {
+            "total": 7,
+            "average": "7.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-06-21",
+    "fixture": {
+      "fixture_id": 1489394,
+      "date_utc": "2026-06-21T04:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Estadio BBVA",
+      "city": "Monterrey",
+      "league": "World Cup",
+      "round": "Group Stage - 2",
+      "home_team": "Tunisia",
+      "away_team": "Japan",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 12,
+        "name": "Japan",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": "+2.5",
+      "goals": {
+        "home": "-1.5",
+        "away": "-2.5"
+      },
+      "advice": "Combo Double chance : draw or Japan and +2.5 goals",
+      "win_probabilities": {
+        "home": "10%",
+        "draw": "45%",
+        "away": "45%"
+      },
+      "comparison": {
+        "form": {
+          "home": "0%",
+          "away": "100%"
+        },
+        "att": {
+          "home": "33%",
+          "away": "67%"
+        },
+        "def": {
+          "home": "29%",
+          "away": "71%"
+        },
+        "poisson_distribution": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "h2h": {
+          "home": "50%",
+          "away": "50%"
+        },
+        "goals": {
+          "home": "60%",
+          "away": "40%"
+        },
+        "total": {
+          "home": "43.0%",
+          "away": "57.0%"
+        }
+      },
+      "home_last5": {
+        "form": "0%",
+        "att": "8%",
+        "def": "62%",
+        "goals": {
+          "for": {
+            "total": 1,
+            "average": "1.0"
+          },
+          "against": {
+            "total": 5,
+            "average": "5.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "33%",
+        "att": "15%",
+        "def": "85%",
+        "goals": {
+          "for": {
+            "total": 2,
+            "average": "2.0"
+          },
+          "against": {
+            "total": 2,
+            "average": "2.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-06-21",
+    "fixture": {
+      "fixture_id": 1489397,
+      "date_utc": "2026-06-21T16:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Mercedes-Benz Stadium",
+      "city": "Atlanta",
+      "league": "World Cup",
+      "round": "Group Stage - 2",
+      "home_team": "Spain",
+      "away_team": "Saudi Arabia",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 9,
+        "name": "Spain",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": "-2.5",
+      "goals": {
+        "home": null,
+        "away": "-1.5"
+      },
+      "advice": "Combo Double chance : Spain or draw and -2.5 goals",
+      "win_probabilities": {
+        "home": "35%",
+        "draw": "35%",
+        "away": "30%"
+      },
+      "comparison": {
+        "form": {
+          "home": "50%",
+          "away": "50%"
+        },
+        "att": {
+          "home": "0%",
+          "away": "100%"
+        },
+        "def": {
+          "home": "100%",
+          "away": "0%"
+        },
+        "poisson_distribution": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "50.0%",
+          "away": "50.0%"
+        }
+      },
+      "home_last5": {
+        "form": "33%",
+        "att": "0%",
+        "def": "100%",
+        "goals": {
+          "for": {
+            "total": 0,
+            "average": "0.0"
+          },
+          "against": {
+            "total": 0,
+            "average": "0.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "33%",
+        "att": "8%",
+        "def": "92%",
+        "goals": {
+          "for": {
+            "total": 1,
+            "average": "1.0"
+          },
+          "against": {
+            "total": 1,
+            "average": "1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-06-21",
+    "fixture": {
+      "fixture_id": 1489395,
+      "date_utc": "2026-06-21T19:00:00+00:00",
+      "status": "Not Started",
+      "venue": "SoFi Stadium",
+      "city": "Los Angeles",
+      "league": "World Cup",
+      "round": "Group Stage - 2",
+      "home_team": "Belgium",
+      "away_team": "Iran",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 1,
+        "name": "Belgium",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": null,
+      "goals": {
+        "home": "-1.5",
+        "away": "-2.5"
+      },
+      "advice": "Double chance : Belgium or draw",
+      "win_probabilities": {
+        "home": "35%",
+        "draw": "35%",
+        "away": "30%"
+      },
+      "comparison": {
+        "form": {
+          "home": "50%",
+          "away": "50%"
+        },
+        "att": {
+          "home": "33%",
+          "away": "67%"
+        },
+        "def": {
+          "home": "67%",
+          "away": "33%"
+        },
+        "poisson_distribution": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "50.0%",
+          "away": "50.0%"
+        }
+      },
+      "home_last5": {
+        "form": "33%",
+        "att": "8%",
+        "def": "92%",
+        "goals": {
+          "for": {
+            "total": 1,
+            "average": "1.0"
+          },
+          "against": {
+            "total": 1,
+            "average": "1.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "33%",
+        "att": "15%",
+        "def": "85%",
+        "goals": {
+          "for": {
+            "total": 2,
+            "average": "2.0"
+          },
+          "against": {
+            "total": 2,
+            "average": "2.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-06-21",
+    "fixture": {
+      "fixture_id": 1489398,
+      "date_utc": "2026-06-21T22:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Hard Rock Stadium",
+      "city": "Miami",
+      "league": "World Cup",
+      "round": "Group Stage - 2",
+      "home_team": "Uruguay",
+      "away_team": "Cape Verde Islands",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 7,
+        "name": "Uruguay",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": "-2.5",
+      "goals": {
+        "home": "-1.5",
+        "away": null
+      },
+      "advice": "Combo Double chance : Uruguay or draw and -2.5 goals",
+      "win_probabilities": {
+        "home": "35%",
+        "draw": "35%",
+        "away": "30%"
+      },
+      "comparison": {
+        "form": {
+          "home": "50%",
+          "away": "50%"
+        },
+        "att": {
+          "home": "100%",
+          "away": "0%"
+        },
+        "def": {
+          "home": "0%",
+          "away": "100%"
+        },
+        "poisson_distribution": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "50.0%",
+          "away": "50.0%"
+        }
+      },
+      "home_last5": {
+        "form": "33%",
+        "att": "8%",
+        "def": "92%",
+        "goals": {
+          "for": {
+            "total": 1,
+            "average": "1.0"
+          },
+          "against": {
+            "total": 1,
+            "average": "1.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "33%",
+        "att": "0%",
+        "def": "100%",
+        "goals": {
+          "for": {
+            "total": 0,
+            "average": "0.0"
           },
           "against": {
             "total": 0,

@@ -1,0 +1,111 @@
+{
+    "last_updated": "2026-06-20T07:27:10.206450Z",
+    "referee_report": [
+        {
+            "name": "Felix Zwayer",
+            "matches_officiated": 1,
+            "total_fouls_called": 28,
+            "total_yellows": 7,
+            "total_reds": 0
+        },
+        {
+            "name": "Ilgiz Tantashev",
+            "matches_officiated": 1,
+            "total_fouls_called": 18,
+            "total_yellows": 2,
+            "total_reds": 0
+        },
+        {
+            "name": "Gustavo Tejera",
+            "matches_officiated": 1,
+            "total_fouls_called": 16,
+            "total_yellows": 2,
+            "total_reds": 0
+        }
+    ],
+    "quirky_player_stats": {
+        "snipers": [],
+        "most_fouled": [
+            {
+                "name": "Aiden O'Neill",
+                "team": "Australia",
+                "photo": "https://media.api-sports.io/football/players/7050.png",
+                "minutes": 90,
+                "offsides": 0,
+                "fouls_drawn": 4,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 2,
+                "blocks": 0
+            },
+            {
+                "name": "Juli\u00e1n Qui\u00f1ones",
+                "team": "Mexico",
+                "photo": "https://media.api-sports.io/football/players/35532.png",
+                "minutes": 84,
+                "offsides": 1,
+                "fouls_drawn": 3,
+                "fouls_committed": 1,
+                "shots_total": 1,
+                "shots_on_target": 1,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Malik Tillman",
+                "team": "USA",
+                "photo": "https://media.api-sports.io/football/players/162037.png",
+                "minutes": 90,
+                "offsides": 0,
+                "fouls_drawn": 3,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 2,
+                "blocks": 0
+            }
+        ],
+        "offside_kings": [
+            {
+                "name": "Young-woo Seol",
+                "team": "South Korea",
+                "photo": "https://media.api-sports.io/football/players/197985.png",
+                "minutes": 71,
+                "offsides": 3,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
+                "shots_total": 1,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Jorge S\u00e1nchez",
+                "team": "Mexico",
+                "photo": "https://media.api-sports.io/football/players/2878.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 1,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 1,
+                "blocks": 0
+            },
+            {
+                "name": "Roberto Alvarado",
+                "team": "Mexico",
+                "photo": "https://media.api-sports.io/football/players/2879.png",
+                "minutes": 80,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
+                "shots_total": 1,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            }
+        ]
+    }
+}

@@ -5,7 +5,7 @@ curl https://fixturedownload.com/download/fifa-world-cup-2026-UTC.csv -o ./publi
 python3 ./calculate_league_table.py --output ~/vscode/pl-predictions/wc/league_table.csv
 cd ~/vscode/pl-predictions
 date +%d > ./wc/current_date.txt
-cp ~/vscode/pl-predictions/wc/public/wc2026.csv ./wc/wc2026.csv
+cp ~/vscode/knipey/public/wc2026.csv ./wc/wc2026.csv
 git add .
 NOW=$(date)
 git commit -m "New Leaderboard: ${NOW}"

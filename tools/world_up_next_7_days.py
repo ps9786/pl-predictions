@@ -6,6 +6,7 @@ import requests
 
 
 def get_world_cup_fixtures():
+    OUTPUT_FILE = '../wc/next_7_days.json'
     # 1. Retrieve the API key from the environment variable
     api_key = os.getenv("API_FOOTBALL_KEY")
     if not api_key:
@@ -39,6 +40,8 @@ def get_world_cup_fixtures():
 
         # 5. Output the results in clean JSON format
         print(json.dumps(data, indent=2))
+        with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
+          json.dump(data, fh, indent=2, ensure_ascii=False)
 
     except requests.exceptions.RequestException as e:
         print(f"API Request failed: {e}", file=sys.stderr)

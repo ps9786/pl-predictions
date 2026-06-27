@@ -3,11 +3,11 @@
   "parameters": {
     "league": "1",
     "season": "2026",
-    "from": "2026-06-26",
-    "to": "2026-07-03"
+    "from": "2026-06-27",
+    "to": "2026-07-04"
   },
   "errors": [],
-  "results": 18,
+  "results": 19,
   "paging": {
     "current": 1,
     "total": 1
@@ -15,165 +15,25 @@
   "response": [
     {
       "fixture": {
-        "id": 1539074,
-        "referee": "Anthony Taylor, England",
+        "id": 1489417,
+        "referee": "Ismail Elfath, USA",
         "timezone": "UTC",
-        "date": "2026-06-26T19:00:00+00:00",
-        "timestamp": 1782500400,
+        "date": "2026-06-27T00:00:00+00:00",
+        "timestamp": 1782518400,
         "periods": {
-          "first": 1782500400,
-          "second": 1782504000
+          "first": 1782518400,
+          "second": 1782522000
         },
         "venue": {
-          "id": 312,
-          "name": "BMO Field",
-          "city": "Toronto"
-        },
-        "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 60,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 13,
-          "name": "Senegal",
-          "logo": "https://media.api-sports.io/football/teams/13.png",
-          "winner": true
-        },
-        "away": {
-          "id": 1567,
-          "name": "Iraq",
-          "logo": "https://media.api-sports.io/football/teams/1567.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 3,
-        "away": 0
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 0
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1489416,
-        "referee": "Michael Oliver, England",
-        "timezone": "UTC",
-        "date": "2026-06-26T19:00:00+00:00",
-        "timestamp": 1782500400,
-        "periods": {
-          "first": 1782500400,
-          "second": 1782504000
-        },
-        "venue": {
-          "id": 1618,
-          "name": "Gillette Stadium",
-          "city": "Boston"
-        },
-        "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 64,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1090,
-          "name": "XXXXXXXX",
-          "logo": "https://media.api-sports.io/football/teams/1090.png",
-          "winner": false
-        },
-        "away": {
-          "id": 2,
-          "name": "France",
-          "logo": "https://media.api-sports.io/football/teams/2.png",
-          "winner": true
-        }
-      },
-      "goals": {
-        "home": 1,
-        "away": 3
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 3
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1539012,
-        "referee": "Mustapha Ghorbal, Algeria",
-        "timezone": "UTC",
-        "date": "2026-06-26T02:00:00+00:00",
-        "timestamp": 1782439200,
-        "periods": {
-          "first": 1782439200,
-          "second": 1782442800
-        },
-        "venue": {
-          "id": null,
-          "name": "SoFi Stadium",
-          "city": "Inglewood"
+          "id": 1076,
+          "name": "Estadio Akron",
+          "city": "Zapopan"
         },
         "status": {
           "long": "Match Finished",
           "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 7
         }
       },
       "league": {
@@ -188,30 +48,30 @@
       },
       "teams": {
         "home": {
-          "id": 777,
-          "name": "Türkiye",
-          "logo": "https://media.api-sports.io/football/teams/777.png",
-          "winner": true
+          "id": 7,
+          "name": "Uruguay",
+          "logo": "https://media.api-sports.io/football/teams/7.png",
+          "winner": false
         },
         "away": {
-          "id": 2384,
-          "name": "USA",
-          "logo": "https://media.api-sports.io/football/teams/2384.png",
-          "winner": false
+          "id": 9,
+          "name": "Spain",
+          "logo": "https://media.api-sports.io/football/teams/9.png",
+          "winner": true
         }
       },
       "goals": {
-        "home": 3,
-        "away": 2
+        "home": 0,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": 2,
+          "home": 0,
           "away": 1
         },
         "fulltime": {
-          "home": 3,
-          "away": 2
+          "home": 0,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -225,25 +85,25 @@
     },
     {
       "fixture": {
-        "id": 1489411,
-        "referee": "Clement Turpin, France",
+        "id": 1489413,
+        "referee": "François Letexier, France",
         "timezone": "UTC",
-        "date": "2026-06-26T02:00:00+00:00",
-        "timestamp": 1782439200,
+        "date": "2026-06-27T00:00:00+00:00",
+        "timestamp": 1782518400,
         "periods": {
-          "first": 1782439200,
-          "second": 1782442800
+          "first": 1782518400,
+          "second": 1782522000
         },
         "venue": {
           "id": null,
-          "name": "Levi's Stadium",
-          "city": "Santa Clara"
+          "name": "NRG Stadium",
+          "city": "Houston"
         },
         "status": {
           "long": "Match Finished",
           "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 6
         }
       },
       "league": {
@@ -258,15 +118,15 @@
       },
       "teams": {
         "home": {
-          "id": 2380,
-          "name": "Paraguay",
-          "logo": "https://media.api-sports.io/football/teams/2380.png",
+          "id": 1533,
+          "name": "Cape Verde Islands",
+          "logo": "https://media.api-sports.io/football/teams/1533.png",
           "winner": null
         },
         "away": {
-          "id": 20,
-          "name": "Australia",
-          "logo": "https://media.api-sports.io/football/teams/20.png",
+          "id": 23,
+          "name": "Saudi Arabia",
+          "logo": "https://media.api-sports.io/football/teams/23.png",
           "winner": null
         }
       },
@@ -295,154 +155,14 @@
     },
     {
       "fixture": {
-        "id": 1489417,
-        "referee": "I. Elfath",
-        "timezone": "UTC",
-        "date": "2026-06-27T00:00:00+00:00",
-        "timestamp": 1782518400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": 1076,
-          "name": "Estadio Akron",
-          "city": "Zapopan"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 7,
-          "name": "Uruguay",
-          "logo": "https://media.api-sports.io/football/teams/7.png",
-          "winner": null
-        },
-        "away": {
-          "id": 9,
-          "name": "Spain",
-          "logo": "https://media.api-sports.io/football/teams/9.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1489413,
-        "referee": "F. Letexier",
-        "timezone": "UTC",
-        "date": "2026-06-27T00:00:00+00:00",
-        "timestamp": 1782518400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": "NRG Stadium",
-          "city": "Houston"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1533,
-          "name": "Cape Verde Islands",
-          "logo": "https://media.api-sports.io/football/teams/1533.png",
-          "winner": null
-        },
-        "away": {
-          "id": 23,
-          "name": "Saudi Arabia",
-          "logo": "https://media.api-sports.io/football/teams/23.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
         "id": 1489414,
-        "referee": "S. Marciniak",
+        "referee": "Szymon Marciniak, Poland",
         "timezone": "UTC",
         "date": "2026-06-27T03:00:00+00:00",
         "timestamp": 1782529200,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1782529200,
+          "second": 1782532800
         },
         "venue": {
           "id": 11534,
@@ -450,10 +170,10 @@
           "city": "Seattle"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 9
         }
       },
       "league": {
@@ -481,17 +201,17 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -506,13 +226,13 @@
     {
       "fixture": {
         "id": 1489415,
-        "referee": "A. Makhadmeh",
+        "referee": "Adham Mohammad, Jordan",
         "timezone": "UTC",
         "date": "2026-06-27T03:00:00+00:00",
         "timestamp": 1782529200,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1782529200,
+          "second": 1782532800
         },
         "venue": {
           "id": 19445,
@@ -520,10 +240,10 @@
           "city": "Vancouver"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 5
         }
       },
       "league": {
@@ -541,27 +261,27 @@
           "id": 4673,
           "name": "New Zealand",
           "logo": "https://media.api-sports.io/football/teams/4673.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 1,
           "name": "Belgium",
           "logo": "https://media.api-sports.io/football/teams/1.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 5
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 5
         },
         "extratime": {
           "home": null,
@@ -1135,6 +855,76 @@
     },
     {
       "fixture": {
+        "id": 1565176,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-06-29T20:30:00+00:00",
+        "timestamp": 1782765000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 25,
+          "name": "Germany",
+          "logo": "https://media.api-sports.io/football/teams/25.png",
+          "winner": null
+        },
+        "away": {
+          "id": 2380,
+          "name": "Paraguay",
+          "logo": "https://media.api-sports.io/football/teams/2380.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1562345,
         "referee": null,
         "timezone": "UTC",
@@ -1205,6 +995,146 @@
     },
     {
       "fixture": {
+        "id": 1564789,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-06-30T17:00:00+00:00",
+        "timestamp": 1782838800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 1501,
+          "name": "Ivory Coast",
+          "logo": "https://media.api-sports.io/football/teams/1501.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1090,
+          "name": "Norway",
+          "logo": "https://media.api-sports.io/football/teams/1090.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1565177,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-06-30T21:00:00+00:00",
+        "timestamp": 1782853200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 2,
+          "name": "France",
+          "logo": "https://media.api-sports.io/football/teams/2.png",
+          "winner": null
+        },
+        "away": {
+          "id": 5,
+          "name": "Sweden",
+          "logo": "https://media.api-sports.io/football/teams/5.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1562586,
         "referee": null,
         "timezone": "UTC",
@@ -1247,6 +1177,146 @@
           "id": 1113,
           "name": "Bosnia & Herzegovina",
           "logo": "https://media.api-sports.io/football/teams/1113.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1565178,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-07-03T18:00:00+00:00",
+        "timestamp": 1783101600,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 20,
+          "name": "Australia",
+          "logo": "https://media.api-sports.io/football/teams/20.png",
+          "winner": null
+        },
+        "away": {
+          "id": 32,
+          "name": "Egypt",
+          "logo": "https://media.api-sports.io/football/teams/32.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1565179,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-07-03T22:00:00+00:00",
+        "timestamp": 1783116000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 26,
+          "name": "Argentina",
+          "logo": "https://media.api-sports.io/football/teams/26.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1533,
+          "name": "Cape Verde Islands",
+          "logo": "https://media.api-sports.io/football/teams/1533.png",
           "winner": null
         }
       },

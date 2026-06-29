@@ -1,49 +1,69 @@
 {
-    "last_updated": "2026-06-29T18:51:17.279762Z",
+    "last_updated": "2026-06-19T13:01:25.403136Z",
     "referee_report": [
         {
-            "name": "Joao Pedro Pinheiro",
+            "name": "Anthony Taylor",
             "matches_officiated": 1,
-            "total_fouls_called": 26,
+            "total_fouls_called": 25,
             "total_yellows": 2,
             "total_reds": 0
         },
         {
-            "name": "Istvan Kovacs",
+            "name": "Joao Pedro Pinheiro",
             "matches_officiated": 1,
-            "total_fouls_called": 20,
+            "total_fouls_called": 25,
+            "total_yellows": 3,
+            "total_reds": 1
+        },
+        {
+            "name": "Tori Penso",
+            "matches_officiated": 1,
+            "total_fouls_called": 22,
             "total_yellows": 3,
             "total_reds": 0
         },
         {
-            "name": "Ilgiz Tantashev",
+            "name": "Cristian Garay",
             "matches_officiated": 1,
-            "total_fouls_called": 10,
-            "total_yellows": 1,
-            "total_reds": 0
+            "total_fouls_called": 18,
+            "total_yellows": 2,
+            "total_reds": 2
         }
     ],
     "quirky_player_stats": {
         "snipers": [
             {
-                "name": "Riyad Mahrez",
-                "team": "Algeria",
-                "photo": "https://media.api-sports.io/football/players/635.png",
-                "minutes": 90,
+                "name": "Jonathan David",
+                "team": "Canada",
+                "photo": "https://media.api-sports.io/football/players/8489.png",
+                "minutes": 98,
                 "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
+                "shots_total": 5,
+                "shots_on_target": 5,
+                "interceptions": 0,
+                "blocks": 1
+            },
+            {
+                "name": "Evidence Makgopa",
+                "team": "South Africa",
+                "photo": "https://media.api-sports.io/football/players/201354.png",
+                "minutes": 32,
+                "offsides": 0,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
                 "shots_total": 2,
                 "shots_on_target": 2,
-                "interceptions": 1,
+                "interceptions": 0,
                 "blocks": 0
             },
             {
-                "name": "Tani Oluwaseyi",
-                "team": "Canada",
-                "photo": "https://media.api-sports.io/football/players/351587.png",
-                "minutes": 70,
-                "offsides": 0,
+                "name": "Dan Ndoye",
+                "team": "Switzerland",
+                "photo": "https://media.api-sports.io/football/players/48648.png",
+                "minutes": 71,
+                "offsides": 1,
                 "fouls_drawn": 2,
                 "fouls_committed": 1,
                 "shots_total": 3,
@@ -54,66 +74,53 @@
         ],
         "most_fouled": [
             {
-                "name": "Khuliso Mudau",
-                "team": "South Africa",
-                "photo": "https://media.api-sports.io/football/players/46601.png",
-                "minutes": 97,
-                "offsides": 0,
-                "fouls_drawn": 4,
+                "name": "Luis D\u00edaz",
+                "team": "Colombia",
+                "photo": "https://media.api-sports.io/football/players/2489.png",
+                "minutes": 93,
+                "offsides": 1,
+                "fouls_drawn": 5,
                 "fouls_committed": 0,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 4,
-                "blocks": 0
-            },
-            {
-                "name": "Alexis Mac Allister",
-                "team": "Argentina",
-                "photo": "https://media.api-sports.io/football/players/6716.png",
-                "minutes": 29,
-                "offsides": 0,
-                "fouls_drawn": 3,
-                "fouls_committed": 0,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 1,
-                "blocks": 0
-            },
-            {
-                "name": "Aubrey Modiba",
-                "team": "South Africa",
-                "photo": "https://media.api-sports.io/football/players/46334.png",
-                "minutes": 97,
-                "offsides": 0,
-                "fouls_drawn": 3,
-                "fouls_committed": 0,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 3,
-                "blocks": 1
-            }
-        ],
-        "offside_kings": [
-            {
-                "name": "Marko Arnautovi\u0107",
-                "team": "Austria",
-                "photo": "https://media.api-sports.io/football/players/18830.png",
-                "minutes": 45,
-                "offsides": 2,
-                "fouls_drawn": 0,
-                "fouls_committed": 1,
-                "shots_total": 1,
+                "shots_total": 2,
                 "shots_on_target": 1,
                 "interceptions": 0,
                 "blocks": 0
             },
             {
-                "name": "Zineddine Belaid",
-                "team": "Algeria",
-                "photo": "https://media.api-sports.io/football/players/4561.png",
-                "minutes": 19,
+                "name": "Breel Embolo",
+                "team": "Switzerland",
+                "photo": "https://media.api-sports.io/football/players/421.png",
+                "minutes": 89,
+                "offsides": 2,
+                "fouls_drawn": 4,
+                "fouls_committed": 1,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Luis Javier Su\u00e1rez",
+                "team": "Colombia",
+                "photo": "https://media.api-sports.io/football/players/47237.png",
+                "minutes": 80,
                 "offsides": 1,
-                "fouls_drawn": 0,
+                "fouls_drawn": 3,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            }
+        ],
+        "offside_kings": [
+            {
+                "name": "Iqraam Rayners",
+                "team": "South Africa",
+                "photo": "https://media.api-sports.io/football/players/127429.png",
+                "minutes": 66,
+                "offsides": 2,
+                "fouls_drawn": 1,
                 "fouls_committed": 0,
                 "shots_total": 0,
                 "shots_on_target": 0,
@@ -121,16 +128,29 @@
                 "blocks": 0
             },
             {
-                "name": "Konrad Laimer",
-                "team": "Austria",
-                "photo": "https://media.api-sports.io/football/players/1157.png",
-                "minutes": 90,
-                "offsides": 1,
-                "fouls_drawn": 0,
-                "fouls_committed": 0,
+                "name": "Breel Embolo",
+                "team": "Switzerland",
+                "photo": "https://media.api-sports.io/football/players/421.png",
+                "minutes": 89,
+                "offsides": 2,
+                "fouls_drawn": 4,
+                "fouls_committed": 1,
                 "shots_total": 0,
                 "shots_on_target": 0,
                 "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Daniel Mu\u00f1oz",
+                "team": "Colombia",
+                "photo": "https://media.api-sports.io/football/players/13736.png",
+                "minutes": 101,
+                "offsides": 1,
+                "fouls_drawn": 1,
+                "fouls_committed": 1,
+                "shots_total": 1,
+                "shots_on_target": 1,
+                "interceptions": 3,
                 "blocks": 0
             }
         ]

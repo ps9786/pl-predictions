@@ -6,6 +6,7 @@ python ./world_up_next_7_days.py
 mv worldcup_quirky.json ../wc/
 mv wc2026_predictions.json ../wc/
 mv wc2026_standings.json ../wc/
+./update_leaderboard.sh
 cd ..
 git add .
 git commit -m "New Predictions"

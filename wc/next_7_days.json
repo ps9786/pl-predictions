@@ -3,11 +3,11 @@
   "parameters": {
     "league": "1",
     "season": "2026",
-    "from": "2026-06-28",
-    "to": "2026-07-05"
+    "from": "2026-06-29",
+    "to": "2026-07-06"
   },
   "errors": [],
-  "results": 18,
+  "results": 15,
   "paging": {
     "current": 1,
     "total": 1
@@ -15,234 +15,24 @@
   "response": [
     {
       "fixture": {
-        "id": 1489418,
-        "referee": "Ilgiz Tantashev, Uzbekistan",
-        "timezone": "UTC",
-        "date": "2026-06-28T02:00:00+00:00",
-        "timestamp": 1782612000,
-        "periods": {
-          "first": 1782612000,
-          "second": 1782615600
-        },
-        "venue": {
-          "id": null,
-          "name": "Arrowhead Stadium",
-          "city": "Kansas City"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 7
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1532,
-          "name": "Algeria",
-          "logo": "https://media.api-sports.io/football/teams/1532.png",
-          "winner": null
-        },
-        "away": {
-          "id": 775,
-          "name": "Austria",
-          "logo": "https://media.api-sports.io/football/teams/775.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": 3,
-        "away": 3
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 1
-        },
-        "fulltime": {
-          "home": 3,
-          "away": 3
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1489421,
-        "referee": "Istvan Kovacs, Romania",
-        "timezone": "UTC",
-        "date": "2026-06-28T02:00:00+00:00",
-        "timestamp": 1782612000,
-        "periods": {
-          "first": 1782612000,
-          "second": 1782615600
-        },
-        "venue": {
-          "id": null,
-          "name": "AT&T Stadium",
-          "city": "Arlington"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 6
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Group Stage - 3",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1548,
-          "name": "Jordan",
-          "logo": "https://media.api-sports.io/football/teams/1548.png",
-          "winner": false
-        },
-        "away": {
-          "id": 26,
-          "name": "Argentina",
-          "logo": "https://media.api-sports.io/football/teams/26.png",
-          "winner": true
-        }
-      },
-      "goals": {
-        "home": 1,
-        "away": 3
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 2
-        },
-        "fulltime": {
-          "home": 1,
-          "away": 3
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1561329,
-        "referee": "Joao Pedro Pinheiro, Portugal",
-        "timezone": "UTC",
-        "date": "2026-06-28T19:00:00+00:00",
-        "timestamp": 1782673200,
-        "periods": {
-          "first": 1782673200,
-          "second": 1782676800
-        },
-        "venue": {
-          "id": null,
-          "name": "SoFi Stadium",
-          "city": "Inglewood"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 7
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 32",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1531,
-          "name": "South Africa",
-          "logo": "https://media.api-sports.io/football/teams/1531.png",
-          "winner": false
-        },
-        "away": {
-          "id": 5529,
-          "name": "Canada",
-          "logo": "https://media.api-sports.io/football/teams/5529.png",
-          "winner": true
-        }
-      },
-      "goals": {
-        "home": 0,
-        "away": 1
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 0
-        },
-        "fulltime": {
-          "home": 0,
-          "away": 1
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
         "id": 1562344,
-        "referee": "M. Mariani",
+        "referee": "Maurizio Mariani, Italy",
         "timezone": "UTC",
         "date": "2026-06-29T17:00:00+00:00",
         "timestamp": 1782752400,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1782752400,
+          "second": 1782756000
         },
         "venue": {
           "id": 0,
           "name": "NRG Stadium",
-          "city": null
+          "city": "Houston"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 89,
           "extra": null
         }
       },
@@ -271,13 +61,13 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
           "home": null,
@@ -305,9 +95,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
+          "id": 1618,
           "name": "Gillette Stadium",
-          "city": null
+          "city": "Boston"
         },
         "status": {
           "long": "Not Started",
@@ -375,7 +165,7 @@
           "second": null
         },
         "venue": {
-          "id": 0,
+          "id": 11905,
           "name": "Estadio BBVA",
           "city": "Monterrey"
         },
@@ -446,8 +236,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "AT&T Stadium",
+          "city": "Dallas"
         },
         "status": {
           "long": "Not Started",
@@ -517,7 +307,7 @@
         "venue": {
           "id": 0,
           "name": "MetLife Stadium",
-          "city": null
+          "city": "New-York"
         },
         "status": {
           "long": "Not Started",
@@ -585,8 +375,8 @@
           "second": null
         },
         "venue": {
-          "id": 0,
-          "name": "Estadio Banorte",
+          "id": 1069,
+          "name": "Estadio Azteca",
           "city": "Mexico City"
         },
         "status": {
@@ -655,9 +445,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
+          "id": 1898,
           "name": "Mercedes-Benz Stadium",
-          "city": null
+          "city": "Atlanta"
         },
         "status": {
           "long": "Not Started",
@@ -725,9 +515,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
+          "id": 11534,
           "name": "Lumen Field",
-          "city": null
+          "city": "Seattle"
         },
         "status": {
           "long": "Not Started",
@@ -796,8 +586,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "Levi's Stadium",
+          "city": "San-Francisco"
         },
         "status": {
           "long": "Not Started",
@@ -867,7 +657,7 @@
         "venue": {
           "id": null,
           "name": "SoFi Stadium",
-          "city": null
+          "city": "Los Angeles"
         },
         "status": {
           "long": "Not Started",
@@ -935,9 +725,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
+          "id": 312,
           "name": "BMO Field",
-          "city": null
+          "city": "Toronto"
         },
         "status": {
           "long": "Not Started",
@@ -1005,9 +795,9 @@
           "second": null
         },
         "venue": {
-          "id": null,
+          "id": 19445,
           "name": "BC Place",
-          "city": null
+          "city": "Vancouver"
         },
         "status": {
           "long": "Not Started",
@@ -1076,8 +866,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "AT&T Stadium",
+          "city": "Dallas"
         },
         "status": {
           "long": "Not Started",
@@ -1147,7 +937,7 @@
         "venue": {
           "id": 0,
           "name": "Hard Rock Stadium",
-          "city": null
+          "city": "Miami"
         },
         "status": {
           "long": "Not Started",
@@ -1217,7 +1007,7 @@
         "venue": {
           "id": 0,
           "name": "Arrowhead Stadium",
-          "city": null
+          "city": "Kansas City"
         },
         "status": {
           "long": "Not Started",

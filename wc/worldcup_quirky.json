@@ -1,85 +1,37 @@
 {
-    "last_updated": "2026-06-28T21:37:18.143689Z",
+    "last_updated": "2026-06-29T18:50:12.362188Z",
     "referee_report": [
         {
-            "name": "A. Al Jassim",
+            "name": "Joao Pedro Pinheiro",
             "matches_officiated": 1,
-            "total_fouls_called": 29,
+            "total_fouls_called": 26,
+            "total_yellows": 2,
+            "total_reds": 0
+        },
+        {
+            "name": "Istvan Kovacs",
+            "matches_officiated": 1,
+            "total_fouls_called": 20,
             "total_yellows": 3,
             "total_reds": 0
         },
         {
-            "name": "I. Elfath",
+            "name": "Ilgiz Tantashev",
             "matches_officiated": 1,
-            "total_fouls_called": 28,
-            "total_yellows": 4,
-            "total_reds": 1
-        },
-        {
-            "name": "S. Marciniak",
-            "matches_officiated": 1,
-            "total_fouls_called": 27,
-            "total_yellows": 7,
-            "total_reds": 0
-        },
-        {
-            "name": "F. Letexier",
-            "matches_officiated": 1,
-            "total_fouls_called": 26,
-            "total_yellows": 4,
-            "total_reds": 0
-        },
-        {
-            "name": "D. Fischer",
-            "matches_officiated": 1,
-            "total_fouls_called": 22,
-            "total_yellows": 2,
-            "total_reds": 0
-        },
-        {
-            "name": "F. Zwayer",
-            "matches_officiated": 1,
-            "total_fouls_called": 22,
-            "total_yellows": 5,
-            "total_reds": 0
-        },
-        {
-            "name": "A. Faghani",
-            "matches_officiated": 1,
-            "total_fouls_called": 18,
+            "total_fouls_called": 10,
             "total_yellows": 1,
-            "total_reds": 0
-        },
-        {
-            "name": "A. Makhadmeh",
-            "matches_officiated": 1,
-            "total_fouls_called": 17,
-            "total_yellows": 2,
             "total_reds": 0
         }
     ],
     "quirky_player_stats": {
         "snipers": [
             {
-                "name": "Mahmoud Tr\u00e9z\u00e9guet",
-                "team": "Egypt",
-                "photo": "https://media.api-sports.io/football/players/2664.png",
+                "name": "Riyad Mahrez",
+                "team": "Algeria",
+                "photo": "https://media.api-sports.io/football/players/635.png",
                 "minutes": 90,
                 "offsides": 0,
                 "fouls_drawn": 2,
-                "fouls_committed": 1,
-                "shots_total": 3,
-                "shots_on_target": 2,
-                "interceptions": 1,
-                "blocks": 0
-            },
-            {
-                "name": "Elijah Just",
-                "team": "New Zealand",
-                "photo": "https://media.api-sports.io/football/players/94333.png",
-                "minutes": 96,
-                "offsides": 0,
-                "fouls_drawn": 0,
                 "fouls_committed": 1,
                 "shots_total": 2,
                 "shots_on_target": 2,
@@ -87,14 +39,14 @@
                 "blocks": 0
             },
             {
-                "name": "Kevin De Bruyne",
-                "team": "Belgium",
-                "photo": "https://media.api-sports.io/football/players/629.png",
-                "minutes": 72,
+                "name": "Tani Oluwaseyi",
+                "team": "Canada",
+                "photo": "https://media.api-sports.io/football/players/351587.png",
+                "minutes": 70,
                 "offsides": 0,
-                "fouls_drawn": 0,
-                "fouls_committed": 0,
-                "shots_total": 4,
+                "fouls_drawn": 2,
+                "fouls_committed": 1,
+                "shots_total": 3,
                 "shots_on_target": 2,
                 "interceptions": 0,
                 "blocks": 0
@@ -102,78 +54,78 @@
         ],
         "most_fouled": [
             {
-                "name": "Martin Baturina",
-                "team": "Croatia",
-                "photo": "https://media.api-sports.io/football/players/295026.png",
-                "minutes": 88,
+                "name": "Khuliso Mudau",
+                "team": "South Africa",
+                "photo": "https://media.api-sports.io/football/players/46601.png",
+                "minutes": 97,
                 "offsides": 0,
-                "fouls_drawn": 5,
-                "fouls_committed": 1,
+                "fouls_drawn": 4,
+                "fouls_committed": 0,
                 "shots_total": 0,
                 "shots_on_target": 0,
-                "interceptions": 0,
+                "interceptions": 4,
                 "blocks": 0
             },
             {
-                "name": "Agust\u00edn Canobbio",
-                "team": "Uruguay",
-                "photo": "https://media.api-sports.io/football/players/51603.png",
-                "minutes": 90,
-                "offsides": 1,
-                "fouls_drawn": 4,
-                "fouls_committed": 3,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Saeid Ezatolahi",
-                "team": "Iran",
-                "photo": "https://media.api-sports.io/football/players/19614.png",
-                "minutes": 90,
+                "name": "Alexis Mac Allister",
+                "team": "Argentina",
+                "photo": "https://media.api-sports.io/football/players/6716.png",
+                "minutes": 29,
                 "offsides": 0,
-                "fouls_drawn": 4,
-                "fouls_committed": 3,
-                "shots_total": 2,
-                "shots_on_target": 0,
-                "interceptions": 0,
-                "blocks": 2
-            }
-        ],
-        "offside_kings": [
-            {
-                "name": "Maximiliano Ara\u00fajo",
-                "team": "Uruguay",
-                "photo": "https://media.api-sports.io/football/players/51776.png",
-                "minutes": 90,
-                "offsides": 2,
                 "fouls_drawn": 3,
                 "fouls_committed": 0,
                 "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Darwin N\u00fa\u00f1ez",
-                "team": "Uruguay",
-                "photo": "https://media.api-sports.io/football/players/51617.png",
-                "minutes": 90,
-                "offsides": 2,
-                "fouls_drawn": 1,
-                "fouls_committed": 0,
-                "shots_total": 1,
                 "shots_on_target": 0,
                 "interceptions": 1,
                 "blocks": 0
             },
             {
-                "name": "Garry Rodrigues",
-                "team": "Cape Verde Islands",
-                "photo": "https://media.api-sports.io/football/players/44612.png",
-                "minutes": 19,
+                "name": "Aubrey Modiba",
+                "team": "South Africa",
+                "photo": "https://media.api-sports.io/football/players/46334.png",
+                "minutes": 97,
+                "offsides": 0,
+                "fouls_drawn": 3,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 3,
+                "blocks": 1
+            }
+        ],
+        "offside_kings": [
+            {
+                "name": "Marko Arnautovi\u0107",
+                "team": "Austria",
+                "photo": "https://media.api-sports.io/football/players/18830.png",
+                "minutes": 45,
                 "offsides": 2,
+                "fouls_drawn": 0,
+                "fouls_committed": 1,
+                "shots_total": 1,
+                "shots_on_target": 1,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Zineddine Belaid",
+                "team": "Algeria",
+                "photo": "https://media.api-sports.io/football/players/4561.png",
+                "minutes": 19,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Konrad Laimer",
+                "team": "Austria",
+                "photo": "https://media.api-sports.io/football/players/1157.png",
+                "minutes": 90,
+                "offsides": 1,
                 "fouls_drawn": 0,
                 "fouls_committed": 0,
                 "shots_total": 0,

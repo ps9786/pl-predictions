@@ -1,0 +1,2 @@
+echo "Match Number,Round Number,Date,Location,Home Team,Away Team,Group,Result" > ~/vscode/calculate_leaderboard/public/wc2026.csv
+cat ~/vscode/pl-predictions/wc/worldcup.json | jq -r '.matches[] | [ .num, .round, .date, .ground, .team1, .team2, "", (if .score.ft then "\(.score.ft[0]) - \(.score.ft[1])" else "" end)] | @csv' | perl -pe "s{\"}{}g" | tee -a ~/vscode/calculate_leaderboard/public/wc2026.csv

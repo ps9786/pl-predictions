@@ -18,7 +18,7 @@ def get_world_cup_fixtures():
 
     # 2. Define the date parameters for the next 7 days
     # api-football expects dates in the format YYYY-MM-DD
-    start_date = datetime.now().strftime("%Y-%m-%d")
+    start_date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
     end_date = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
 
     # 3. Setup API configuration

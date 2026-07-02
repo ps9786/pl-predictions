@@ -296,13 +296,13 @@
     {
       "fixture": {
         "id": 1567307,
-        "referee": "A. Makhadmeh",
+        "referee": "Adham Mohammad, Jordan",
         "timezone": "UTC",
         "date": "2026-07-01T16:00:00+00:00",
         "timestamp": 1782921600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1782921600,
+          "second": 1782925200
         },
         "venue": {
           "id": 1898,
@@ -310,10 +310,10 @@
           "city": "Atlanta"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -331,27 +331,27 @@
           "id": 10,
           "name": "England",
           "logo": "https://media.api-sports.io/football/teams/10.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 1508,
           "name": "Congo DR",
           "logo": "https://media.api-sports.io/football/teams/1508.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -366,7 +366,7 @@
     {
       "fixture": {
         "id": 1567308,
-        "referee": "S. Martinez",
+        "referee": "Said Martinez, Honduras",
         "timezone": "UTC",
         "date": "2026-07-01T20:00:00+00:00",
         "timestamp": 1782936000,

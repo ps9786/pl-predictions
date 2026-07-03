@@ -1,3 +1,4 @@
+. ~/venv/bin/activate
 cd ~/vscode/pl-predictions/tools
 python ./world_cup_predictions.py 
 python ./quirky.py

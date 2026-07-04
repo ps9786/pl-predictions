@@ -3,296 +3,16 @@
   "parameters": {
     "league": "1",
     "season": "2026",
-    "from": "2026-07-02",
-    "to": "2026-07-10"
+    "from": "2026-07-03",
+    "to": "2026-07-11"
   },
   "errors": [],
-  "results": 13,
+  "results": 12,
   "paging": {
     "current": 1,
     "total": 1
   },
   "response": [
-    {
-      "fixture": {
-        "id": 1565178,
-        "referee": "Gustavo Tejera, Uruguay",
-        "timezone": "UTC",
-        "date": "2026-07-03T18:00:00+00:00",
-        "timestamp": 1783101600,
-        "periods": {
-          "first": 1783101600,
-          "second": 1783105200
-        },
-        "venue": {
-          "id": 0,
-          "name": "AT&T Stadium",
-          "city": "Dallas"
-        },
-        "status": {
-          "long": "Break Time",
-          "short": "BT",
-          "elapsed": null,
-          "extra": 5
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 32",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 20,
-          "name": "Australia",
-          "logo": "https://media.api-sports.io/football/teams/20.png",
-          "winner": null
-        },
-        "away": {
-          "id": 32,
-          "name": "Egypt",
-          "logo": "https://media.api-sports.io/football/teams/32.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": 1,
-        "away": 1
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 1
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1562586,
-        "referee": "Raphael Claus, Brazil",
-        "timezone": "UTC",
-        "date": "2026-07-02T00:00:00+00:00",
-        "timestamp": 1782950400,
-        "periods": {
-          "first": 1782950400,
-          "second": 1782954000
-        },
-        "venue": {
-          "id": 0,
-          "name": "Levi's Stadium",
-          "city": "San-Francisco"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 10
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 32",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 2384,
-          "name": "USA",
-          "logo": "https://media.api-sports.io/football/teams/2384.png",
-          "winner": true
-        },
-        "away": {
-          "id": 1113,
-          "name": "Bosnia & Herzegovina",
-          "logo": "https://media.api-sports.io/football/teams/1113.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 2,
-        "away": 0
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 0
-        },
-        "fulltime": {
-          "home": 2,
-          "away": 0
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1567311,
-        "referee": "Glenn Nyberg, Sweden",
-        "timezone": "UTC",
-        "date": "2026-07-02T19:00:00+00:00",
-        "timestamp": 1783018800,
-        "periods": {
-          "first": 1783018800,
-          "second": 1783022400
-        },
-        "venue": {
-          "id": null,
-          "name": "SoFi Stadium",
-          "city": "Inglewood"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 1
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 32",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 9,
-          "name": "Spain",
-          "logo": "https://media.api-sports.io/football/teams/9.png",
-          "winner": true
-        },
-        "away": {
-          "id": 775,
-          "name": "Austria",
-          "logo": "https://media.api-sports.io/football/teams/775.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 3,
-        "away": 0
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 0
-        },
-        "fulltime": {
-          "home": 3,
-          "away": 0
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1567309,
-        "referee": "Espen Eskas, Norway",
-        "timezone": "UTC",
-        "date": "2026-07-02T23:00:00+00:00",
-        "timestamp": 1783033200,
-        "periods": {
-          "first": 1783033200,
-          "second": 1783036800
-        },
-        "venue": {
-          "id": 312,
-          "name": "BMO Field",
-          "city": "Toronto"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 32",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 27,
-          "name": "Portugal",
-          "logo": "https://media.api-sports.io/football/teams/27.png",
-          "winner": true
-        },
-        "away": {
-          "id": 3,
-          "name": "Croatia",
-          "logo": "https://media.api-sports.io/football/teams/3.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 2,
-        "away": 1
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 0
-        },
-        "fulltime": {
-          "home": 2,
-          "away": 1
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
     {
       "fixture": {
         "id": 1567312,
@@ -365,14 +85,84 @@
     },
     {
       "fixture": {
+        "id": 1565178,
+        "referee": "Gustavo Tejera, Uruguay",
+        "timezone": "UTC",
+        "date": "2026-07-03T18:00:00+00:00",
+        "timestamp": 1783101600,
+        "periods": {
+          "first": 1783101600,
+          "second": 1783105200
+        },
+        "venue": {
+          "id": 0,
+          "name": "AT&T Stadium",
+          "city": "Dallas"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "PEN",
+          "elapsed": 120,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 32",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 20,
+          "name": "Australia",
+          "logo": "https://media.api-sports.io/football/teams/20.png",
+          "winner": false
+        },
+        "away": {
+          "id": 32,
+          "name": "Egypt",
+          "logo": "https://media.api-sports.io/football/teams/32.png",
+          "winner": true
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 1
+      },
+      "score": {
+        "halftime": {
+          "home": 0,
+          "away": 1
+        },
+        "fulltime": {
+          "home": 1,
+          "away": 1
+        },
+        "extratime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalty": {
+          "home": 2,
+          "away": 4
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1565179,
-        "referee": "D. Fischer",
+        "referee": "Drew Fischer, Canada",
         "timezone": "UTC",
         "date": "2026-07-03T22:00:00+00:00",
         "timestamp": 1783116000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1783116000,
+          "second": 1783119600
         },
         "venue": {
           "id": 0,
@@ -380,9 +170,9 @@
           "city": "Miami"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "AET",
+          "elapsed": 120,
           "extra": null
         }
       },
@@ -401,31 +191,31 @@
           "id": 26,
           "name": "Argentina",
           "logo": "https://media.api-sports.io/football/teams/26.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 1533,
           "name": "Cape Verde Islands",
           "logo": "https://media.api-sports.io/football/teams/1533.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 2
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extratime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "penalty": {
           "home": null,
@@ -436,13 +226,13 @@
     {
       "fixture": {
         "id": 1567310,
-        "referee": "C. Turpin",
+        "referee": "Clement Turpin, France",
         "timezone": "UTC",
         "date": "2026-07-04T01:30:00+00:00",
         "timestamp": 1783128600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1783128600,
+          "second": 1783132200
         },
         "venue": {
           "id": 0,
@@ -450,10 +240,10 @@
           "city": "Kansas City"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 8
         }
       },
       "league": {
@@ -471,27 +261,27 @@
           "id": 8,
           "name": "Colombia",
           "logo": "https://media.api-sports.io/football/teams/8.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 1504,
           "name": "Ghana",
           "logo": "https://media.api-sports.io/football/teams/1504.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "extratime": {
           "home": null,
@@ -897,6 +687,146 @@
           "id": 1,
           "name": "Belgium",
           "logo": "https://media.api-sports.io/football/teams/1.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1576804,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-07-07T16:00:00+00:00",
+        "timestamp": 1783440000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 16",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 26,
+          "name": "Argentina",
+          "logo": "https://media.api-sports.io/football/teams/26.png",
+          "winner": null
+        },
+        "away": {
+          "id": 32,
+          "name": "Egypt",
+          "logo": "https://media.api-sports.io/football/teams/32.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1576805,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-07-07T20:00:00+00:00",
+        "timestamp": 1783454400,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 0,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 16",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 15,
+          "name": "Switzerland",
+          "logo": "https://media.api-sports.io/football/teams/15.png",
+          "winner": null
+        },
+        "away": {
+          "id": 8,
+          "name": "Colombia",
+          "logo": "https://media.api-sports.io/football/teams/8.png",
           "winner": null
         }
       },

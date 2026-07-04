@@ -100,15 +100,15 @@
     "fixture": {
       "fixture_id": 1567824,
       "date_utc": "2026-07-04T17:00:00+00:00",
-      "status": "Not Started",
+      "status": "Match Finished",
       "venue": "NRG Stadium",
       "city": "Houston",
       "league": "World Cup",
       "round": "Round of 16",
       "home_team": "Canada",
       "away_team": "Morocco",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 0,
+      "goals_away": 3
     },
     "prediction": {
       "available": true,
@@ -353,8 +353,8 @@
       },
       "home_last5": {
         "form": "83%",
-        "att": "60%",
-        "def": "87%",
+        "att": "69%",
+        "def": "85%",
         "goals": {
           "for": {
             "total": 9,
@@ -368,8 +368,8 @@
       },
       "away_last5": {
         "form": "75%",
-        "att": "67%",
-        "def": "47%",
+        "att": "77%",
+        "def": "38%",
         "goals": {
           "for": {
             "total": 10,

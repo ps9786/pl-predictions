@@ -226,7 +226,7 @@
     {
       "fixture": {
         "id": 1568100,
-        "referee": null,
+        "referee": "Ismail Elfath, USA",
         "timezone": "UTC",
         "date": "2026-07-05T20:00:00+00:00",
         "timestamp": 1783281600,
@@ -237,7 +237,7 @@
         "venue": {
           "id": 0,
           "name": "MetLife Stadium",
-          "city": null
+          "city": "East Rutherford"
         },
         "status": {
           "long": "Not Started",

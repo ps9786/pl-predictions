@@ -16,7 +16,7 @@
     {
       "fixture": {
         "id": 1568100,
-        "referee": "Ismail Elfath, USA",
+        "referee": "I. Elfath",
         "timezone": "UTC",
         "date": "2026-07-05T20:00:00+00:00",
         "timestamp": 1783281600,
@@ -86,7 +86,7 @@
     {
       "fixture": {
         "id": 1570714,
-        "referee": "Alireza Faghani, Australia",
+        "referee": "A. Faghani",
         "timezone": "UTC",
         "date": "2026-07-06T01:00:00+00:00",
         "timestamp": 1783299600,
@@ -96,7 +96,7 @@
         },
         "venue": {
           "id": null,
-          "name": "Estadio Azteca",
+          "name": "Estadio Banorte",
           "city": "Mexico City"
         },
         "status": {
@@ -156,7 +156,7 @@
     {
       "fixture": {
         "id": 1576756,
-        "referee": null,
+        "referee": "A. Taylor",
         "timezone": "UTC",
         "date": "2026-07-06T19:00:00+00:00",
         "timestamp": 1783364400,
@@ -166,8 +166,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "AT&T Stadium",
+          "city": "Dallas"
         },
         "status": {
           "long": "Not Started",
@@ -226,7 +226,7 @@
     {
       "fixture": {
         "id": 1570715,
-        "referee": null,
+        "referee": "A. Makhadmeh",
         "timezone": "UTC",
         "date": "2026-07-07T00:00:00+00:00",
         "timestamp": 1783382400,
@@ -235,9 +235,9 @@
           "second": null
         },
         "venue": {
-          "id": null,
+          "id": 11534,
           "name": "Lumen Field",
-          "city": null
+          "city": "Seattle"
         },
         "status": {
           "long": "Not Started",
@@ -296,7 +296,7 @@
     {
       "fixture": {
         "id": 1576804,
-        "referee": null,
+        "referee": "F. Letexier",
         "timezone": "UTC",
         "date": "2026-07-07T16:00:00+00:00",
         "timestamp": 1783440000,
@@ -305,9 +305,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
-          "name": null,
-          "city": null
+          "id": 1898,
+          "name": "Mercedes-Benz Stadium",
+          "city": "Atlanta"
         },
         "status": {
           "long": "Not Started",
@@ -366,7 +366,7 @@
     {
       "fixture": {
         "id": 1576805,
-        "referee": null,
+        "referee": "I. Barton",
         "timezone": "UTC",
         "date": "2026-07-07T20:00:00+00:00",
         "timestamp": 1783454400,
@@ -375,9 +375,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
-          "name": null,
-          "city": null
+          "id": 19445,
+          "name": "BC Place",
+          "city": "Vancouver"
         },
         "status": {
           "long": "Not Started",
@@ -445,9 +445,9 @@
           "second": null
         },
         "venue": {
-          "id": 0,
-          "name": null,
-          "city": null
+          "id": 1618,
+          "name": "Gillette Stadium",
+          "city": "Boston"
         },
         "status": {
           "long": "Not Started",
@@ -516,8 +516,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "Hard Rock Stadium",
+          "city": "Miami"
         },
         "status": {
           "long": "Not Started",

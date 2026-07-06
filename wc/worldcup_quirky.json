@@ -1,149 +1,96 @@
 {
-    "last_updated": "2026-07-05T20:00:16.382988Z",
+    "last_updated": "2026-07-06T08:00:14.451785Z",
     "referee_report": [
         {
-            "name": "Michael Oliver",
+            "name": "Ismail Elfath",
             "matches_officiated": 1,
-            "total_fouls_called": 38,
-            "total_yellows": 8,
-            "total_reds": 0
-        },
-        {
-            "name": "Clement Turpin",
-            "matches_officiated": 1,
-            "total_fouls_called": 24,
-            "total_yellows": 5,
-            "total_reds": 0
-        },
-        {
-            "name": "Ilgiz Tantashev",
-            "matches_officiated": 1,
-            "total_fouls_called": 24,
-            "total_yellows": 3,
+            "total_fouls_called": 13,
+            "total_yellows": 1,
             "total_reds": 0
         }
     ],
     "quirky_player_stats": {
         "snipers": [
             {
-                "name": "Kylian Mbapp\u00e9",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/278.png",
-                "minutes": 101,
+                "name": "Erling Haaland",
+                "team": "Norway",
+                "photo": "https://media.api-sports.io/football/players/1100.png",
+                "minutes": 90,
                 "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 1,
-                "shots_total": 5,
-                "shots_on_target": 4,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Luis D\u00edaz",
-                "team": "Colombia",
-                "photo": "https://media.api-sports.io/football/players/2489.png",
-                "minutes": 89,
-                "offsides": 2,
                 "fouls_drawn": 0,
                 "fouls_committed": 1,
-                "shots_total": 3,
-                "shots_on_target": 2,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Azzedine Ounahi",
-                "team": "Morocco",
-                "photo": "https://media.api-sports.io/football/players/129678.png",
-                "minutes": 87,
-                "offsides": 0,
-                "fouls_drawn": 4,
-                "fouls_committed": 1,
-                "shots_total": 2,
-                "shots_on_target": 2,
-                "interceptions": 0,
+                "shots_total": 4,
+                "shots_on_target": 3,
+                "interceptions": 1,
                 "blocks": 0
             }
         ],
         "most_fouled": [
             {
-                "name": "Noussair Mazraoui",
-                "team": "Morocco",
-                "photo": "https://media.api-sports.io/football/players/545.png",
+                "name": "Casemiro",
+                "team": "Brazil",
+                "photo": "https://media.api-sports.io/football/players/747.png",
                 "minutes": 90,
                 "offsides": 0,
-                "fouls_drawn": 4,
-                "fouls_committed": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 1,
                 "shots_total": 0,
                 "shots_on_target": 0,
-                "interceptions": 0,
-                "blocks": 1
-            },
-            {
-                "name": "Azzedine Ounahi",
-                "team": "Morocco",
-                "photo": "https://media.api-sports.io/football/players/129678.png",
-                "minutes": 87,
-                "offsides": 0,
-                "fouls_drawn": 4,
-                "fouls_committed": 1,
-                "shots_total": 2,
-                "shots_on_target": 2,
-                "interceptions": 0,
+                "interceptions": 1,
                 "blocks": 0
             },
             {
-                "name": "Gustavo Puerta",
-                "team": "Colombia",
-                "photo": "https://media.api-sports.io/football/players/324034.png",
+                "name": "Marquinhos",
+                "team": "Brazil",
+                "photo": "https://media.api-sports.io/football/players/257.png",
                 "minutes": 90,
                 "offsides": 0,
-                "fouls_drawn": 3,
-                "fouls_committed": 3,
-                "shots_total": 1,
-                "shots_on_target": 1,
-                "interceptions": 0,
-                "blocks": 1
+                "fouls_drawn": 1,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 2,
+                "blocks": 0
+            },
+            {
+                "name": "Gabriel Martinelli",
+                "team": "Brazil",
+                "photo": "https://media.api-sports.io/football/players/127769.png",
+                "minutes": 67,
+                "offsides": 0,
+                "fouls_drawn": 1,
+                "fouls_committed": 1,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 1,
+                "blocks": 0
             }
         ],
         "offside_kings": [
             {
-                "name": "Luis D\u00edaz",
-                "team": "Colombia",
-                "photo": "https://media.api-sports.io/football/players/2489.png",
-                "minutes": 89,
-                "offsides": 2,
-                "fouls_drawn": 0,
-                "fouls_committed": 1,
-                "shots_total": 3,
-                "shots_on_target": 2,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Soufiane Rahimi",
-                "team": "Morocco",
-                "photo": "https://media.api-sports.io/football/players/36579.png",
-                "minutes": 68,
-                "offsides": 2,
-                "fouls_drawn": 2,
-                "fouls_committed": 2,
-                "shots_total": 3,
-                "shots_on_target": 2,
-                "interceptions": 0,
-                "blocks": 0
-            },
-            {
-                "name": "Richie Laryea",
-                "team": "Canada",
-                "photo": "https://media.api-sports.io/football/players/50816.png",
-                "minutes": 78,
+                "name": "Rayan",
+                "team": "Brazil",
+                "photo": "https://media.api-sports.io/football/players/407806.png",
+                "minutes": 67,
                 "offsides": 1,
-                "fouls_drawn": 2,
+                "fouls_drawn": 0,
                 "fouls_committed": 2,
+                "shots_total": 2,
+                "shots_on_target": 1,
+                "interceptions": 1,
+                "blocks": 0
+            },
+            {
+                "name": "Alexander S\u00f8rloth",
+                "team": "Norway",
+                "photo": "https://media.api-sports.io/football/players/8492.png",
+                "minutes": 45,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
                 "shots_total": 0,
                 "shots_on_target": 0,
-                "interceptions": 1,
+                "interceptions": 0,
                 "blocks": 0
             }
         ]

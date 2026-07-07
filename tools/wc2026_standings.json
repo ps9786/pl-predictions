@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-07-07T16:00:17Z",
+  "retrieved_at": "2026-07-07T20:00:22Z",
   "league": "FIFA World Cup 2026",
   "league_id": 1,
   "season": 2026,
@@ -901,7 +901,7 @@
           "goals_against": 3,
           "goal_difference": 2,
           "points": 5,
-          "form": "WDWD",
+          "form": "LWDWD",
           "status": "same",
           "description": "Round of 32",
           "home": {
@@ -1290,7 +1290,7 @@
           "goals_against": 1,
           "goal_difference": 7,
           "points": 9,
-          "form": "WWWW",
+          "form": "WWWWW",
           "status": "same",
           "description": "Round of 32",
           "home": {

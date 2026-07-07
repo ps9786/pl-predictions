@@ -231,8 +231,8 @@
         "date": "2026-07-07T16:00:00+00:00",
         "timestamp": 1783440000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1783440000,
+          "second": 1783443600
         },
         "venue": {
           "id": 1898,
@@ -240,10 +240,10 @@
           "city": "Atlanta"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 11
         }
       },
       "league": {
@@ -261,27 +261,27 @@
           "id": 26,
           "name": "Argentina",
           "logo": "https://media.api-sports.io/football/teams/26.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 32,
           "name": "Egypt",
           "logo": "https://media.api-sports.io/football/teams/32.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 2
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 2
         },
         "extratime": {
           "home": null,
@@ -296,7 +296,7 @@
     {
       "fixture": {
         "id": 1576805,
-        "referee": "I. Barton",
+        "referee": "Iván Barton, El Salvador",
         "timezone": "UTC",
         "date": "2026-07-07T20:00:00+00:00",
         "timestamp": 1783454400,

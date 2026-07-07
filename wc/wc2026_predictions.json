@@ -1,210 +1,18 @@
 [
   {
-    "match_date": "2026-07-06",
-    "fixture": {
-      "fixture_id": 1570714,
-      "date_utc": "2026-07-06T01:00:00+00:00",
-      "status": "Match Finished",
-      "venue": "Estadio Banorte",
-      "city": "Mexico City",
-      "league": "World Cup",
-      "round": "Round of 16",
-      "home_team": "Mexico",
-      "away_team": "England",
-      "goals_home": 2,
-      "goals_away": 3
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 16,
-        "name": "Mexico",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": null,
-      "goals": {
-        "home": "-2.5",
-        "away": "-2.5"
-      },
-      "advice": "Double chance : Mexico or draw",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "55%",
-          "away": "45%"
-        },
-        "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "52.5%",
-          "away": "47.5%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "62%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 8,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "83%",
-        "att": "62%",
-        "def": "77%",
-        "goals": {
-          "for": {
-            "total": 8,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 3,
-            "average": "0.8"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-07-06",
-    "fixture": {
-      "fixture_id": 1576756,
-      "date_utc": "2026-07-06T19:00:00+00:00",
-      "status": "Halftime",
-      "venue": "AT&T Stadium",
-      "city": "Dallas",
-      "league": "World Cup",
-      "round": "Round of 16",
-      "home_team": "Portugal",
-      "away_team": "Spain",
-      "goals_home": 0,
-      "goals_away": 0
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 9,
-        "name": "Spain",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": "-3.5",
-      "goals": {
-        "home": "-2.5",
-        "away": "-2.5"
-      },
-      "advice": "Combo Double chance : draw or Spain and -3.5 goals",
-      "win_probabilities": {
-        "home": "10%",
-        "draw": "45%",
-        "away": "45%"
-      },
-      "comparison": {
-        "form": {
-          "home": "44%",
-          "away": "56%"
-        },
-        "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "h2h": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "goals": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "total": {
-          "home": "48.5%",
-          "away": "51.5%"
-        }
-      },
-      "home_last5": {
-        "form": "67%",
-        "att": "62%",
-        "def": "85%",
-        "goals": {
-          "for": {
-            "total": 8,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 2,
-            "average": "0.5"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "83%",
-        "att": "62%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 8,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      }
-    }
-  },
-  {
     "match_date": "2026-07-07",
     "fixture": {
       "fixture_id": 1570715,
       "date_utc": "2026-07-07T00:00:00+00:00",
-      "status": "Not Started",
+      "status": "Match Finished",
       "venue": "Lumen Field",
       "city": "Seattle",
       "league": "World Cup",
       "round": "Round of 16",
       "home_team": "USA",
       "away_team": "Belgium",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 1,
+      "goals_away": 4
     },
     "prediction": {
       "available": true,
@@ -239,8 +47,8 @@
           "away": "50%"
         },
         "poisson_distribution": {
-          "home": "52%",
-          "away": "48%"
+          "home": "53%",
+          "away": "47%"
         },
         "h2h": {
           "home": "0%",
@@ -251,8 +59,8 @@
           "away": "70%"
         },
         "total": {
-          "home": "47.6%",
-          "away": "52.4%"
+          "home": "47.8%",
+          "away": "52.2%"
         }
       },
       "home_last5": {
@@ -323,20 +131,20 @@
       },
       "comparison": {
         "form": {
-          "home": "67%",
-          "away": "33%"
+          "home": "60%",
+          "away": "40%"
         },
         "att": {
-          "home": "65%",
-          "away": "35%"
+          "home": "61%",
+          "away": "39%"
         },
         "def": {
           "home": "57%",
           "away": "43%"
         },
         "poisson_distribution": {
-          "home": "62%",
-          "away": "38%"
+          "home": "59%",
+          "away": "41%"
         },
         "h2h": {
           "home": "0%",
@@ -347,14 +155,14 @@
           "away": "0%"
         },
         "total": {
-          "home": "62.8%",
-          "away": "37.3%"
+          "home": "59.3%",
+          "away": "40.8%"
         }
       },
       "home_last5": {
         "form": "100%",
-        "att": "85%",
-        "def": "77%",
+        "att": "73%",
+        "def": "80%",
         "goals": {
           "for": {
             "total": 11,
@@ -367,13 +175,13 @@
         }
       },
       "away_last5": {
-        "form": "50%",
-        "att": "46%",
-        "def": "69%",
+        "form": "67%",
+        "att": "47%",
+        "def": "73%",
         "goals": {
           "for": {
-            "total": 6,
-            "average": "1.5"
+            "total": 7,
+            "average": "1.8"
           },
           "against": {
             "total": 4,
@@ -431,8 +239,8 @@
           "away": "75%"
         },
         "poisson_distribution": {
-          "home": "48%",
-          "away": "52%"
+          "home": "49%",
+          "away": "51%"
         },
         "h2h": {
           "home": "0%",
@@ -443,14 +251,14 @@
           "away": "0%"
         },
         "total": {
-          "home": "46.8%",
-          "away": "53.3%"
+          "home": "47.0%",
+          "away": "53.0%"
         }
       },
       "home_last5": {
         "form": "83%",
-        "att": "69%",
-        "def": "77%",
+        "att": "60%",
+        "def": "80%",
         "goals": {
           "for": {
             "total": 9,
@@ -464,8 +272,8 @@
       },
       "away_last5": {
         "form": "83%",
-        "att": "38%",
-        "def": "92%",
+        "att": "33%",
+        "def": "93%",
         "goals": {
           "for": {
             "total": 5,

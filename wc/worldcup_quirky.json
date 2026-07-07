@@ -1,95 +1,141 @@
 {
-    "last_updated": "2026-07-06T20:00:22.394696Z",
+    "last_updated": "2026-07-07T08:00:06.515560Z",
     "referee_report": [
         {
-            "name": "I. Elfath",
+            "name": "Anthony Taylor",
             "matches_officiated": 1,
-            "total_fouls_called": 13,
-            "total_yellows": 1,
+            "total_fouls_called": 22,
+            "total_yellows": 3,
             "total_reds": 0
+        },
+        {
+            "name": "A. Faghani",
+            "matches_officiated": 1,
+            "total_fouls_called": 21,
+            "total_yellows": 6,
+            "total_reds": 1
         }
     ],
     "quirky_player_stats": {
         "snipers": [
             {
-                "name": "Erling Haaland",
-                "team": "Norway",
-                "photo": "https://media.api-sports.io/football/players/1100.png",
-                "minutes": 90,
-                "offsides": 0,
+                "name": "Ra\u00fal Jim\u00e9nez",
+                "team": "Mexico",
+                "photo": "https://media.api-sports.io/football/players/2887.png",
+                "minutes": 103,
+                "offsides": 1,
                 "fouls_drawn": 0,
-                "fouls_committed": 1,
-                "shots_total": 4,
+                "fouls_committed": 3,
+                "shots_total": 6,
                 "shots_on_target": 3,
-                "interceptions": 1,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Jude Bellingham",
+                "team": "England",
+                "photo": "https://media.api-sports.io/football/players/129718.png",
+                "minutes": 103,
+                "offsides": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 1,
+                "shots_total": 3,
+                "shots_on_target": 3,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Cristiano Ronaldo",
+                "team": "Portugal",
+                "photo": "https://media.api-sports.io/football/players/874.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 2,
+                "fouls_committed": 0,
+                "shots_total": 3,
+                "shots_on_target": 2,
+                "interceptions": 0,
                 "blocks": 0
             }
         ],
         "most_fouled": [
             {
-                "name": "Casemiro",
-                "team": "Brazil",
-                "photo": "https://media.api-sports.io/football/players/747.png",
-                "minutes": 90,
+                "name": "Anthony Gordon",
+                "team": "England",
+                "photo": "https://media.api-sports.io/football/players/138787.png",
+                "minutes": 103,
                 "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 1,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 1,
-                "blocks": 0
-            },
-            {
-                "name": "Marquinhos",
-                "team": "Brazil",
-                "photo": "https://media.api-sports.io/football/players/257.png",
-                "minutes": 90,
-                "offsides": 0,
-                "fouls_drawn": 1,
+                "fouls_drawn": 4,
                 "fouls_committed": 0,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 2,
-                "blocks": 0
-            },
-            {
-                "name": "Gabriel Martinelli",
-                "team": "Brazil",
-                "photo": "https://media.api-sports.io/football/players/127769.png",
-                "minutes": 67,
-                "offsides": 0,
-                "fouls_drawn": 1,
-                "fouls_committed": 1,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 1,
-                "blocks": 0
-            }
-        ],
-        "offside_kings": [
-            {
-                "name": "Rayan",
-                "team": "Brazil",
-                "photo": "https://media.api-sports.io/football/players/407806.png",
-                "minutes": 67,
-                "offsides": 1,
-                "fouls_drawn": 0,
-                "fouls_committed": 2,
-                "shots_total": 2,
+                "shots_total": 1,
                 "shots_on_target": 1,
                 "interceptions": 1,
                 "blocks": 0
             },
             {
-                "name": "Alexander S\u00f8rloth",
-                "team": "Norway",
-                "photo": "https://media.api-sports.io/football/players/8492.png",
-                "minutes": 45,
-                "offsides": 1,
-                "fouls_drawn": 0,
+                "name": "Jo\u00e3o F\u00e9lix",
+                "team": "Portugal",
+                "photo": "https://media.api-sports.io/football/players/583.png",
+                "minutes": 71,
+                "offsides": 0,
+                "fouls_drawn": 4,
+                "fouls_committed": 2,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 2,
+                "blocks": 1
+            },
+            {
+                "name": "Ezri Konsa",
+                "team": "England",
+                "photo": "https://media.api-sports.io/football/players/19354.png",
+                "minutes": 103,
+                "offsides": 0,
+                "fouls_drawn": 3,
                 "fouls_committed": 0,
                 "shots_total": 0,
                 "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 2
+            }
+        ],
+        "offside_kings": [
+            {
+                "name": "Ra\u00fal Jim\u00e9nez",
+                "team": "Mexico",
+                "photo": "https://media.api-sports.io/football/players/2887.png",
+                "minutes": 103,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 3,
+                "shots_total": 6,
+                "shots_on_target": 3,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Bruno Fernandes",
+                "team": "Portugal",
+                "photo": "https://media.api-sports.io/football/players/1485.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 1,
+                "fouls_committed": 0,
+                "shots_total": 1,
+                "shots_on_target": 0,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Cristiano Ronaldo",
+                "team": "Portugal",
+                "photo": "https://media.api-sports.io/football/players/874.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 2,
+                "fouls_committed": 0,
+                "shots_total": 3,
+                "shots_on_target": 2,
                 "interceptions": 0,
                 "blocks": 0
             }

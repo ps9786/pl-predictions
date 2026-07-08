@@ -446,8 +446,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "Arrowhead Stadium",
+          "city": "Kansas City"
         },
         "status": {
           "long": "Not Started",

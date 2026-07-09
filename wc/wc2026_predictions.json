@@ -1,24 +1,24 @@
 [
   {
-    "match_date": "2026-06-19",
+    "match_date": "2026-07-09",
     "fixture": {
-      "fixture_id": 1489388,
-      "date_utc": "2026-06-19T01:00:00+00:00",
-      "status": "Match Finished",
-      "venue": "Estadio Akron",
-      "city": "Guadalajara",
+      "fixture_id": 1578539,
+      "date_utc": "2026-07-09T20:00:00+00:00",
+      "status": "Second Half",
+      "venue": "Gillette Stadium",
+      "city": "Boston",
       "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Mexico",
-      "away_team": "South Korea",
-      "goals_home": 1,
+      "round": "Quarter-finals",
+      "home_team": "France",
+      "away_team": "Morocco",
+      "goals_home": 2,
       "goals_away": 0
     },
     "prediction": {
       "available": true,
       "winner": {
-        "id": 16,
-        "name": "Mexico",
+        "id": 2,
+        "name": "France",
         "comment": "Win or draw"
       },
       "win_or_draw": true,
@@ -27,7 +27,7 @@
         "home": "-2.5",
         "away": "-2.5"
       },
-      "advice": "Double chance : Mexico or draw",
+      "advice": "Double chance : France or draw",
       "win_probabilities": {
         "home": "45%",
         "draw": "45%",
@@ -35,637 +35,157 @@
       },
       "comparison": {
         "form": {
-          "home": "50%",
-          "away": "50%"
+          "home": "54%",
+          "away": "46%"
         },
         "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "88%",
-          "away": "13%"
-        },
-        "goals": {
-          "home": "58%",
-          "away": "42%"
-        },
-        "total": {
-          "home": "61.5%",
-          "away": "38.8%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-19",
-    "fixture": {
-      "fixture_id": 1489391,
-      "date_utc": "2026-06-19T19:00:00+00:00",
-      "status": "Not Started",
-      "venue": "Lumen Field",
-      "city": "Seattle",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "USA",
-      "away_team": "Australia",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 2384,
-        "name": "USA",
-        "comment": null
-      },
-      "win_or_draw": false,
-      "under_over": null,
-      "goals": {
-        "home": "-4.5",
-        "away": "-2.5"
-      },
-      "advice": "Winner : USA",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "att": {
-          "home": "67%",
-          "away": "33%"
-        },
-        "def": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "67%",
-          "away": "33%"
-        },
-        "total": {
-          "home": "61.3%",
-          "away": "38.7%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "22%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 4,
-            "average": "4.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "11%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 2,
-            "average": "2.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-19",
-    "fixture": {
-      "fixture_id": 1489390,
-      "date_utc": "2026-06-19T22:00:00+00:00",
-      "status": "Not Started",
-      "venue": "Gillette Stadium",
-      "city": "Boston",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Scotland",
-      "away_team": "Morocco",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 1108,
-        "name": "Scotland",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": "-3.5",
-      "goals": {
-        "home": "-1.5",
-        "away": "-1.5"
-      },
-      "advice": "Combo Double chance : Scotland or draw and -3.5 goals",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "75%",
-          "away": "25%"
-        },
-        "att": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "62.5%",
-          "away": "37.5%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "6%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "33%",
-        "att": "6%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-20",
-    "fixture": {
-      "fixture_id": 1489389,
-      "date_utc": "2026-06-20T00:30:00+00:00",
-      "status": "Not Started",
-      "venue": "Lincoln Financial Field",
-      "city": "Philadelphia",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Brazil",
-      "away_team": "Haiti",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 6,
-        "name": "Brazil",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": "-3.5",
-      "goals": {
-        "home": "-1.5",
-        "away": null
-      },
-      "advice": "Combo Double chance : Brazil or draw and -3.5 goals",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "att": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "def": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "88%",
-          "away": "13%"
-        },
-        "total": {
-          "home": "69.0%",
-          "away": "31.5%"
-        }
-      },
-      "home_last5": {
-        "form": "33%",
-        "att": "6%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "0%",
-        "att": "0%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 0,
-            "average": "0.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-20",
-    "fixture": {
-      "fixture_id": 1539006,
-      "date_utc": "2026-06-20T03:00:00+00:00",
-      "status": "Not Started",
-      "venue": "Levi's Stadium",
-      "city": "San Francisco Bay Area",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Türkiye",
-      "away_team": "Paraguay",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": null,
-        "name": null,
-        "comment": null
-      },
-      "win_or_draw": false,
-      "under_over": null,
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "advice": "No predictions available",
-      "win_probabilities": {
-        "home": "33%",
-        "draw": "33%",
-        "away": "33%"
-      },
-      "comparison": {
-        "form": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "att": {
-          "home": "0%",
-          "away": "100%"
+          "home": "56%",
+          "away": "44%"
         },
         "def": {
           "home": "67%",
           "away": "33%"
         },
         "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
+          "home": "65%",
+          "away": "35%"
         },
         "h2h": {
-          "home": "0%",
+          "home": "100%",
           "away": "0%"
         },
         "goals": {
-          "home": "0%",
+          "home": "100%",
           "away": "0%"
         },
         "total": {
-          "home": "67.0%",
-          "away": "33.0%"
+          "home": "60.5%",
+          "away": "39.5%"
         }
       },
       "home_last5": {
-        "form": "0%",
-        "att": "0%",
-        "def": "89%",
+        "form": "100%",
+        "att": "88%",
+        "def": "88%",
         "goals": {
           "for": {
-            "total": 0,
-            "average": "0.0"
+            "total": 14,
+            "average": "2.8"
           },
           "against": {
             "total": 2,
-            "average": "2.0"
+            "average": "0.4"
           }
         }
       },
       "away_last5": {
-        "form": "0%",
-        "att": "6%",
-        "def": "78%",
+        "form": "87%",
+        "att": "69%",
+        "def": "75%",
         "goals": {
           "for": {
-            "total": 1,
-            "average": "1.0"
+            "total": 11,
+            "average": "2.2"
           },
           "against": {
             "total": 4,
-            "average": "4.0"
+            "average": "0.8"
           }
         }
       }
     }
   },
   {
-    "match_date": "2026-06-20",
+    "match_date": "2026-07-10",
     "fixture": {
-      "fixture_id": 1539007,
-      "date_utc": "2026-06-20T17:00:00+00:00",
+      "fixture_id": 1581821,
+      "date_utc": "2026-07-10T19:00:00+00:00",
       "status": "Not Started",
-      "venue": "NRG Stadium",
-      "city": "Houston",
+      "venue": "SoFi Stadium",
+      "city": "Los Angeles",
       "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Netherlands",
-      "away_team": "Sweden",
+      "round": "Quarter-finals",
+      "home_team": "Spain",
+      "away_team": "Belgium",
       "goals_home": null,
       "goals_away": null
     },
     "prediction": {
       "available": true,
       "winner": {
-        "id": 5,
-        "name": "Sweden",
-        "comment": null
+        "id": 9,
+        "name": "Spain",
+        "comment": "Win or draw"
       },
-      "win_or_draw": false,
-      "under_over": "+2.5",
+      "win_or_draw": true,
+      "under_over": null,
       "goals": {
         "home": "-2.5",
-        "away": "-5.5"
+        "away": "-3.5"
       },
-      "advice": "Combo Winner : Sweden and +2.5 goals",
+      "advice": "Double chance : Spain or draw",
       "win_probabilities": {
-        "home": "10%",
+        "home": "45%",
         "draw": "45%",
-        "away": "45%"
+        "away": "10%"
       },
       "comparison": {
         "form": {
-          "home": "25%",
-          "away": "75%"
+          "home": "54%",
+          "away": "46%"
         },
         "att": {
-          "home": "29%",
-          "away": "71%"
+          "home": "41%",
+          "away": "59%"
         },
         "def": {
-          "home": "33%",
-          "away": "67%"
+          "home": "100%",
+          "away": "0%"
         },
         "poisson_distribution": {
-          "home": "0%",
+          "home": "100%",
           "away": "0%"
         },
         "h2h": {
-          "home": "80%",
-          "away": "20%"
+          "home": "0%",
+          "away": "0%"
         },
         "goals": {
-          "home": "75%",
-          "away": "25%"
+          "home": "0%",
+          "away": "0%"
         },
         "total": {
-          "home": "48.4%",
-          "away": "51.6%"
+          "home": "47.5%",
+          "away": "52.5%"
         }
       },
       "home_last5": {
-        "form": "33%",
-        "att": "11%",
-        "def": "89%",
+        "form": "87%",
+        "att": "56%",
+        "def": "100%",
         "goals": {
           "for": {
-            "total": 2,
-            "average": "2.0"
+            "total": 9,
+            "average": "1.8"
           },
           "against": {
-            "total": 2,
-            "average": "2.0"
+            "total": 0,
+            "average": "0.0"
           }
         }
       },
       "away_last5": {
-        "form": "100%",
-        "att": "28%",
-        "def": "94%",
+        "form": "73%",
+        "att": "81%",
+        "def": "69%",
         "goals": {
           "for": {
+            "total": 13,
+            "average": "2.6"
+          },
+          "against": {
             "total": 5,
-            "average": "5.0"
-          },
-          "against": {
-            "total": 1,
             "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
-    "match_date": "2026-06-20",
-    "fixture": {
-      "fixture_id": 1489393,
-      "date_utc": "2026-06-20T20:00:00+00:00",
-      "status": "Not Started",
-      "venue": "BMO Field",
-      "city": "Toronto",
-      "league": "World Cup",
-      "round": "Group Stage - 2",
-      "home_team": "Germany",
-      "away_team": "Ivory Coast",
-      "goals_home": null,
-      "goals_away": null
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 25,
-        "name": "Germany",
-        "comment": null
-      },
-      "win_or_draw": false,
-      "under_over": "+1.5",
-      "goals": {
-        "home": "-7.5",
-        "away": "-1.5"
-      },
-      "advice": "Combo Winner : Germany and +1.5 goals",
-      "win_probabilities": {
-        "home": "35%",
-        "draw": "35%",
-        "away": "30%"
-      },
-      "comparison": {
-        "form": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "att": {
-          "home": "88%",
-          "away": "13%"
-        },
-        "def": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "69.0%",
-          "away": "31.5%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "39%",
-        "def": "94%",
-        "goals": {
-          "for": {
-            "total": 7,
-            "average": "7.0"
-          },
-          "against": {
-            "total": 1,
-            "average": "1.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "6%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 1,
-            "average": "1.0"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
           }
         }
       }

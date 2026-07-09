@@ -3,11 +3,11 @@
   "parameters": {
     "league": "1",
     "season": "2026",
-    "from": "2026-07-07",
-    "to": "2026-07-15"
+    "from": "2026-07-08",
+    "to": "2026-07-16"
   },
   "errors": [],
-  "results": 7,
+  "results": 4,
   "paging": {
     "current": 1,
     "total": 1
@@ -15,224 +15,14 @@
   "response": [
     {
       "fixture": {
-        "id": 1570715,
-        "referee": "Adham Mohammad, Jordan",
-        "timezone": "UTC",
-        "date": "2026-07-07T00:00:00+00:00",
-        "timestamp": 1783382400,
-        "periods": {
-          "first": 1783382400,
-          "second": 1783386000
-        },
-        "venue": {
-          "id": 11534,
-          "name": "Lumen Field",
-          "city": "Seattle"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 5
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 16",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 2384,
-          "name": "USA",
-          "logo": "https://media.api-sports.io/football/teams/2384.png",
-          "winner": false
-        },
-        "away": {
-          "id": 1,
-          "name": "Belgium",
-          "logo": "https://media.api-sports.io/football/teams/1.png",
-          "winner": true
-        }
-      },
-      "goals": {
-        "home": 1,
-        "away": 4
-      },
-      "score": {
-        "halftime": {
-          "home": 1,
-          "away": 2
-        },
-        "fulltime": {
-          "home": 1,
-          "away": 4
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1576804,
-        "referee": "François Letexier, France",
-        "timezone": "UTC",
-        "date": "2026-07-07T16:00:00+00:00",
-        "timestamp": 1783440000,
-        "periods": {
-          "first": 1783440000,
-          "second": 1783443600
-        },
-        "venue": {
-          "id": 1898,
-          "name": "Mercedes-Benz Stadium",
-          "city": "Atlanta"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "FT",
-          "elapsed": 90,
-          "extra": 11
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 16",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 26,
-          "name": "Argentina",
-          "logo": "https://media.api-sports.io/football/teams/26.png",
-          "winner": true
-        },
-        "away": {
-          "id": 32,
-          "name": "Egypt",
-          "logo": "https://media.api-sports.io/football/teams/32.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 3,
-        "away": 2
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 1
-        },
-        "fulltime": {
-          "home": 3,
-          "away": 2
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1576805,
-        "referee": "Iván Barton, El Salvador",
-        "timezone": "UTC",
-        "date": "2026-07-07T20:00:00+00:00",
-        "timestamp": 1783454400,
-        "periods": {
-          "first": 1783454400,
-          "second": 1783458000
-        },
-        "venue": {
-          "id": 19445,
-          "name": "BC Place",
-          "city": "Vancouver"
-        },
-        "status": {
-          "long": "Match Finished",
-          "short": "PEN",
-          "elapsed": 120,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Round of 16",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 15,
-          "name": "Switzerland",
-          "logo": "https://media.api-sports.io/football/teams/15.png",
-          "winner": true
-        },
-        "away": {
-          "id": 8,
-          "name": "Colombia",
-          "logo": "https://media.api-sports.io/football/teams/8.png",
-          "winner": false
-        }
-      },
-      "goals": {
-        "home": 0,
-        "away": 0
-      },
-      "score": {
-        "halftime": {
-          "home": 0,
-          "away": 0
-        },
-        "fulltime": {
-          "home": 0,
-          "away": 0
-        },
-        "extratime": {
-          "home": 0,
-          "away": 0
-        },
-        "penalty": {
-          "home": 4,
-          "away": 3
-        }
-      }
-    },
-    {
-      "fixture": {
         "id": 1578539,
-        "referee": null,
+        "referee": "Facundo Raul Tello Figueroa, Argentina",
         "timezone": "UTC",
         "date": "2026-07-09T20:00:00+00:00",
         "timestamp": 1783627200,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1783627200,
+          "second": 1783630800
         },
         "venue": {
           "id": 1618,
@@ -240,9 +30,9 @@
           "city": "Boston"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 76,
           "extra": null
         }
       },
@@ -261,23 +51,23 @@
           "id": 2,
           "name": "France",
           "logo": "https://media.api-sports.io/football/teams/2.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 31,
           "name": "Morocco",
           "logo": "https://media.api-sports.io/football/teams/31.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
           "home": null,
@@ -446,8 +236,8 @@
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "Arrowhead Stadium",
+          "city": "Kansas City"
         },
         "status": {
           "long": "Not Started",

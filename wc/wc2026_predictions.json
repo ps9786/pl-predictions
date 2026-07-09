@@ -4,15 +4,24 @@
     "fixture": {
       "fixture_id": 1578539,
       "date_utc": "2026-07-09T20:00:00+00:00",
+<<<<<<< HEAD
       "status": "Second Half",
+=======
+      "status": "Not Started",
+>>>>>>> f414085ec64ae2e00c8a80319655b3df81f13799
       "venue": "Gillette Stadium",
       "city": "Boston",
       "league": "World Cup",
       "round": "Quarter-finals",
       "home_team": "France",
       "away_team": "Morocco",
+<<<<<<< HEAD
       "goals_home": 2,
       "goals_away": 0
+=======
+      "goals_home": null,
+      "goals_away": null
+>>>>>>> f414085ec64ae2e00c8a80319655b3df81f13799
     },
     "prediction": {
       "available": true,
@@ -140,12 +149,21 @@
         },
         "def": {
           "home": "100%",
+<<<<<<< HEAD
           "away": "0%"
         },
         "poisson_distribution": {
           "home": "100%",
           "away": "0%"
         },
+=======
+          "away": "0%"
+        },
+        "poisson_distribution": {
+          "home": "100%",
+          "away": "0%"
+        },
+>>>>>>> f414085ec64ae2e00c8a80319655b3df81f13799
         "h2h": {
           "home": "0%",
           "away": "0%"

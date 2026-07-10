@@ -1,101 +1,5 @@
 [
   {
-    "match_date": "2026-07-09",
-    "fixture": {
-      "fixture_id": 1578539,
-      "date_utc": "2026-07-09T20:00:00+00:00",
-      "status": "Second Half",
-      "venue": "Gillette Stadium",
-      "city": "Boston",
-      "league": "World Cup",
-      "round": "Quarter-finals",
-      "home_team": "France",
-      "away_team": "Morocco",
-      "goals_home": 2,
-      "goals_away": 0
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 2,
-        "name": "France",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": null,
-      "goals": {
-        "home": "-2.5",
-        "away": "-2.5"
-      },
-      "advice": "Double chance : France or draw",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "54%",
-          "away": "46%"
-        },
-        "att": {
-          "home": "56%",
-          "away": "44%"
-        },
-        "def": {
-          "home": "67%",
-          "away": "33%"
-        },
-        "poisson_distribution": {
-          "home": "65%",
-          "away": "35%"
-        },
-        "h2h": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "60.5%",
-          "away": "39.5%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "88%",
-        "def": "88%",
-        "goals": {
-          "for": {
-            "total": 14,
-            "average": "2.8"
-          },
-          "against": {
-            "total": 2,
-            "average": "0.4"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "87%",
-        "att": "69%",
-        "def": "75%",
-        "goals": {
-          "for": {
-            "total": 11,
-            "average": "2.2"
-          },
-          "against": {
-            "total": 4,
-            "average": "0.8"
-          }
-        }
-      }
-    }
-  },
-  {
     "match_date": "2026-07-10",
     "fixture": {
       "fixture_id": 1581821,
@@ -161,7 +65,7 @@
       },
       "home_last5": {
         "form": "87%",
-        "att": "56%",
+        "att": "69%",
         "def": "100%",
         "goals": {
           "for": {
@@ -176,12 +80,108 @@
       },
       "away_last5": {
         "form": "73%",
-        "att": "81%",
-        "def": "69%",
+        "att": "100%",
+        "def": "62%",
         "goals": {
           "for": {
             "total": 13,
             "average": "2.6"
+          },
+          "against": {
+            "total": 5,
+            "average": "1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-07-11",
+    "fixture": {
+      "fixture_id": 1581037,
+      "date_utc": "2026-07-11T21:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Hard Rock Stadium",
+      "city": "Miami",
+      "league": "World Cup",
+      "round": "Quarter-finals",
+      "home_team": "Norway",
+      "away_team": "England",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 10,
+        "name": "England",
+        "comment": null
+      },
+      "win_or_draw": false,
+      "under_over": "+1.5",
+      "goals": {
+        "home": "-2.5",
+        "away": "-5.5"
+      },
+      "advice": "Combo Winner : England and +1.5 goals",
+      "win_probabilities": {
+        "home": "10%",
+        "draw": "45%",
+        "away": "45%"
+      },
+      "comparison": {
+        "form": {
+          "home": "48%",
+          "away": "52%"
+        },
+        "att": {
+          "home": "52%",
+          "away": "48%"
+        },
+        "def": {
+          "home": "36%",
+          "away": "64%"
+        },
+        "poisson_distribution": {
+          "home": "16%",
+          "away": "84%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "38.0%",
+          "away": "62.0%"
+        }
+      },
+      "home_last5": {
+        "form": "80%",
+        "att": "92%",
+        "def": "31%",
+        "goals": {
+          "for": {
+            "total": 12,
+            "average": "2.4"
+          },
+          "against": {
+            "total": 9,
+            "average": "1.8"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "87%",
+        "att": "85%",
+        "def": "62%",
+        "goals": {
+          "for": {
+            "total": 11,
+            "average": "2.2"
           },
           "against": {
             "total": 5,

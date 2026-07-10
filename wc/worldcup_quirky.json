@@ -1,6 +1,84 @@
 {
-    "last_updated": "2026-07-09T21:46:21.799422Z",
-    "status": "No matches played yesterday.",
-    "referee_report": [],
-    "quirky_player_stats": {}
+    "last_updated": "2026-07-10T08:00:07.523354Z",
+    "referee_report": [
+        {
+            "name": "Facundo Raul Tello Figueroa",
+            "matches_officiated": 1,
+            "total_fouls_called": 23,
+            "total_yellows": 1,
+            "total_reds": 0
+        }
+    ],
+    "quirky_player_stats": {
+        "snipers": [
+            {
+                "name": "D\u00e9sir\u00e9 Dou\u00e9",
+                "team": "France",
+                "photo": "https://media.api-sports.io/football/players/343027.png",
+                "minutes": 77,
+                "offsides": 0,
+                "fouls_drawn": 1,
+                "fouls_committed": 2,
+                "shots_total": 2,
+                "shots_on_target": 2,
+                "interceptions": 1,
+                "blocks": 0
+            },
+            {
+                "name": "Kylian Mbapp\u00e9",
+                "team": "France",
+                "photo": "https://media.api-sports.io/football/players/278.png",
+                "minutes": 77,
+                "offsides": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 0,
+                "shots_total": 4,
+                "shots_on_target": 2,
+                "interceptions": 0,
+                "blocks": 0
+            }
+        ],
+        "most_fouled": [
+            {
+                "name": "Michael Olise",
+                "team": "France",
+                "photo": "https://media.api-sports.io/football/players/19617.png",
+                "minutes": 90,
+                "offsides": 0,
+                "fouls_drawn": 4,
+                "fouls_committed": 0,
+                "shots_total": 2,
+                "shots_on_target": 0,
+                "interceptions": 2,
+                "blocks": 0
+            },
+            {
+                "name": "Manu Kon\u00e9",
+                "team": "France",
+                "photo": "https://media.api-sports.io/football/players/22147.png",
+                "minutes": 71,
+                "offsides": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 0,
+                "shots_total": 0,
+                "shots_on_target": 0,
+                "interceptions": 1,
+                "blocks": 0
+            },
+            {
+                "name": "Kylian Mbapp\u00e9",
+                "team": "France",
+                "photo": "https://media.api-sports.io/football/players/278.png",
+                "minutes": 77,
+                "offsides": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 0,
+                "shots_total": 4,
+                "shots_on_target": 2,
+                "interceptions": 0,
+                "blocks": 0
+            }
+        ],
+        "offside_kings": []
+    }
 }

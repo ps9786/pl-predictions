@@ -1,101 +1,5 @@
 [
   {
-    "match_date": "2026-07-10",
-    "fixture": {
-      "fixture_id": 1581821,
-      "date_utc": "2026-07-10T19:00:00+00:00",
-      "status": "Halftime",
-      "venue": "SoFi Stadium",
-      "city": "Los Angeles",
-      "league": "World Cup",
-      "round": "Quarter-finals",
-      "home_team": "Spain",
-      "away_team": "Belgium",
-      "goals_home": 1,
-      "goals_away": 1
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 9,
-        "name": "Spain",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": null,
-      "goals": {
-        "home": "-2.5",
-        "away": "-3.5"
-      },
-      "advice": "Double chance : Spain or draw",
-      "win_probabilities": {
-        "home": "45%",
-        "draw": "45%",
-        "away": "10%"
-      },
-      "comparison": {
-        "form": {
-          "home": "54%",
-          "away": "46%"
-        },
-        "att": {
-          "home": "41%",
-          "away": "59%"
-        },
-        "def": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "poisson_distribution": {
-          "home": "100%",
-          "away": "0%"
-        },
-        "h2h": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "goals": {
-          "home": "0%",
-          "away": "0%"
-        },
-        "total": {
-          "home": "47.5%",
-          "away": "52.5%"
-        }
-      },
-      "home_last5": {
-        "form": "87%",
-        "att": "69%",
-        "def": "100%",
-        "goals": {
-          "for": {
-            "total": 9,
-            "average": "1.8"
-          },
-          "against": {
-            "total": 0,
-            "average": "0.0"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "73%",
-        "att": "100%",
-        "def": "62%",
-        "goals": {
-          "for": {
-            "total": 13,
-            "average": "2.6"
-          },
-          "against": {
-            "total": 5,
-            "average": "1.0"
-          }
-        }
-      }
-    }
-  },
-  {
     "match_date": "2026-07-11",
     "fixture": {
       "fixture_id": 1581037,
@@ -161,8 +65,8 @@
       },
       "home_last5": {
         "form": "80%",
-        "att": "92%",
-        "def": "31%",
+        "att": "80%",
+        "def": "40%",
         "goals": {
           "for": {
             "total": 12,
@@ -176,8 +80,8 @@
       },
       "away_last5": {
         "form": "87%",
-        "att": "85%",
-        "def": "62%",
+        "att": "73%",
+        "def": "67%",
         "goals": {
           "for": {
             "total": 11,
@@ -186,6 +90,102 @@
           "against": {
             "total": 5,
             "average": "1.0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "match_date": "2026-07-12",
+    "fixture": {
+      "fixture_id": 1582681,
+      "date_utc": "2026-07-12T01:00:00+00:00",
+      "status": "Not Started",
+      "venue": "Arrowhead Stadium",
+      "city": "Kansas City",
+      "league": "World Cup",
+      "round": "Quarter-finals",
+      "home_team": "Argentina",
+      "away_team": "Switzerland",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 26,
+        "name": "Argentina",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": null,
+      "goals": {
+        "home": "-3.5",
+        "away": "-2.5"
+      },
+      "advice": "Double chance : Argentina or draw",
+      "win_probabilities": {
+        "home": "45%",
+        "draw": "45%",
+        "away": "10%"
+      },
+      "comparison": {
+        "form": {
+          "home": "58%",
+          "away": "42%"
+        },
+        "att": {
+          "home": "61%",
+          "away": "39%"
+        },
+        "def": {
+          "home": "38%",
+          "away": "63%"
+        },
+        "poisson_distribution": {
+          "home": "66%",
+          "away": "34%"
+        },
+        "h2h": {
+          "home": "100%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "100%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "55.8%",
+          "away": "44.5%"
+        }
+      },
+      "home_last5": {
+        "form": "100%",
+        "att": "100%",
+        "def": "62%",
+        "goals": {
+          "for": {
+            "total": 14,
+            "average": "2.8"
+          },
+          "against": {
+            "total": 5,
+            "average": "1.0"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "73%",
+        "att": "69%",
+        "def": "77%",
+        "goals": {
+          "for": {
+            "total": 9,
+            "average": "1.8"
+          },
+          "against": {
+            "total": 3,
+            "average": "0.6"
           }
         }
       }

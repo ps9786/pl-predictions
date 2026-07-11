@@ -1,37 +1,24 @@
 {
-    "last_updated": "2026-07-10T20:00:12.250475Z",
+    "last_updated": "2026-07-11T08:00:10.309992Z",
     "referee_report": [
         {
-            "name": "Facundo Raul Tello Figueroa",
+            "name": "Michael Oliver",
             "matches_officiated": 1,
-            "total_fouls_called": 23,
-            "total_yellows": 1,
+            "total_fouls_called": 31,
+            "total_yellows": 4,
             "total_reds": 0
         }
     ],
     "quirky_player_stats": {
         "snipers": [
             {
-                "name": "D\u00e9sir\u00e9 Dou\u00e9",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/343027.png",
-                "minutes": 77,
-                "offsides": 0,
-                "fouls_drawn": 1,
+                "name": "Lamine Yamal",
+                "team": "Spain",
+                "photo": "https://media.api-sports.io/football/players/386828.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 4,
                 "fouls_committed": 2,
-                "shots_total": 2,
-                "shots_on_target": 2,
-                "interceptions": 1,
-                "blocks": 0
-            },
-            {
-                "name": "Kylian Mbapp\u00e9",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/278.png",
-                "minutes": 77,
-                "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 0,
                 "shots_total": 4,
                 "shots_on_target": 2,
                 "interceptions": 0,
@@ -40,45 +27,85 @@
         ],
         "most_fouled": [
             {
-                "name": "Michael Olise",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/19617.png",
+                "name": "J\u00e9r\u00e9my Doku",
+                "team": "Belgium",
+                "photo": "https://media.api-sports.io/football/players/1422.png",
                 "minutes": 90,
                 "offsides": 0,
-                "fouls_drawn": 4,
-                "fouls_committed": 0,
-                "shots_total": 2,
+                "fouls_drawn": 5,
+                "fouls_committed": 3,
+                "shots_total": 0,
                 "shots_on_target": 0,
                 "interceptions": 2,
                 "blocks": 0
             },
             {
-                "name": "Manu Kon\u00e9",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/22147.png",
-                "minutes": 71,
-                "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 0,
-                "shots_total": 0,
-                "shots_on_target": 0,
-                "interceptions": 1,
-                "blocks": 0
-            },
-            {
-                "name": "Kylian Mbapp\u00e9",
-                "team": "France",
-                "photo": "https://media.api-sports.io/football/players/278.png",
-                "minutes": 77,
-                "offsides": 0,
-                "fouls_drawn": 2,
-                "fouls_committed": 0,
+                "name": "Lamine Yamal",
+                "team": "Spain",
+                "photo": "https://media.api-sports.io/football/players/386828.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 4,
+                "fouls_committed": 2,
                 "shots_total": 4,
                 "shots_on_target": 2,
                 "interceptions": 0,
                 "blocks": 0
+            },
+            {
+                "name": "Pedro Porro",
+                "team": "Spain",
+                "photo": "https://media.api-sports.io/football/players/47519.png",
+                "minutes": 90,
+                "offsides": 0,
+                "fouls_drawn": 2,
+                "fouls_committed": 4,
+                "shots_total": 1,
+                "shots_on_target": 0,
+                "interceptions": 1,
+                "blocks": 0
             }
         ],
-        "offside_kings": []
+        "offside_kings": [
+            {
+                "name": "Marc Cucurella",
+                "team": "Spain",
+                "photo": "https://media.api-sports.io/football/players/47380.png",
+                "minutes": 90,
+                "offsides": 2,
+                "fouls_drawn": 0,
+                "fouls_committed": 1,
+                "shots_total": 1,
+                "shots_on_target": 1,
+                "interceptions": 0,
+                "blocks": 1
+            },
+            {
+                "name": "Lamine Yamal",
+                "team": "Spain",
+                "photo": "https://media.api-sports.io/football/players/386828.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 4,
+                "fouls_committed": 2,
+                "shots_total": 4,
+                "shots_on_target": 2,
+                "interceptions": 0,
+                "blocks": 0
+            },
+            {
+                "name": "Charles De Ketelaere",
+                "team": "Belgium",
+                "photo": "https://media.api-sports.io/football/players/147859.png",
+                "minutes": 90,
+                "offsides": 1,
+                "fouls_drawn": 0,
+                "fouls_committed": 0,
+                "shots_total": 1,
+                "shots_on_target": 1,
+                "interceptions": 0,
+                "blocks": 0
+            }
+        ]
     }
 }

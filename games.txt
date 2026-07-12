@@ -1,4 +1,2 @@
-France - Morroco
-Spain - Belgium
-Norway - England
-Argentina - Switzerland
+France - Spain
+England - Argentina

@@ -94,5 +94,101 @@
         }
       }
     }
+  },
+  {
+    "match_date": "2026-07-15",
+    "fixture": {
+      "fixture_id": 1586077,
+      "date_utc": "2026-07-15T19:00:00+00:00",
+      "status": "Not Started",
+      "venue": null,
+      "city": null,
+      "league": "World Cup",
+      "round": "Semi-finals",
+      "home_team": "England",
+      "away_team": "Argentina",
+      "goals_home": null,
+      "goals_away": null
+    },
+    "prediction": {
+      "available": true,
+      "winner": {
+        "id": 26,
+        "name": "Argentina",
+        "comment": "Win or draw"
+      },
+      "win_or_draw": true,
+      "under_over": null,
+      "goals": {
+        "home": "-2.5",
+        "away": "-3.5"
+      },
+      "advice": "Double chance : draw or Argentina",
+      "win_probabilities": {
+        "home": "10%",
+        "draw": "45%",
+        "away": "45%"
+      },
+      "comparison": {
+        "form": {
+          "home": "46%",
+          "away": "54%"
+        },
+        "att": {
+          "home": "39%",
+          "away": "61%"
+        },
+        "def": {
+          "home": "60%",
+          "away": "40%"
+        },
+        "poisson_distribution": {
+          "home": "32%",
+          "away": "68%"
+        },
+        "h2h": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "goals": {
+          "home": "0%",
+          "away": "0%"
+        },
+        "total": {
+          "home": "44.3%",
+          "away": "55.8%"
+        }
+      },
+      "home_last5": {
+        "form": "87%",
+        "att": "75%",
+        "def": "67%",
+        "goals": {
+          "for": {
+            "total": 9,
+            "average": "1.8"
+          },
+          "against": {
+            "total": 4,
+            "average": "0.8"
+          }
+        }
+      },
+      "away_last5": {
+        "form": "100%",
+        "att": "100%",
+        "def": "50%",
+        "goals": {
+          "for": {
+            "total": 14,
+            "average": "2.8"
+          },
+          "against": {
+            "total": 6,
+            "average": "1.2"
+          }
+        }
+      }
+    }
   }
 ]

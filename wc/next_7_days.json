@@ -16,23 +16,23 @@
     {
       "fixture": {
         "id": 1585131,
-        "referee": null,
+        "referee": "Iván Barton, El Salvador",
         "timezone": "UTC",
         "date": "2026-07-14T19:00:00+00:00",
         "timestamp": 1784055600,
         "periods": {
-          "first": null,
+          "first": 1784055600,
           "second": null
         },
         "venue": {
           "id": 0,
-          "name": null,
-          "city": null
+          "name": "Dallas Stadium",
+          "city": "Arlington"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Halftime",
+          "short": "HT",
+          "elapsed": 45,
           "extra": null
         }
       },
@@ -51,23 +51,23 @@
           "id": 2,
           "name": "France",
           "logo": "https://media.api-sports.io/football/teams/2.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 9,
           "name": "Spain",
           "logo": "https://media.api-sports.io/football/teams/9.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
           "home": null,

@@ -4,15 +4,15 @@
     "fixture": {
       "fixture_id": 1585131,
       "date_utc": "2026-07-14T19:00:00+00:00",
-      "status": "Not Started",
-      "venue": null,
-      "city": null,
+      "status": "Halftime",
+      "venue": "Dallas Stadium",
+      "city": "Arlington",
       "league": "World Cup",
       "round": "Semi-finals",
       "home_team": "France",
       "away_team": "Spain",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 0,
+      "goals_away": 1
     },
     "prediction": {
       "available": true,

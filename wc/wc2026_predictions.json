@@ -1,108 +1,12 @@
 [
   {
-    "match_date": "2026-07-14",
-    "fixture": {
-      "fixture_id": 1585131,
-      "date_utc": "2026-07-14T19:00:00+00:00",
-      "status": "Halftime",
-      "venue": "Dallas Stadium",
-      "city": "Arlington",
-      "league": "World Cup",
-      "round": "Semi-finals",
-      "home_team": "France",
-      "away_team": "Spain",
-      "goals_home": 0,
-      "goals_away": 1
-    },
-    "prediction": {
-      "available": true,
-      "winner": {
-        "id": 9,
-        "name": "Spain",
-        "comment": "Win or draw"
-      },
-      "win_or_draw": true,
-      "under_over": "-3.5",
-      "goals": {
-        "home": "-3.5",
-        "away": "-2.5"
-      },
-      "advice": "Combo Double chance : draw or Spain and -3.5 goals",
-      "win_probabilities": {
-        "home": "10%",
-        "draw": "45%",
-        "away": "45%"
-      },
-      "comparison": {
-        "form": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "att": {
-          "home": "54%",
-          "away": "46%"
-        },
-        "def": {
-          "home": "50%",
-          "away": "50%"
-        },
-        "poisson_distribution": {
-          "home": "0%",
-          "away": "100%"
-        },
-        "h2h": {
-          "home": "20%",
-          "away": "80%"
-        },
-        "goals": {
-          "home": "37%",
-          "away": "63%"
-        },
-        "total": {
-          "home": "42.2%",
-          "away": "57.8%"
-        }
-      },
-      "home_last5": {
-        "form": "100%",
-        "att": "100%",
-        "def": "92%",
-        "goals": {
-          "for": {
-            "total": 13,
-            "average": "2.6"
-          },
-          "against": {
-            "total": 1,
-            "average": "0.2"
-          }
-        }
-      },
-      "away_last5": {
-        "form": "100%",
-        "att": "92%",
-        "def": "92%",
-        "goals": {
-          "for": {
-            "total": 11,
-            "average": "2.2"
-          },
-          "against": {
-            "total": 1,
-            "average": "0.2"
-          }
-        }
-      }
-    }
-  },
-  {
     "match_date": "2026-07-15",
     "fixture": {
       "fixture_id": 1586077,
       "date_utc": "2026-07-15T19:00:00+00:00",
       "status": "Not Started",
-      "venue": null,
-      "city": null,
+      "venue": "Mercedes-Benz Stadium",
+      "city": "Atlanta",
       "league": "World Cup",
       "round": "Semi-finals",
       "home_team": "England",
@@ -161,8 +65,8 @@
       },
       "home_last5": {
         "form": "87%",
-        "att": "75%",
-        "def": "67%",
+        "att": "64%",
+        "def": "71%",
         "goals": {
           "for": {
             "total": 9,
@@ -177,7 +81,7 @@
       "away_last5": {
         "form": "100%",
         "att": "100%",
-        "def": "50%",
+        "def": "57%",
         "goals": {
           "for": {
             "total": 14,

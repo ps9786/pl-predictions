@@ -4,15 +4,15 @@
     "fixture": {
       "fixture_id": 1586077,
       "date_utc": "2026-07-15T19:00:00+00:00",
-      "status": "Not Started",
+      "status": "Halftime",
       "venue": "Mercedes-Benz Stadium",
       "city": "Atlanta",
       "league": "World Cup",
       "round": "Semi-finals",
       "home_team": "England",
       "away_team": "Argentina",
-      "goals_home": null,
-      "goals_away": null
+      "goals_home": 0,
+      "goals_away": 0
     },
     "prediction": {
       "available": true,

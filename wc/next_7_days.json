@@ -15,6 +15,76 @@
   "response": [
     {
       "fixture": {
+        "id": 1586077,
+        "referee": "Ismail Elfath, USA",
+        "timezone": "UTC",
+        "date": "2026-07-15T19:00:00+00:00",
+        "timestamp": 1784142000,
+        "periods": {
+          "first": 1784142000,
+          "second": null
+        },
+        "venue": {
+          "id": 1898,
+          "name": "Mercedes-Benz Stadium",
+          "city": "Atlanta"
+        },
+        "status": {
+          "long": "Halftime",
+          "short": "HT",
+          "elapsed": 45,
+          "extra": 4
+        }
+      },
+      "league": {
+        "id": 1,
+        "name": "World Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Semi-finals",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 10,
+          "name": "England",
+          "logo": "https://media.api-sports.io/football/teams/10.png",
+          "winner": null
+        },
+        "away": {
+          "id": 26,
+          "name": "Argentina",
+          "logo": "https://media.api-sports.io/football/teams/26.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      },
+      "score": {
+        "halftime": {
+          "home": 0,
+          "away": 0
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1585131,
         "referee": "Iván Barton, El Salvador",
         "timezone": "UTC",
@@ -72,76 +142,6 @@
         "fulltime": {
           "home": 0,
           "away": 2
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1586077,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-07-15T19:00:00+00:00",
-        "timestamp": 1784142000,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": 1898,
-          "name": "Mercedes-Benz Stadium",
-          "city": "Atlanta"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 1,
-        "name": "World Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1.png",
-        "flag": null,
-        "season": 2026,
-        "round": "Semi-finals",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 10,
-          "name": "England",
-          "logo": "https://media.api-sports.io/football/teams/10.png",
-          "winner": null
-        },
-        "away": {
-          "id": 26,
-          "name": "Argentina",
-          "logo": "https://media.api-sports.io/football/teams/26.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
         },
         "extratime": {
           "home": null,

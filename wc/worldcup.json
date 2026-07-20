@@ -1257,4 +1257,5 @@
     "time": "15:00 UTC-4",
     "team1": "Spain",
     "team2": "Argentina",
+    "score": {"ft": [1, 0], "ht": [0, 0]},
     "ground": "New York/New Jersey (East Rutherford)"}]}

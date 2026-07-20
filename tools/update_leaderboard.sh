@@ -1,5 +1,5 @@
 cd ~/vscode/pl-predictions
-curl https://raw.githubusercontent.com/openfootball/worldcup.json/refs/heads/master/2026/worldcup.json -o ./wc/worldcup.json
+#curl https://raw.githubusercontent.com/openfootball/worldcup.json/refs/heads/master/2026/worldcup.json -o ./wc/worldcup.json
 cd tools
 ./get_ft_scores.sh
 cd ~/vscode/calculate_leaderboard

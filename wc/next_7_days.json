@@ -3,8 +3,8 @@
   "parameters": {
     "league": "1",
     "season": "2026",
-    "from": "2026-07-20",
-    "to": "2026-07-28"
+    "from": "2026-07-21",
+    "to": "2026-07-29"
   },
   "errors": {
     "plan": "Free plans do not have access to this season, try from 2022 to 2024."

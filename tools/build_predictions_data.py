@@ -18,6 +18,7 @@ Run:  SPORTSDB=<your_key> python3 tools/build_predictions_data.py
 """
 
 import csv
+import http.client
 import os
 import sys
 import time
@@ -40,23 +41,46 @@ H2H_OUT   = os.path.join(ROOT, "matchup_summary.csv")
 FORM_OUT  = os.path.join(ROOT, "team_form_summary.csv")
 
 
-# ── HTTP with 429 handling ──────────────────────────────────────────────────
+# ── HTTP with retries and a circuit breaker ─────────────────────────────────
+MAX_ATTEMPTS = 4          # tries per URL before giving up on it
+ABORT_AFTER  = 5          # consecutive failed URLs => the API is down, stop the run
+
+_consecutive_failures = 0
+
+
+class ApiOutage(RuntimeError):
+    """Raised when several URLs in a row have failed — treat the API as down."""
+
+
 def api_get(path):
+    global _consecutive_failures
     url = f"{BASE_URL}/{path}"
-    for attempt in range(3):
+    for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             with urllib.request.urlopen(url, timeout=25) as resp:
-                return json.load(resp)
+                data = json.load(resp)
+            _consecutive_failures = 0
+            return data
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 print("  [!] Rate limited (429) — pausing 60s…")
                 time.sleep(60)
                 continue
             print(f"  [!] HTTP {e.code} for {path}")
-            return None
-        except Exception as e:
-            print(f"  [!] Request failed ({e}) for {path}")
-            return None
+            break
+        except (OSError, ValueError, http.client.HTTPException) as e:
+            # OSError covers URLError/timeouts/connection resets; ValueError is
+            # bad JSON; HTTPException covers truncated responses (IncompleteRead).
+            if attempt == MAX_ATTEMPTS:
+                print(f"  [!] Request failed ({e}) for {path} — giving up after {MAX_ATTEMPTS} attempts")
+                break
+            wait = 3 * attempt
+            print(f"  [!] Request failed ({e}) for {path} — retry {attempt}/{MAX_ATTEMPTS - 1} in {wait}s")
+            time.sleep(wait)
+
+    _consecutive_failures += 1
+    if _consecutive_failures >= ABORT_AFTER:
+        raise ApiOutage(f"{_consecutive_failures} consecutive API failures — aborting run")
     return None
 
 
@@ -167,6 +191,19 @@ def get_form(team):
 
 
 # ── Main ────────────────────────────────────────────────────────────────────
+def check_api_key():
+    """Fail fast (without touching the CSVs) if the key is rejected.
+
+    TheSportsDB returns HTTP 200 with {'Message': 'Invalid Premium API key…'}
+    for bad keys, so we probe a known team and require a real payload.
+    """
+    probe = api_get("lookupteam.php?id=133604")   # Arsenal
+    if not probe or not probe.get("teams"):
+        msg = (probe or {}).get("Message", "no response")
+        print(f"[!] API key check failed ({msg}) — aborting without writing.")
+        sys.exit(1)
+
+
 def main():
     if API_KEY in ("123", "1", "3"):
         print("[i] Using the FREE test key — form (eventslast) returns only 1 game. "
@@ -176,6 +213,8 @@ def main():
     fixtures = parse_games()
     if not fixtures:
         print(f"No fixtures found in {GAMES_TXT}"); sys.exit(1)
+
+    check_api_key()
 
     seasons = recent_seasons(H2H_SEASONS_BACK)
     print(f"[i] {len(fixtures)} fixtures · H2H seasons: {', '.join(seasons)}\n")
@@ -189,18 +228,30 @@ def main():
         return t
 
     h2h_rows, form_rows, seen = [], [], {}
-    for home_s, away_s in fixtures:
-        home, away = resolve(home_s), resolve(away_s)
-        print(f"[+] {home_s} vs {away_s}")
+    try:
+        for home_s, away_s in fixtures:
+            home, away = resolve(home_s), resolve(away_s)
+            print(f"[+] {home_s} vs {away_s}")
 
-        h2h_rows.append([home_s, away_s] + get_h2h(home, away, seasons))
+            h2h_rows.append([home_s, away_s] + get_h2h(home, away, seasons))
 
-        for short, team in ((home_s, home), (away_s, away)):
-            if short.lower() in seen or team["id"] is None:
-                continue
-            seen[short.lower()] = True
-            print(f"    form: {short}")
-            form_rows.append([short] + get_form(team))
+            for short, team in ((home_s, home), (away_s, away)):
+                if short.lower() in seen or team["id"] is None:
+                    continue
+                seen[short.lower()] = True
+                print(f"    form: {short}")
+                form_rows.append([short] + get_form(team))
+    except ApiOutage as e:
+        print(f"\n[!] {e} — existing CSVs left untouched.")
+        sys.exit(2)
+
+    # Refuse to overwrite good CSVs with completely empty data (dead API/key).
+    h2h_has_data  = any(any(cell for cell in row[2:]) for row in h2h_rows)
+    form_has_data = any(any(cell for cell in row[1:]) for row in form_rows)
+    if not h2h_has_data and not form_has_data:
+        print("[!] Every lookup came back empty — refusing to overwrite the CSVs. "
+              "Check the SPORTSDB key and try again.")
+        sys.exit(1)
 
     with open(H2H_OUT, "w", newline="") as f:
         w = csv.writer(f)

@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Select Fixtures · Premier League Predictions</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
   :root {
     --bg: #eef1f7;
@@ -272,27 +275,29 @@ function showToast(msg, type = '') {
   toastTimer = setTimeout(() => { el.className = 'toast'; }, 3000);
 }
 
-// ── Short-name mapping (match the style already in games.txt) ─────────────
-const SHORT_NAMES = {
-  'Aston Villa': 'Villa',
-  'Crystal Palace': 'Palace',
-  "Nott'm Forest": 'Forest',
-  'Nottingham Forest': 'Forest',
-  'Tottenham Hotspur': 'Spurs',
-  'Tottenham': 'Spurs',
-  'Manchester United': 'Man Utd',
-  'Manchester City': 'Man City',
-  'Newcastle United': 'Newcastle',
-  'West Ham United': 'West Ham',
-  'Wolverhampton Wanderers': 'Wolves',
-  'Wolverhampton': 'Wolves',
-  'Brighton & Hove Albion': 'Brighton',
-  'Sheffield United': 'Sheffield Utd',
-  'Leicester City': 'Leicester',
-  'Leeds United': 'Leeds',
-  'AFC Bournemouth': 'Bournemouth',
-};
-const shortName = n => SHORT_NAMES[n] || n;
+// ── Short-name mapping, loaded from tools/team_lookup.csv (single source) ──
+// Maps any known spelling (short, TheSportsDB name, or alias) -> short name.
+let SHORT_NAMES = {};
+const shortName = n => SHORT_NAMES[(n || '').trim().toLowerCase()] || n;
+
+async function fetchTeamLookup() {
+  try {
+    const res = await fetch('tools/team_lookup.csv');
+    if (!res.ok) return;
+    const lines = (await res.text()).split('\n').slice(1); // skip header
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      const [short, sdbName, , aliases] = line.split(',');
+      if (!short) continue;
+      const s = short.trim();
+      SHORT_NAMES[s.toLowerCase()] = s;
+      if (sdbName) SHORT_NAMES[sdbName.trim().toLowerCase()] = s;
+      for (const a of (aliases || '').split(';')) {
+        if (a.trim()) SHORT_NAMES[a.trim().toLowerCase()] = s;
+      }
+    }
+  } catch (_) { /* fall back to raw feed names */ }
+}
 
 // ── State ────────────────────────────────────────────────────────────────
 let GAMES = [];               // [{round, date, home, away, id}]
@@ -309,7 +314,7 @@ function fmtWhen(d) {
 // ── Load ─────────────────────────────────────────────────────────────────
 (async () => {
   try {
-    const res = await fetch('fixtures_2026_27.json');
+    const [res] = await Promise.all([fetch('fixtures_2026_27.json'), fetchTeamLookup()]);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     GAMES = (data.games || []).map((g, i) => ({ ...g, id: i }));

@@ -91,6 +91,17 @@ Serve the folder and share `plp.html`. Players enter scores and tap **Send
 Predictions** — this POSTs to the AWS Lambda in `plp.html` (`API_URL`), which
 forwards a Pushover notification to the organiser.
 
+**Password gate (optional):** if a `password.enc` file (bcrypt hash) exists at
+the repo root, `plp.html` asks for the group password once and remembers it in
+a 180-day cookie. Set or change the password with:
+```bash
+./tools/make_password.sh    # writes password.enc — commit & push to activate
+```
+Delete `password.enc` to remove the gate. Note this is a courtesy gate, not
+real security: the check runs in the browser and the data files remain
+directly downloadable — use Amplify's built-in access control if you need
+actual protection.
+
 ### 5. Score & leaderboard
 Result checking uses the 3/1/0 rules in `tools/check_scores.py` /
 `check_scores_all.py`. The published league table is produced by the sibling

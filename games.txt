@@ -1,2 +1,30 @@
-France - England 
-Spain - Argentina
+Arsenal - Coventry
+Hull - Man Utd
+Everton - Palace
+Ipswich - Sunderland
+Forest - Leeds
+Brentford - Spurs
+Brighton - Villa
+Man City - Bournemouth
+Newcastle - Liverpool
+Fulham - Chelsea
+Palace - Man City
+Liverpool - Forest
+Bournemouth - Everton
+Coventry - Hull
+Spurs - Newcastle
+Chelsea - Brighton
+Leeds - Brentford
+Sunderland - Fulham
+Man Utd - Ipswich
+Villa - Arsenal
+Ipswich - Liverpool
+Newcastle - Bournemouth
+Brentford - Sunderland
+Brighton - Leeds
+Fulham - Palace
+Man City - Coventry
+Forest - Spurs
+Hull - Villa
+Everton - Man Utd
+Arsenal - Chelsea

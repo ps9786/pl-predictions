@@ -105,6 +105,14 @@
     opacity: 0; transition: opacity 0.15s;
   }
   .week-count.show { opacity: 1; }
+  .week-all {
+    font-size: 0.7rem; font-weight: 700; font-family: inherit;
+    color: var(--accent); background: var(--input-bg);
+    border: 1.5px solid var(--border); border-radius: 20px;
+    padding: 5px 11px; cursor: pointer; flex-shrink: 0;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .week-all.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 
   .week-body { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
   .week-group.collapsed .week-body { display: none; }
@@ -350,15 +358,11 @@ function render() {
       <span class="week-title">Matchweek ${rn}</span>
       <span class="week-sub">${subLabel}</span>
       <span class="week-count" id="wc-${rn}">0</span>`;
-    head.addEventListener('click', () => group.classList.toggle('collapsed'));
-    group.appendChild(head);
-
-    const body = document.createElement('div');
-    body.className = 'week-body';
 
     const selAll = document.createElement('button');
-    selAll.className = 'week-selectall';
-    selAll.textContent = 'Select all in this matchweek';
+    selAll.className = 'week-all';
+    selAll.id = 'wa-' + rn;
+    selAll.textContent = 'Select all';
     selAll.addEventListener('click', (e) => {
       e.stopPropagation();
       const ids = games.map(g => g.id);
@@ -366,7 +370,12 @@ function render() {
       ids.forEach(id => allSel ? selected.delete(id) : selected.add(id));
       syncAll();
     });
-    body.appendChild(selAll);
+    head.appendChild(selAll);
+    head.addEventListener('click', () => group.classList.toggle('collapsed'));
+    group.appendChild(head);
+
+    const body = document.createElement('div');
+    body.className = 'week-body';
 
     for (const g of games) {
       const row = document.createElement('div');
@@ -396,13 +405,22 @@ function syncAll() {
     const row = document.getElementById('fx-' + g.id);
     if (row) row.classList.toggle('sel', selected.has(g.id));
   }
-  // per-week counts
-  const counts = {};
-  for (const g of GAMES) if (selected.has(g.id)) counts[g.round] = (counts[g.round] || 0) + 1;
+  // per-week counts + totals
+  const counts = {}, totals = {};
+  for (const g of GAMES) {
+    totals[g.round] = (totals[g.round] || 0) + 1;
+    if (selected.has(g.id)) counts[g.round] = (counts[g.round] || 0) + 1;
+  }
   document.querySelectorAll('.week-count').forEach(el => {
     const rn = el.id.slice(3);
     const c = counts[rn] || 0;
     el.textContent = c; el.classList.toggle('show', c > 0);
+  });
+  document.querySelectorAll('.week-all').forEach(el => {
+    const rn = el.id.slice(3);
+    const all = totals[rn] > 0 && counts[rn] === totals[rn];
+    el.classList.toggle('on', all);
+    el.textContent = all ? 'Clear all' : 'Select all';
   });
   const n = selected.size;
   document.getElementById('sel-count').textContent = `${n} selected`;

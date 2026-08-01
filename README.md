@@ -91,17 +91,16 @@ Serve the folder and share `plp.html`. Players enter scores and tap **Send
 Predictions** — this POSTs to the AWS Lambda in `plp.html` (`API_URL`), which
 forwards a Pushover notification to the organiser.
 
-**Password protection:** the site is gated by **AWS Amplify's built-in access
-control** (HTTP Basic Auth enforced at the CDN, before any page loads) rather
-than anything in this repo. To set or change the password:
-
-1. AWS Console → **Amplify** → select this app.
-2. **App settings → Access control** → **Manage access**.
-3. Set the branch (`main`) to **Restricted - use access control settings**,
-   enter a username + password, **Save**.
-
-Anyone visiting the site gets a browser Basic Auth prompt first. To remove
-protection, set the branch back to **Public**.
+**Password gate (optional):** if a `password.enc` file (bcrypt hash) exists at
+the repo root, `plp.html` asks for the group password once and remembers it in
+a 180-day cookie. Set or change the password with:
+```bash
+./tools/make_password.sh    # writes password.enc — commit & push to activate
+```
+Delete `password.enc` to remove the gate. Note this is a courtesy gate, not
+real security: the check runs in the browser and the data files remain
+directly downloadable — use Amplify's built-in access control if you need
+actual protection.
 
 ### 5. Score & leaderboard
 Result checking uses the 3/1/0 rules in `tools/check_scores.py` /

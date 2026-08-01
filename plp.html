@@ -361,6 +361,40 @@
     padding: 60px 24px; color: var(--text2); line-height: 1.6;
   }
   #error span { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+
+  /* ── Password gate ── */
+  #gate {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: var(--bg);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  #gate.open { display: flex; }
+  #gate-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; padding: 28px 22px;
+    max-width: 360px; width: 100%; text-align: center;
+    box-shadow: var(--shadow);
+  }
+  #gate-box h2 { font-size: 1.1rem; margin-bottom: 6px; }
+  #gate-box p  { font-size: 0.82rem; color: var(--text2); margin-bottom: 16px; }
+  #gate-pw {
+    width: 100%; background: var(--input-bg);
+    border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 12px 14px; font-size: 1.05rem; color: var(--text);
+    outline: none; font-family: inherit; text-align: center;
+    margin-bottom: 12px;
+  }
+  #gate-pw:focus { border-color: #38003c; }
+  #gate-btn {
+    width: 100%; background: #38003c; color: #fff;
+    border: none; border-radius: 12px; padding: 13px;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    font-family: inherit;
+  }
+  #gate-err {
+    display: none; color: #c53030; font-size: 0.8rem;
+    font-weight: 600; margin-top: 10px;
+  }
 </style>
 </head>
 <body>
@@ -410,6 +444,17 @@
   </div>
 </div>
 
+<div id="gate">
+  <div id="gate-box">
+    <h2>⚽ Premier League Predictions</h2>
+    <p>Enter the group password to continue</p>
+    <input type="password" id="gate-pw" placeholder="Password" autocomplete="current-password">
+    <button id="gate-btn">Unlock</button>
+    <div id="gate-err">Wrong password — try again</div>
+  </div>
+</div>
+
+<script src="assets/bcrypt.min.js"></script>
 <script>
 const API_URL = 'https://2r5067bw1c.execute-api.us-east-1.amazonaws.com/default/send_to_pushover';
 
@@ -931,8 +976,57 @@ async function submitPredictions() {
   }
 }
 
+// ── Password gate ──────────────────────────────────────────────────────────
+// If password.enc (a bcrypt hash) exists, require the password once and set a
+// cookie. NOTE: this is a courtesy gate on a static site, not real security —
+// the check runs client-side and the data files remain directly fetchable.
+function gateAuthed() {
+  return document.cookie.split('; ').includes('plp_auth=ok');
+}
+
+async function checkGate() {
+  if (gateAuthed()) return;
+  let hash;
+  try {
+    const res = await fetch('password.enc', { cache: 'no-store' });
+    if (!res.ok) return;                       // no password set — site open
+    hash = (await res.text()).trim();
+    if (!hash.startsWith('$2')) {
+      try { hash = atob(hash).trim(); } catch { /* not base64 either */ }
+    }
+    if (!hash.startsWith('$2')) return;        // malformed file — site open
+  } catch { return; }                          // fetch failed — fail open
+
+  const B = (window.dcodeIO && dcodeIO.bcrypt) || window.bcrypt;
+  if (!B || !B.compareSync) return;            // library missing — fail open
+
+  const gate = document.getElementById('gate');
+  const pw   = document.getElementById('gate-pw');
+  const err  = document.getElementById('gate-err');
+  gate.classList.add('open');
+  pw.focus();
+
+  await new Promise(resolve => {
+    function attempt() {
+      if (B.compareSync(pw.value, hash)) {
+        // 180-day cookie; value carries no secret — it only skips the prompt
+        document.cookie = 'plp_auth=ok; max-age=15552000; path=/; SameSite=Lax';
+        gate.classList.remove('open');
+        resolve();
+      } else {
+        err.style.display = 'block';
+        pw.value = '';
+        pw.focus();
+      }
+    }
+    document.getElementById('gate-btn').addEventListener('click', attempt);
+    pw.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  });
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 (async () => {
+  await checkGate();
   const now = new Date();
   PREDICTIONS_KEY = `pl-predictions-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 

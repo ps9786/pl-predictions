@@ -1,21 +1,21 @@
 Team,Game 5,Game 4,Game 3,Game 2,Game 1
-Arsenal,W,W,W,W,D
-Coventry,D,W,W,W,D
-Hull,L,W,D,W,W
-Man Utd,W,D,W,W,L
-Everton,D,D,L,L,W
-Palace,L,D,L,W,W
-Ipswich,D,W,D,D,W
-Sunderland,D,D,W,W,W
+Arsenal,W,W,D,W,L
+Coventry,W,W,W,D,W
+Hull,W,W,W,D,L
+Man Utd,W,L,W,W,D
+Everton,W,D,L,W,L
+Palace,L,W,W,L,L
+Ipswich,L,W,L,W,W
+Sunderland,W,L,L,W,W
 Forest,W,W,L,L,L
-Leeds,L,W,D,W,L
-Brentford,L,W,L,D,D
-Spurs,W,D,L,W,W
-Brighton,W,L,W,L,L
-Villa,D,W,W,W,W
-Man City,W,W,W,D,L
-Bournemouth,D,W,W,D,D
-Newcastle,W,D,W,L,W
-Liverpool,W,L,D,L,D
-Fulham,W,L,L,D,W
-Chelsea,L,D,L,W,L
+Leeds,L,L,W,W,W
+Brentford,W,L,D,D,W
+Spurs,W,W,D,W,D
+Brighton,L,L,?,W,W
+Villa,W,L,L,W,L
+Man City,W,W,D,L,D
+Bournemouth,D,W,W,W,D
+Newcastle,L,W,D,L,W
+Liverpool,L,D,W,W,L
+Fulham,W,L,D,W,W
+Chelsea,L,W,L,L,W

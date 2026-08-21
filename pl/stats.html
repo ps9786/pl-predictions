@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Stats</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">Who's random, who's predictable, who's a creature of habit</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="stats.html" class="active">Stats</a>
+</nav>
+
+<div class="content" id="stats"><div class="loading">Crunching the numbers…</div></div>
+
+<script src="assets/pl.js"></script>
+<script>
+function renderList(items, valueFn, detailFn) {
+  return `<div class="stat-list">${items.map((item, i) => `
+    <div class="stat-row">
+      <span class="rank">${i + 1}</span>
+      <span class="name">${item.player ?? `${item.player_a} &amp; ${item.player_b}`}</span>
+      ${detailFn ? `<span class="detail">${detailFn(item)}</span>` : ''}
+      <span class="value">${valueFn(item)}</span>
+    </div>`).join('')}</div>`;
+}
+
+function section(title, hint, bodyHtml) {
+  return `<h2 class="section-title">${title}</h2>
+    ${hint ? `<div class="section-hint">${hint}</div>` : ''}
+    <div class="card">${bodyHtml}</div>`;
+}
+
+async function main() {
+  const root = document.getElementById('stats');
+  try {
+    const d = await fetchJson('stats.json');
+    if (!d.total_matches) {
+      root.innerHTML = '<div class="empty">No predictions found yet.</div>';
+      return;
+    }
+
+    const top = (arr, n = 10) => arr.slice(0, n);
+
+    let html = '';
+
+    html += section('🎯 Most Unique',
+      'Exact scorelines nobody else in the group picked.',
+      renderList(top(d.unique), i => i.count, i => `/ ${i.picks} picks`));
+
+    html += section('👥 Most Predictable',
+      "Picked the group's most popular scoreline most often.",
+      renderList(top(d.predictable), i => i.count, i => `/ ${i.picks} picks`));
+
+    html += section('🎲 Wildcards (Most Random)',
+      'Highest variety of different scorelines used — hardest to predict.',
+      renderList(top(d.random), i => `${Math.round(i.normalised * 100)}%`, i => `/ ${i.picks} picks`));
+
+    html += section('🔁 Creatures of Habit (Most Similar Selections)',
+      'Biggest share of picks that are their single favourite scoreline.',
+      renderList(top(d.similar), i => `${Math.round(i.share * 100)}%`, i => `mostly ${i.favourite_score}`));
+
+    html += section('⚽ Goal Optimists',
+      'Highest average total goals predicted per game.',
+      renderList(top(d.goals_optimists, 5), i => i.avg_goals));
+
+    html += section('🧤 Goal Pessimists',
+      'Lowest average total goals predicted per game.',
+      renderList(top(d.goals_pessimists, 5), i => i.avg_goals));
+
+    const byHome = [...d.bias].sort((a, b) => b.home_pct - a.home_pct);
+    const byAway = [...d.bias].sort((a, b) => b.away_pct - a.away_pct);
+    const fa = d.field_average;
+
+    html += section('🏠 Backs the Home Team',
+      `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
+      renderList(top(byHome, 5), i => `${i.home_pct}%`, i => `${i.draw_pct}% draw, ${i.away_pct}% away`));
+
+    html += section('✈️ Backs the Away Team',
+      `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
+      renderList(top(byAway, 5), i => `${i.away_pct}%`, i => `${i.home_pct}% home, ${i.draw_pct}% draw`));
+
+    html += section('👯 Prediction Twins',
+      'Pairs who picked the exact same scoreline most often.',
+      renderList(top(d.twins), i => `${i.matches}`, i => `${i.agreement_pct}% of ${i.shared_considered} shared matches`));
+
+    root.innerHTML = html;
+  } catch (err) {
+    root.innerHTML = `<div class="empty">😕 Could not load stats.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

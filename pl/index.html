@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Timeline</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">Who picked what, round by round</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html" class="active">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="stats.html">Stats</a>
+</nav>
+
+<div class="content">
+  <div class="card round-picker">
+    <label for="round-select" style="display:block; font-size:0.75rem; color:var(--text2); font-weight:700; margin-bottom:6px;">ROUND</label>
+    <select id="round-select"></select>
+  </div>
+  <div id="matches"><div class="loading">Loading predictions…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+function normFixture(s) {
+  return (s || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+function parseScore(s) {
+  const m = /^\s*(\d+)\s*-\s*(\d+)\s*$/.exec(s || '');
+  return m ? [parseInt(m[1], 10), parseInt(m[2], 10)] : null;
+}
+function resultType([h, a]) {
+  return h > a ? 'home' : a > h ? 'away' : 'draw';
+}
+
+let selectionRows = [];
+let players = [];
+let scoresMap = {}; // normalised fixture -> [h, a]
+
+function renderRound(round) {
+  const container = document.getElementById('matches');
+  const rows = selectionRows
+    .filter(r => r.Round === String(round))
+    .sort((a, b) => Number(a['Match No']) - Number(b['Match No']));
+
+  if (!rows.length) {
+    container.innerHTML = '<div class="empty">No matches found for this round.</div>';
+    return;
+  }
+
+  container.innerHTML = rows.map(row => {
+    const fixture = row.FIXTURE;
+    const actual = scoresMap[normFixture(fixture)] || null;
+
+    const groups = {};
+    for (const p of players) {
+      const pick = row[p];
+      if (!pick) continue;
+      (groups[pick] = groups[pick] || []).push(p);
+    }
+    const groupList = Object.entries(groups)
+      .map(([score, names]) => ({ score, names, count: names.length, parsed: parseScore(score) }))
+      .sort((a, b) => b.count - a.count || a.score.localeCompare(b.score));
+
+    const groupsHtml = groupList.map(g => {
+      let cls = 'pick-group';
+      if (actual && g.parsed) {
+        if (g.parsed[0] === actual[0] && g.parsed[1] === actual[1]) cls += ' exact';
+        else if (resultType(g.parsed) === resultType(actual)) cls += ' result';
+      }
+      return `<div class="${cls}">
+        <span class="score">${g.score}</span>
+        <span class="names">${g.names.join(', ')}${g.count > 1 ? ` <strong>(${g.count})</strong>` : ''}</span>
+      </div>`;
+    }).join('');
+
+    const noPickCount = players.length - players.filter(p => row[p]).length;
+    const badgeHtml = actual
+      ? `<span class="actual-badge">FT ${actual[0]}-${actual[1]}</span>`
+      : `<span class="actual-badge pending">Pending</span>`;
+
+    return `<div class="card match-card">
+      <div class="match-head">
+        <div>
+          <div class="match-no">MATCH ${row['Match No']}</div>
+          <div class="fixture">${fixture}</div>
+        </div>
+        ${badgeHtml}
+      </div>
+      <div class="pick-groups">${groupsHtml}</div>
+      ${noPickCount > 0 ? `<div class="section-hint" style="margin:8px 0 0">${noPickCount} player${noPickCount === 1 ? '' : 's'} didn't submit a pick</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+async function main() {
+  try {
+    const [selections, scores] = await Promise.all([
+      fetchCsv('selections.csv'),
+      fetchCsv('scores.csv'),
+    ]);
+    selectionRows = selections.rows;
+    players = selections.header.slice(3);
+
+    for (const row of scores.rows) {
+      const parsed = parseScore(row.Score);
+      if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
+    }
+
+    const rounds = [...new Set(selectionRows.map(r => r.Round))]
+      .map(Number).sort((a, b) => a - b);
+
+    const select = document.getElementById('round-select');
+    select.innerHTML = rounds.map(r => `<option value="${r}">Round ${r}</option>`).join('');
+    select.value = String(rounds[rounds.length - 1]);
+    select.addEventListener('change', () => renderRound(select.value));
+
+    renderRound(select.value);
+  } catch (err) {
+    document.getElementById('matches').innerHTML =
+      `<div class="empty">😕 Could not load predictions.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

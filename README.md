@@ -33,6 +33,8 @@ For each fixture a player predicts a scoreline. Scoring (see
 | `matchup_summary.csv` | Head-to-head results (last 5 meetings) per fixture. Generated. |
 | `team_form_summary.csv` | Last-5 form (W/D/L) per team. Generated. |
 | `tools/` | Python + bash scripts (see below). |
+| `rounds/` | Excel workbooks (`ROUND N.xlsm`) — a parallel, spreadsheet-based way for the group to submit predictions per round (see `pl/` below). |
+| `pl/` | **Round predictions site** — timeline of picks, leaderboard and stats built from `rounds/*.xlsm`. See "Excel-based round predictions" below. |
 | `wc/`, `plpb.html`, `*_b.*` | Archived World Cup edition. |
 
 ---
@@ -40,7 +42,8 @@ For each fixture a player predicts a scoreline. Scoring (see
 ## Prerequisites
 
 - **Python 3** (standard library only for the fixture/stats scripts; the World
-  Cup scripts use `requests`).
+  Cup scripts use `requests`; `tools/build_pl_selections.py` needs `openpyxl`
+  to read the `.xlsm` round workbooks — `pip3 install openpyxl`).
 - A static web server to open the HTML pages (browsers block `fetch()` from
   `file://`). In production the site is hosted on **AWS Amplify** (HTTPS); for
   local testing:
@@ -109,6 +112,37 @@ project `~/vscode/calculate_leaderboard` (out of scope for this repo).
 
 ---
 
+## Excel-based round predictions (`pl/`)
+
+Some players submit predictions via a shared Excel workbook instead of
+`plp.html` — a separate, parallel game to the one above, with its own
+5/3/1 scoring (same rules as `wc/` used for the World Cup: 5 points for a
+unique exact score, 3 for a shared exact score, 1 for a correct result).
+
+Each round is a workbook `rounds/ROUND N.xlsm`: `Match Number`, `FIXTURE`
+(`Home - Away`), a blank `Actual Score` column, then one column per player
+with their `H-A` guess. A "round" typically bundles several gameweeks.
+
+**Weekly steps, once a round's picks are in:**
+
+```bash
+python3 tools/build_pl_selections.py    # rounds/*.xlsm            -> pl/selections.csv
+python3 tools/calculate_pl_scores.py    # pl/selections.csv + pl/scores.csv -> pl/league_table.csv
+python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.json
+```
+
+- `pl/scores.csv` (`Fixture,Score`, e.g. `Arsenal - Coventry,3-0`) is the
+  source of truth for actual results — it starts blank and is filled in
+  separately (not auto-generated from `results_2026_27.csv`).
+- Serve the repo (`python3 -m http.server 8000`) and browse to
+  `pl/index.html` (timeline of who picked what), `pl/leaderboard.html`
+  (5/3/1 table) and `pl/stats.html` (most unique/random/predictable/
+  repetitive picks, goal optimism, home/away bias, "prediction twins").
+- Commit the regenerated `pl/selections.csv`, `pl/league_table.csv` and
+  `pl/stats.json` (and `rounds/*.xlsm`) so Amplify serves the update.
+
+---
+
 ## Tools reference
 
 Active (Premier League 2026/27):
@@ -121,6 +155,9 @@ Active (Premier League 2026/27):
 | `tools/update_predictions_data.sh` | Wrapper for the above. |
 | `tools/team_lookup.csv` | Short name → TheSportsDB club name + men's-team ID. |
 | `tools/check_scores.py` / `check_scores_all.py` | Score a prediction against an actual result. |
+| `tools/build_pl_selections.py` | Build `pl/selections.csv` from `rounds/ROUND *.xlsm`. |
+| `tools/calculate_pl_scores.py` | Build `pl/league_table.csv` (5/3/1 scoring) from `pl/selections.csv` + `pl/scores.csv`. |
+| `tools/calculate_pl_stats.py` | Build `pl/stats.json` (pick-behaviour stats) from `pl/selections.csv`. |
 
 Archived (World Cup 2026):
 `tools/world_cup_*.py`, `tools/quirky.py`, `tools/calculate_league_table.py`,

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Leaderboard</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">5 points unique score · 3 shared · 1 correct result</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html" class="active">Leaderboard</a>
+  <a href="stats.html">Stats</a>
+</nav>
+
+<div class="content">
+  <div class="card" id="board"><div class="loading">Loading leaderboard…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+async function main() {
+  const board = document.getElementById('board');
+  try {
+    const { rows } = await fetchCsv('league_table.csv');
+    if (!rows.length) {
+      board.innerHTML = '<div class="empty">No players found.</div>';
+      return;
+    }
+
+    rows.sort((a, b) => Number(b.Score) - Number(a.Score) ||
+      a.Player.toLowerCase().localeCompare(b.Player.toLowerCase()));
+
+    let prevScore = null, prevPos = 0;
+    const bodyRows = rows.map((r, i) => {
+      const pos = Number(r.Score) === prevScore ? prevPos : i + 1;
+      prevScore = Number(r.Score); prevPos = pos;
+      return `<tr>
+        <td class="pos">${pos}</td>
+        <td class="player">${r.Player}</td>
+        <td class="total">${r.Score}</td>
+        <td>${r['Correct Scores']}</td>
+        <td>${r['5 Pointers']}</td>
+        <td>${r['3 Pointers']}</td>
+        <td>${r['1 Pointers']}</td>
+      </tr>`;
+    }).join('');
+
+    const allZero = rows.every(r => Number(r.Score) === 0);
+
+    board.innerHTML = `
+      ${allZero ? '<div class="section-hint" style="margin-bottom:12px">No results recorded yet — the table will fill in once pl/scores.csv has actual scorelines.</div>' : ''}
+      <table class="tbl">
+        <thead><tr>
+          <th>#</th><th>Player</th><th>Pts</th><th>Correct</th><th>5s</th><th>3s</th><th>1s</th>
+        </tr></thead>
+        <tbody>${bodyRows}</tbody>
+      </table>`;
+  } catch (err) {
+    board.innerHTML = `<div class="empty">😕 Could not load the leaderboard.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

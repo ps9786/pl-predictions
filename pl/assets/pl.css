@@ -147,34 +147,77 @@ table.tbl td.player { font-weight: 700; }
 table.tbl td.total { font-weight: 800; color: var(--header); }
 [data-theme="dark"] table.tbl td.total { color: #c084fc; }
 
-.match-card { padding: 14px 16px; }
-.match-head {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 10px; gap: 10px;
+/* ── Matchday panel (pl/index.html) — fixed dark "stadium" look, like the
+   World Cup edition's Daily Selections tab, independent of the light/dark
+   toggle so the score-grouping colours (neon score, amber Maverick badge)
+   always read correctly. ── */
+.matchday { --md-bg: #0d0f18; --md-panel: #10131f; --md-border: #232838;
+  --md-text: #e8eaf6; --md-text2: #8b93a7; --md-chip: #181d2c; --md-chip-border: #262c40;
+  background: var(--md-bg); border-radius: 16px; padding: 14px;
 }
-.match-no { font-size: 0.7rem; color: var(--text2); font-weight: 700; }
-.fixture { font-weight: 800; font-size: 0.98rem; }
-.actual-badge {
-  font-size: 0.78rem; font-weight: 800;
-  background: var(--btn); color: var(--btn-text);
-  border-radius: 20px; padding: 4px 10px; flex-shrink: 0;
+.md-picker { margin-bottom: 14px; }
+.md-picker select {
+  background: var(--md-panel); color: var(--md-text); border: 1px solid var(--md-border);
+  border-radius: 10px; padding: 10px 12px; font-size: 0.88rem; font-weight: 600; width: 100%;
 }
-.actual-badge.pending { opacity: 0.55; font-weight: 600; }
-
-.pick-groups { display: flex; flex-direction: column; gap: 6px; }
-.pick-group {
-  display: flex; align-items: baseline; gap: 8px;
-  padding: 7px 10px; border-radius: 8px;
-  background: var(--input-bg);
-  border: 1px solid var(--border);
-  font-size: 0.83rem;
+.md-header {
+  background: var(--md-panel); border: 1px solid var(--md-border); border-radius: 16px;
+  padding: 16px 18px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
 }
-.pick-group .score { font-weight: 800; font-size: 0.9rem; min-width: 40px; }
-.pick-group .names { color: var(--text2); flex: 1; }
-.pick-group.exact { background: var(--green-bg); border-color: var(--green); }
-.pick-group.exact .score { color: var(--green); }
-.pick-group.result { background: var(--amber-bg); border-color: var(--amber); }
-.pick-group.result .score { color: var(--amber); }
+.md-header-left { display: flex; align-items: center; gap: 12px; }
+.md-badge {
+  background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; font-weight: 800;
+  width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+}
+.md-title { color: var(--md-text); font-weight: 800; font-size: 0.95rem; }
+.md-sub { color: var(--md-text2); font-size: 0.72rem; margin-top: 2px; }
+.md-fixture { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--md-text); font-size: 0.95rem; }
+.md-vs {
+  background: #1c2233; border: 1px solid #2b3348; color: #9aa4bd;
+  font-size: 0.65rem; font-weight: 800; padding: 4px 8px; border-radius: 6px;
+}
+.md-bar {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  margin: 4px 4px 14px; font-size: 0.7rem; color: var(--md-text2); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.md-pill {
+  background: #1c2233; border: 1px solid #2b3348; color: #c3cadb;
+  border-radius: 20px; padding: 4px 10px; font-weight: 700; font-size: 0.68rem;
+}
+.md-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.md-score-card {
+  background: var(--md-panel); border: 1px solid var(--md-border); border-radius: 14px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.md-score-card.maverick { border-color: #c98a1f; }
+.md-score-card.correct-exact { border-color: #2ecc71; }
+.md-score-card.correct-result { border-color: #d8a53c; }
+.md-score-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.md-score-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.md-score-text { font-size: 1.4rem; font-weight: 800; color: #c8ff4d; }
+.md-maverick-badge {
+  background: linear-gradient(135deg, #f5a524, #e2761a); color: #1a1000;
+  font-size: 0.62rem; font-weight: 800; padding: 3px 8px; border-radius: 8px;
+}
+.md-result-badge {
+  font-size: 0.62rem; font-weight: 800; padding: 3px 8px; border-radius: 8px;
+}
+.md-result-badge.exact { background: #1c3a26; color: #4ada7c; }
+.md-result-badge.result { background: #332a10; color: #e0b23c; }
+.md-count-pill {
+  background: #1c2233; border: 1px solid #2b3348; color: var(--md-text2);
+  font-size: 0.68rem; font-weight: 700; padding: 4px 9px; border-radius: 14px; white-space: nowrap;
+}
+.md-players { display: flex; flex-wrap: wrap; gap: 6px; }
+.md-player-chip {
+  background: var(--md-chip); border: 1px solid var(--md-chip-border); color: #c3cadb;
+  font-size: 0.72rem; font-weight: 600; padding: 5px 9px; border-radius: 8px;
+}
+.md-player-chip.maverick { border-color: #e2761a; color: #f5a524; }
+.md-no-picks { color: var(--md-text2); font-size: 0.78rem; padding: 20px; text-align: center; }
 
 .stat-list { display: flex; flex-direction: column; gap: 6px; }
 .stat-row {
@@ -189,11 +232,20 @@ table.tbl td.total { font-weight: 800; color: var(--header); }
 [data-theme="dark"] .stat-row .value { color: #c084fc; }
 .stat-row .detail { color: var(--text2); font-size: 0.75rem; }
 
-.bar {
-  height: 8px; border-radius: 4px; overflow: hidden;
-  display: flex; background: var(--border); margin-top: 4px;
+.toggle-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
-.bar span { display: block; height: 100%; }
-.bar .home { background: #1a7f37; }
-.bar .draw { background: #9a6700; }
-.bar .away { background: #b03060; }
+.toggle-row .toggle-label { font-weight: 700; font-size: 0.88rem; }
+.toggle-row .toggle-hint { font-size: 0.75rem; color: var(--text2); margin-top: 2px; }
+.switch {
+  position: relative; width: 46px; height: 26px; flex-shrink: 0;
+  background: var(--btn); border: 1px solid var(--border); border-radius: 20px;
+  cursor: pointer; transition: background 0.2s;
+}
+.switch.on { background: var(--header); border-color: var(--header); }
+.switch .knob {
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px;
+  background: #fff; border-radius: 50%; transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.switch.on .knob { transform: translateX(20px); }

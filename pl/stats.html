@@ -25,7 +25,18 @@
   <a href="stats.html" class="active">Stats</a>
 </nav>
 
-<div class="content" id="stats"><div class="loading">Crunching the numbers…</div></div>
+<div class="content">
+  <div class="card">
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">Ignore home/away</div>
+        <div class="toggle-hint" id="toggle-hint">Off: 1-0 and 0-1 count as different picks</div>
+      </div>
+      <div class="switch" id="margin-switch" role="switch" aria-checked="false" tabindex="0"><div class="knob"></div></div>
+    </div>
+  </div>
+  <div id="stats"><div class="loading">Crunching the numbers…</div></div>
+</div>
 
 <script src="assets/pl.js"></script>
 <script>
@@ -45,60 +56,97 @@ function section(title, hint, bodyHtml) {
     <div class="card">${bodyHtml}</div>`;
 }
 
+let statsData = null;
+let marginMode = localStorage.getItem('pl-stats-margin-mode') === 'on';
+
+function renderGroupingStats(g) {
+  const top = (arr, n = 10) => arr.slice(0, n);
+  const scoreNote = marginMode ? ' (1-0 and 0-1 count as the same)' : '';
+
+  let html = '';
+
+  html += section('🎯 Most Unique',
+    `Scorelines nobody else in the group picked${scoreNote}.`,
+    renderList(top(g.unique), i => i.count, i => `/ ${i.picks} picks`));
+
+  html += section('👥 Most Predictable',
+    `Picked the group's most popular scoreline most often${scoreNote}.`,
+    renderList(top(g.predictable), i => i.count, i => `/ ${i.picks} picks`));
+
+  html += section('🎲 Wildcards (Most Random)',
+    `Highest variety of different scorelines used — hardest to predict${scoreNote}.`,
+    renderList(top(g.random), i => `${Math.round(i.normalised * 100)}%`, i => `/ ${i.picks} picks`));
+
+  html += section('🔁 Creatures of Habit (Most Similar Selections)',
+    `Biggest share of picks that are their single favourite scoreline${scoreNote}.`,
+    renderList(top(g.similar), i => `${Math.round(i.share * 100)}%`, i => `mostly ${i.favourite_score}`));
+
+  html += section('👯 Prediction Twins',
+    `Pairs who picked the same scoreline most often${scoreNote}.`,
+    renderList(top(g.twins), i => `${i.matches}`, i => `${i.agreement_pct}% of ${i.shared_considered} shared matches`));
+
+  return html;
+}
+
+function renderBonusStats(d) {
+  const top = (arr, n = 10) => arr.slice(0, n);
+  let html = '';
+
+  html += section('⚽ Goal Optimists',
+    'Highest average total goals predicted per game.',
+    renderList(top(d.goals_optimists, 5), i => i.avg_goals));
+
+  html += section('🧤 Goal Pessimists',
+    'Lowest average total goals predicted per game.',
+    renderList(top(d.goals_pessimists, 5), i => i.avg_goals));
+
+  const byHome = [...d.bias].sort((a, b) => b.home_pct - a.home_pct);
+  const byAway = [...d.bias].sort((a, b) => b.away_pct - a.away_pct);
+  const fa = d.field_average;
+
+  html += section('🏠 Backs the Home Team',
+    `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
+    renderList(top(byHome, 5), i => `${i.home_pct}%`, i => `${i.draw_pct}% draw, ${i.away_pct}% away`));
+
+  html += section('✈️ Backs the Away Team',
+    `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
+    renderList(top(byAway, 5), i => `${i.away_pct}%`, i => `${i.home_pct}% home, ${i.draw_pct}% draw`));
+
+  return html;
+}
+
+function render() {
+  const switchEl = document.getElementById('margin-switch');
+  switchEl.classList.toggle('on', marginMode);
+  switchEl.setAttribute('aria-checked', String(marginMode));
+  document.getElementById('toggle-hint').textContent = marginMode
+    ? 'On: 1-0 and 0-1 count as the same pick'
+    : 'Off: 1-0 and 0-1 count as different picks';
+
+  const group = marginMode ? statsData.by_margin : statsData.by_score;
+  document.getElementById('stats').innerHTML = renderGroupingStats(group) + renderBonusStats(statsData);
+}
+
+function setMarginMode(on) {
+  marginMode = on;
+  localStorage.setItem('pl-stats-margin-mode', on ? 'on' : 'off');
+  render();
+}
+
+document.getElementById('margin-switch').addEventListener('click', () => setMarginMode(!marginMode));
+document.getElementById('margin-switch').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setMarginMode(!marginMode); }
+});
+
 async function main() {
   const root = document.getElementById('stats');
   try {
-    const d = await fetchJson('stats.json');
-    if (!d.total_matches) {
+    statsData = await fetchJson('stats.json');
+    if (!statsData.total_matches) {
       root.innerHTML = '<div class="empty">No predictions found yet.</div>';
       return;
     }
-
-    const top = (arr, n = 10) => arr.slice(0, n);
-
-    let html = '';
-
-    html += section('🎯 Most Unique',
-      'Exact scorelines nobody else in the group picked.',
-      renderList(top(d.unique), i => i.count, i => `/ ${i.picks} picks`));
-
-    html += section('👥 Most Predictable',
-      "Picked the group's most popular scoreline most often.",
-      renderList(top(d.predictable), i => i.count, i => `/ ${i.picks} picks`));
-
-    html += section('🎲 Wildcards (Most Random)',
-      'Highest variety of different scorelines used — hardest to predict.',
-      renderList(top(d.random), i => `${Math.round(i.normalised * 100)}%`, i => `/ ${i.picks} picks`));
-
-    html += section('🔁 Creatures of Habit (Most Similar Selections)',
-      'Biggest share of picks that are their single favourite scoreline.',
-      renderList(top(d.similar), i => `${Math.round(i.share * 100)}%`, i => `mostly ${i.favourite_score}`));
-
-    html += section('⚽ Goal Optimists',
-      'Highest average total goals predicted per game.',
-      renderList(top(d.goals_optimists, 5), i => i.avg_goals));
-
-    html += section('🧤 Goal Pessimists',
-      'Lowest average total goals predicted per game.',
-      renderList(top(d.goals_pessimists, 5), i => i.avg_goals));
-
-    const byHome = [...d.bias].sort((a, b) => b.home_pct - a.home_pct);
-    const byAway = [...d.bias].sort((a, b) => b.away_pct - a.away_pct);
-    const fa = d.field_average;
-
-    html += section('🏠 Backs the Home Team',
-      `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
-      renderList(top(byHome, 5), i => `${i.home_pct}%`, i => `${i.draw_pct}% draw, ${i.away_pct}% away`));
-
-    html += section('✈️ Backs the Away Team',
-      `Field average: ${fa.home_pct}% home · ${fa.draw_pct}% draw · ${fa.away_pct}% away`,
-      renderList(top(byAway, 5), i => `${i.away_pct}%`, i => `${i.home_pct}% home, ${i.draw_pct}% draw`));
-
-    html += section('👯 Prediction Twins',
-      'Pairs who picked the exact same scoreline most often.',
-      renderList(top(d.twins), i => `${i.matches}`, i => `${i.agreement_pct}% of ${i.shared_considered} shared matches`));
-
-    root.innerHTML = html;
+    render();
   } catch (err) {
     root.innerHTML = `<div class="empty">😕 Could not load stats.<br>${err.message}</div>`;
   }

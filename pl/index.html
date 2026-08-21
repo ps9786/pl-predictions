@@ -12,7 +12,7 @@
 <header>
   <div>
     <div class="header-title">⚽ PL Predictions 2026/27</div>
-    <div class="header-sub">Who picked what, round by round</div>
+    <div class="header-sub">Who picked what, match by match</div>
   </div>
   <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
     <span id="theme-icon">🌙</span>
@@ -26,11 +26,7 @@
 </nav>
 
 <div class="content">
-  <div class="card round-picker">
-    <label for="round-select" style="display:block; font-size:0.75rem; color:var(--text2); font-weight:700; margin-bottom:6px;">ROUND</label>
-    <select id="round-select"></select>
-  </div>
-  <div id="matches"><div class="loading">Loading predictions…</div></div>
+  <div id="matchday" class="matchday"><div class="loading" style="color:#8b93a7">Loading predictions…</div></div>
 </div>
 
 <script src="assets/pl.js"></script>
@@ -46,92 +42,149 @@ function resultType([h, a]) {
   return h > a ? 'home' : a > h ? 'away' : 'draw';
 }
 
-let selectionRows = [];
+let matches = [];   // [{ round, matchNo, fixture, row }]
 let players = [];
 let scoresMap = {}; // normalised fixture -> [h, a]
 
-function renderRound(round) {
-  const container = document.getElementById('matches');
-  const rows = selectionRows
-    .filter(r => r.Round === String(round))
-    .sort((a, b) => Number(a['Match No']) - Number(b['Match No']));
+function matchLabel(m) {
+  return `Match ${m.matchNo}: ${m.fixture}`;
+}
 
-  if (!rows.length) {
-    container.innerHTML = '<div class="empty">No matches found for this round.</div>';
+function renderMatch(target, round, matchNo) {
+  const m = matches.find(x => x.round === round && x.matchNo === matchNo);
+  if (!m) {
+    target.innerHTML = '<div class="md-no-picks">Match not found.</div>';
     return;
   }
+  const row = m.row;
+  const actual = scoresMap[normFixture(m.fixture)] || null;
 
-  container.innerHTML = rows.map(row => {
-    const fixture = row.FIXTURE;
-    const actual = scoresMap[normFixture(fixture)] || null;
+  const groups = {};
+  for (const p of players) {
+    const pick = row[p];
+    if (!pick) continue;
+    (groups[pick] = groups[pick] || []).push(p);
+  }
+  const groupList = Object.entries(groups)
+    .map(([score, names]) => ({ score, names, count: names.length, parsed: parseScore(score) }))
+    .sort((a, b) => b.count - a.count || a.score.localeCompare(b.score));
 
-    const groups = {};
-    for (const p of players) {
-      const pick = row[p];
-      if (!pick) continue;
-      (groups[pick] = groups[pick] || []).push(p);
-    }
-    const groupList = Object.entries(groups)
-      .map(([score, names]) => ({ score, names, count: names.length, parsed: parseScore(score) }))
-      .sort((a, b) => b.count - a.count || a.score.localeCompare(b.score));
+  const totalPredictors = groupList.reduce((n, g) => n + g.count, 0);
+  const [home, away] = m.fixture.split(/\s+-\s+/);
 
-    const groupsHtml = groupList.map(g => {
-      let cls = 'pick-group';
-      if (actual && g.parsed) {
-        if (g.parsed[0] === actual[0] && g.parsed[1] === actual[1]) cls += ' exact';
-        else if (resultType(g.parsed) === resultType(actual)) cls += ' result';
+  const cardsHtml = groupList.map(g => {
+    let cardCls = 'md-score-card';
+    let resultBadge = '';
+    if (g.count === 1) cardCls += ' maverick';
+    if (actual && g.parsed) {
+      if (g.parsed[0] === actual[0] && g.parsed[1] === actual[1]) {
+        cardCls += ' correct-exact';
+        resultBadge = '<span class="md-result-badge exact">✅ Correct Score</span>';
+      } else if (resultType(g.parsed) === resultType(actual)) {
+        cardCls += ' correct-result';
+        resultBadge = '<span class="md-result-badge result">✓ Correct Result</span>';
       }
-      return `<div class="${cls}">
-        <span class="score">${g.score}</span>
-        <span class="names">${g.names.join(', ')}${g.count > 1 ? ` <strong>(${g.count})</strong>` : ''}</span>
-      </div>`;
-    }).join('');
-
-    const noPickCount = players.length - players.filter(p => row[p]).length;
-    const badgeHtml = actual
-      ? `<span class="actual-badge">FT ${actual[0]}-${actual[1]}</span>`
-      : `<span class="actual-badge pending">Pending</span>`;
-
-    return `<div class="card match-card">
-      <div class="match-head">
-        <div>
-          <div class="match-no">MATCH ${row['Match No']}</div>
-          <div class="fixture">${fixture}</div>
+    }
+    const chips = g.names.map(n =>
+      `<span class="md-player-chip${g.count === 1 ? ' maverick' : ''}">${n}</span>`
+    ).join('');
+    return `<div class="${cardCls}">
+      <div class="md-score-row">
+        <div class="md-score-left">
+          <span class="md-score-text">${g.score}</span>
+          ${g.count === 1 ? '<span class="md-maverick-badge">✨ MAVERICK</span>' : ''}
+          ${resultBadge}
         </div>
-        ${badgeHtml}
+        <span class="md-count-pill">${g.count} player${g.count === 1 ? '' : 's'}</span>
       </div>
-      <div class="pick-groups">${groupsHtml}</div>
-      ${noPickCount > 0 ? `<div class="section-hint" style="margin:8px 0 0">${noPickCount} player${noPickCount === 1 ? '' : 's'} didn't submit a pick</div>` : ''}
+      <div class="md-players">${chips}</div>
     </div>`;
   }).join('');
+
+  const noPickCount = players.length - totalPredictors;
+  const subParts = [`Round ${m.round}`];
+  subParts.push(actual ? `Full-time ${actual[0]}-${actual[1]}` : 'Awaiting result');
+  if (noPickCount > 0) subParts.push(`${noPickCount} player${noPickCount === 1 ? '' : 's'} didn't pick`);
+
+  target.innerHTML = `
+    <div class="md-header">
+      <div class="md-header-left">
+        <div class="md-badge">${m.matchNo}</div>
+        <div>
+          <div class="md-title">PL Predictions · Match #${m.matchNo}</div>
+          <div class="md-sub">${subParts.join(' · ')}</div>
+        </div>
+      </div>
+      <div class="md-fixture">
+        <span>${home}</span>
+        <span class="md-vs">VS</span>
+        <span>${away}</span>
+      </div>
+    </div>
+    <div class="md-bar">
+      <span>Predictions grouped by score (${groupList.length} unique scoreline${groupList.length === 1 ? '' : 's'})</span>
+      <span class="md-pill">${totalPredictors} predictor${totalPredictors === 1 ? '' : 's'}</span>
+    </div>
+    <div class="md-grid">${cardsHtml || '<div class="md-no-picks">No predictions submitted for this match yet.</div>'}</div>
+  `;
 }
 
 async function main() {
+  const root = document.getElementById('matchday');
   try {
-    const [selections, scores] = await Promise.all([
+    const [selections, scores, currentMatchText] = await Promise.all([
       fetchCsv('selections.csv'),
       fetchCsv('scores.csv'),
+      fetch('current_match.txt').then(r => r.ok ? r.text() : '').catch(() => ''),
     ]);
-    selectionRows = selections.rows;
+
     players = selections.header.slice(3);
+    matches = selections.rows.map(row => ({
+      round: Number(row.Round),
+      matchNo: Number(row['Match No']),
+      fixture: row.FIXTURE,
+      row,
+    })).sort((a, b) => a.round - b.round || a.matchNo - b.matchNo);
 
     for (const row of scores.rows) {
       const parsed = parseScore(row.Score);
       if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
     }
 
-    const rounds = [...new Set(selectionRows.map(r => r.Round))]
-      .map(Number).sort((a, b) => a - b);
+    if (!matches.length) {
+      root.innerHTML = '<div class="md-no-picks">No matches found.</div>';
+      return;
+    }
 
-    const select = document.getElementById('round-select');
-    select.innerHTML = rounds.map(r => `<option value="${r}">Round ${r}</option>`).join('');
-    select.value = String(rounds[rounds.length - 1]);
-    select.addEventListener('change', () => renderRound(select.value));
+    const rounds = [...new Set(matches.map(m => m.round))].sort((a, b) => a - b);
+    const latestRound = rounds[rounds.length - 1];
+    const currentMatchNo = parseInt((currentMatchText || '').trim(), 10);
 
-    renderRound(select.value);
+    const defaultMatch =
+      matches.find(m => m.round === latestRound && m.matchNo === currentMatchNo) ||
+      matches.find(m => m.round === latestRound) ||
+      matches[0];
+
+    root.innerHTML = '<div class="md-picker"><select id="fixture-select"></select></div><div id="match-panel"></div>';
+
+    const select = document.getElementById('fixture-select');
+    select.innerHTML = rounds.map(r => `
+      <optgroup label="Round ${r}">
+        ${matches.filter(m => m.round === r).map(m =>
+          `<option value="${m.round}|${m.matchNo}">${matchLabel(m)}</option>`
+        ).join('')}
+      </optgroup>`).join('');
+    select.value = `${defaultMatch.round}|${defaultMatch.matchNo}`;
+
+    const panel = document.getElementById('match-panel');
+    select.addEventListener('change', () => {
+      const [r, n] = select.value.split('|').map(Number);
+      renderMatch(panel, r, n);
+    });
+
+    renderMatch(panel, defaultMatch.round, defaultMatch.matchNo);
   } catch (err) {
-    document.getElementById('matches').innerHTML =
-      `<div class="empty">😕 Could not load predictions.<br>${err.message}</div>`;
+    root.innerHTML = `<div class="md-no-picks">😕 Could not load predictions.<br>${err.message}</div>`;
   }
 }
 main();

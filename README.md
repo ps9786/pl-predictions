@@ -134,9 +134,14 @@ python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.j
 - `pl/scores.csv` (`Fixture,Score`, e.g. `Arsenal - Coventry,3-0`) is the
   source of truth for actual results — it starts blank and is filled in
   separately (not auto-generated from `results_2026_27.csv`).
+- `pl/current_match.txt` holds the match number (within the latest round)
+  that `pl/index.html` shows by default — edit it to whichever match you
+  want featured (e.g. today's fixture); players can still pick any other
+  match from the dropdown.
 - Serve the repo (`python3 -m http.server 8000`) and browse to
-  `pl/index.html` (timeline of who picked what), `pl/leaderboard.html`
-  (5/3/1 table) and `pl/stats.html` (most unique/random/predictable/
+  `pl/index.html` (one match at a time — pick a fixture, see predictions
+  grouped by scoreline, "MAVERICK" badge for a lone prediction),
+  `pl/leaderboard.html` (5/3/1 table) and `pl/stats.html` (most unique/random/predictable/
   repetitive picks, goal optimism, home/away bias, "prediction twins").
 - Commit the regenerated `pl/selections.csv`, `pl/league_table.csv` and
   `pl/stats.json` (and `rounds/*.xlsm`) so Amplify serves the update.

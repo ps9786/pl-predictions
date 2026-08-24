@@ -3,7 +3,7 @@
 # Daily refresh for the Premier League prediction game (run from cron at 06:00).
 #
 #   1. Pull the latest actual results  -> results_2026_27.csv   (no API key)
-#   2. Rebuild the scores table        -> league_table.csv      (if selections.csv exists)
+#   2. Rebuild the scores table        -> league_table.csv      (if pl/selections.csv exists)
 #   3. Optionally refresh H2H + form    -> *_summary.csv         (only if SPORTSDB is set)
 #   4. Commit + push any changed data so AWS Amplify redeploys
 #
@@ -31,10 +31,10 @@ echo "===== $(date '+%Y-%m-%d %H:%M:%S') daily_update starting ====="
 bash tools/fetch_pl_results.sh || echo "[!] results fetch failed"
 
 # 2. Scores table (only if we have predictions to score)
-if [ -f selections.csv ]; then
-  python3 tools/calculate_scores_table.py || echo "[!] scores table failed"
+if [ -f pl/selections.csv ]; then
+  python3 tools/calculate_scores_table.py --selections pl/selections.csv || echo "[!] scores table failed"
 else
-  echo "[i] selections.csv not found — skipping scores table"
+  echo "[i] pl/selections.csv not found — skipping scores table"
 fi
 
 # 3. Optional: refresh head-to-head + form (needs premium key; the python

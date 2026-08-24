@@ -77,19 +77,21 @@ def result_type(score: tuple[int, int]) -> str:
 
 
 def split_fixture(value: str) -> tuple[str, str] | None:
-    # accept "A v B", "A v. B", "A vs B", "A vs. B"
-    parts = re.split(r"\s+vs?\.?\s+", (value or "").strip(), maxsplit=1, flags=re.IGNORECASE)
+    # accept "A v B", "A v. B", "A vs B", "A vs. B", "A - B"
+    parts = re.split(r"\s+vs?\.?\s+|\s+-\s+", (value or "").strip(), maxsplit=1, flags=re.IGNORECASE)
     if len(parts) != 2:
         return None
     return norm_team(parts[0]), norm_team(parts[1])
 
 
 # ── Load results ────────────────────────────────────────────────────────────
-def load_results(path: Path):
+def load_results(path: Path, debug: bool = False):
     by_fixture: dict[tuple[str, str], tuple[int, int]] = {}
     by_number: dict[str, tuple[int, int]] = {}
+    total = 0
     with path.open(newline="", encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
+            total += 1
             score = parse_score(row.get("Result", ""))
             if score is None:
                 continue
@@ -98,20 +100,29 @@ def load_results(path: Path):
             num = (row.get("Match Number") or "").strip()
             if num:
                 by_number[num] = score
+    if debug:
+        print(f"[debug] results: {path} — {total} rows, {len(by_fixture)} played "
+              f"(with a final score)", file=sys.stderr)
+        for key, sc in list(by_fixture.items())[:5]:
+            print(f"[debug]   played sample: {key[0]} - {key[1]} -> {sc[0]}-{sc[1]}", file=sys.stderr)
     return by_fixture, by_number
 
 
-def load_selections(path: Path):
+def load_selections(path: Path, debug: bool = False):
     with path.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         if not reader.fieldnames:
             raise ValueError(f"{path} has no header row")
         players = [n for n in reader.fieldnames[3:] if n and n.strip()]
-        return players, list(reader)
+        rows = list(reader)
+    if debug:
+        print(f"[debug] selections: {path} — {len(rows)} fixture rows, "
+              f"{len(players)} players: {', '.join(players)}", file=sys.stderr)
+    return players, rows
 
 
 # ── Scoring ─────────────────────────────────────────────────────────────────
-def score(players, selections, by_fixture, by_number=None):
+def score(players, selections, by_fixture, by_number=None, debug: bool = False):
     """by_number is only used when --use-match-numbers is passed: the selections'
     'Match No' column must then hold the OFFICIAL feed match numbers (1-380).
     By default it is ignored, because a per-round numbering scheme would silently
@@ -123,10 +134,13 @@ def score(players, selections, by_fixture, by_number=None):
         key = split_fixture(fixture_txt)
         if key is None and fixture_txt.strip():
             print(f"[!] Cannot parse FIXTURE {fixture_txt!r} — row skipped "
-                  f"(expected 'Home v Away').", file=sys.stderr)
+                  f"(expected 'Home v Away' or 'Home - Away').", file=sys.stderr)
         actual = by_fixture.get(key) if key else None
         if actual is None and by_number is not None:
             actual = by_number.get((row.get("Match No") or "").strip())
+        if debug:
+            status = f"-> {actual[0]}-{actual[1]}" if actual else "-> NOT FOUND (no final score yet, or name mismatch)"
+            print(f"[debug] fixture {fixture_txt!r} -> key {key} {status}", file=sys.stderr)
         if actual is None:
             continue
 
@@ -194,13 +208,22 @@ def main() -> int:
     ap.add_argument("--use-match-numbers", action="store_true",
                     help="Also join on 'Match No' — ONLY safe when selections.csv "
                          "uses the official feed match numbers (1-380).")
+    ap.add_argument("--debug", action="store_true",
+                    help="Print the resolved file paths and how each fixture "
+                         "was (or wasn't) matched to a result, to stderr.")
     args = ap.parse_args()
 
+    if args.debug:
+        print(f"[debug] selections file: {args.selections} (exists: {args.selections.exists()})",
+              file=sys.stderr)
+        print(f"[debug] results file:    {args.results} (exists: {args.results.exists()})",
+              file=sys.stderr)
+
     try:
-        by_fixture, by_number = load_results(args.results)
-        players, selections = load_selections(args.selections)
+        by_fixture, by_number = load_results(args.results, args.debug)
+        players, selections = load_selections(args.selections, args.debug)
         rows, scored = score(players, selections, by_fixture,
-                             by_number if args.use_match_numbers else None)
+                             by_number if args.use_match_numbers else None, args.debug)
     except (OSError, ValueError, KeyError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Player</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">One player, game by game</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="stats.html">Stats</a>
+  <a href="player.html" class="active">Player</a>
+</nav>
+
+<div class="content">
+  <div class="card">
+    <select id="player-select"></select>
+  </div>
+  <div id="player-panel"><div class="loading">Loading predictions…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+function parseScore(s) {
+  const m = /^\s*(\d+)\s*-\s*(\d+)\s*$/.exec(s || '');
+  return m ? [parseInt(m[1], 10), parseInt(m[2], 10)] : null;
+}
+function resultType([h, a]) {
+  return h > a ? 'home' : a > h ? 'away' : 'draw';
+}
+function normFixture(s) {
+  return (s || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+function scoresEqual(a, b) {
+  return !!a && !!b && a[0] === b[0] && a[1] === b[1];
+}
+
+let players = [];
+let rows = [];
+let scoresMap = {}; // normalised fixture -> [h, a]
+
+// Mirrors tools/player_scores.py::player_games — same 5/3/1/0 rule as
+// tools/calculate_pl_scores.py, kept in sync by hand.
+function playerGames(player) {
+  return rows.map(row => {
+    const pred = parseScore(row[player]);
+    const actual = scoresMap[normFixture(row.FIXTURE)] || null;
+
+    let points = 0;
+    let note = actual ? '' : 'not played yet';
+    if (!pred) {
+      note = note || 'no prediction';
+    } else if (actual) {
+      if (scoresEqual(pred, actual)) {
+        const exactCount = players.filter(p => scoresEqual(parseScore(row[p]), pred)).length;
+        if (exactCount === 1) { points = 5; note = 'exact score, unique'; }
+        else { points = 3; note = 'exact score, shared'; }
+      } else if (resultType(pred) === resultType(actual)) {
+        points = 1; note = 'correct result';
+      } else {
+        points = 0; note = 'wrong';
+      }
+    }
+
+    return {
+      round: row.Round,
+      fixture: row.FIXTURE,
+      prediction: row[player] || '-',
+      actual: actual ? `${actual[0]}-${actual[1]}` : '-',
+      points,
+      note,
+    };
+  });
+}
+
+function renderPlayer(player) {
+  const panel = document.getElementById('player-panel');
+  const games = playerGames(player);
+  const total = games.reduce((n, g) => n + g.points, 0);
+
+  const bodyRows = games.map(g => `<tr>
+    <td>${g.round}</td>
+    <td>${g.fixture}</td>
+    <td>${g.prediction}</td>
+    <td>${g.actual}</td>
+    <td class="pts-cell p${g.points}">${g.points}</td>
+    <td>${g.note}</td>
+  </tr>`).join('');
+
+  panel.innerHTML = `
+    <div class="card">
+      <div style="font-size:1.15rem;font-weight:800;">
+        ${player} — ${total} point${total === 1 ? '' : 's'} total
+      </div>
+    </div>
+    <div class="card">
+      <table class="tbl">
+        <thead><tr>
+          <th>Rnd</th><th>Fixture</th><th>Predicted</th><th>Actual</th><th>Pts</th><th>Note</th>
+        </tr></thead>
+        <tbody>${bodyRows}</tbody>
+      </table>
+    </div>`;
+}
+
+async function main() {
+  const panel = document.getElementById('player-panel');
+  const select = document.getElementById('player-select');
+  try {
+    const [selections, scores] = await Promise.all([
+      fetchCsv('selections.csv'),
+      fetchCsv('scores.csv'),
+    ]);
+
+    players = selections.header.slice(3);
+    rows = selections.rows;
+
+    for (const row of scores.rows) {
+      const parsed = parseScore(row.Score);
+      if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
+    }
+
+    if (!players.length) {
+      panel.innerHTML = '<div class="empty">No players found.</div>';
+      return;
+    }
+
+    select.innerHTML = players.map(p => `<option value="${p}">${p}</option>`).join('');
+
+    const remembered = localStorage.getItem('pl-selected-player');
+    select.value = players.includes(remembered) ? remembered : players[0];
+
+    select.addEventListener('change', () => {
+      localStorage.setItem('pl-selected-player', select.value);
+      renderPlayer(select.value);
+    });
+
+    renderPlayer(select.value);
+  } catch (err) {
+    panel.innerHTML = `<div class="empty">😕 Could not load predictions.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

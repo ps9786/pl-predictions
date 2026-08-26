@@ -219,6 +219,11 @@ table.tbl td.total { font-weight: 800; color: var(--header); }
 .md-player-chip.maverick { border-color: #e2761a; color: #f5a524; }
 .md-no-picks { color: var(--md-text2); font-size: 0.78rem; padding: 20px; text-align: center; }
 
+.pts-cell { font-weight: 800; }
+.pts-cell.p5, .pts-cell.p3 { color: var(--green); }
+.pts-cell.p1 { color: var(--amber); }
+.pts-cell.p0 { color: var(--text2); }
+
 .stat-list { display: flex; flex-direction: column; gap: 6px; }
 .stat-row {
   display: flex; align-items: center; gap: 10px;

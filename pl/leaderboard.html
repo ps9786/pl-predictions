@@ -41,12 +41,20 @@ async function main() {
     }
 
     rows.sort((a, b) => Number(b.Score) - Number(a.Score) ||
+      Number(b['Correct Scores']) - Number(a['Correct Scores']) ||
+      Number(b['5 Pointers']) - Number(a['5 Pointers']) ||
+      Number(b['3 Pointers']) - Number(a['3 Pointers']) ||
+      Number(b['1 Pointers']) - Number(a['1 Pointers']) ||
       a.Player.toLowerCase().localeCompare(b.Player.toLowerCase()));
 
-    let prevScore = null, prevPos = 0;
+    const tieKey = r => [r.Score, r['Correct Scores'], r['5 Pointers'], r['3 Pointers'], r['1 Pointers']]
+      .map(Number).join('|');
+
+    let prevKey = null, prevPos = 0;
     const bodyRows = rows.map((r, i) => {
-      const pos = Number(r.Score) === prevScore ? prevPos : i + 1;
-      prevScore = Number(r.Score); prevPos = pos;
+      const key = tieKey(r);
+      const pos = key === prevKey ? prevPos : i + 1;
+      prevKey = key; prevPos = pos;
       return `<tr>
         <td class="pos">${pos}</td>
         <td class="player">${r.Player}</td>

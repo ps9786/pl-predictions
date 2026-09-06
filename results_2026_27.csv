@@ -9,24 +9,24 @@ Match Number,Round Number,Date,Home Team,Away Team,Result
 8,1,2026-08-23,Man City,Bournemouth,2 - 1
 9,1,2026-08-23,Newcastle,Liverpool,2 - 2
 10,1,2026-08-24,Fulham,Chelsea,2 - 3
-15,2,2026-08-28,Crystal Palace,Man City,
-17,2,2026-08-29,Liverpool,Nott'm Forest,
-11,2,2026-08-29,Bournemouth,Everton,
-14,2,2026-08-29,Coventry,Hull,
-20,2,2026-08-29,Spurs,Newcastle,
-13,2,2026-08-30,Chelsea,Brighton,
-16,2,2026-08-30,Leeds,Brentford,
-19,2,2026-08-30,Sunderland,Fulham,
-18,2,2026-08-30,Man Utd,Ipswich,
-12,2,2026-08-31,Aston Villa,Arsenal,
-27,3,2026-09-04,Ipswich,Liverpool,
-29,3,2026-09-05,Newcastle,Bournemouth,
-22,3,2026-09-05,Brentford,Sunderland,
-23,3,2026-09-05,Brighton,Leeds,
-25,3,2026-09-05,Fulham,Crystal Palace,
-28,3,2026-09-05,Man City,Coventry,
-30,3,2026-09-05,Nott'm Forest,Spurs,
-26,3,2026-09-05,Hull,Aston Villa,
+15,2,2026-08-28,Crystal Palace,Man City,1 - 4
+17,2,2026-08-29,Liverpool,Nott'm Forest,2 - 2
+11,2,2026-08-29,Bournemouth,Everton,1 - 1
+14,2,2026-08-29,Coventry,Hull,0 - 1
+20,2,2026-08-29,Spurs,Newcastle,0 - 2
+13,2,2026-08-30,Chelsea,Brighton,4 - 3
+16,2,2026-08-30,Leeds,Brentford,1 - 1
+19,2,2026-08-30,Sunderland,Fulham,1 - 0
+18,2,2026-08-30,Man Utd,Ipswich,5 - 2
+12,2,2026-08-31,Aston Villa,Arsenal,0 - 1
+27,3,2026-09-04,Ipswich,Liverpool,0 - 2
+29,3,2026-09-05,Newcastle,Bournemouth,2 - 2
+22,3,2026-09-05,Brentford,Sunderland,1 - 1
+23,3,2026-09-05,Brighton,Leeds,1 - 1
+25,3,2026-09-05,Fulham,Crystal Palace,2 - 3
+28,3,2026-09-05,Man City,Coventry,1 - 0
+30,3,2026-09-05,Nott'm Forest,Spurs,0 - 0
+26,3,2026-09-05,Hull,Aston Villa,0 - 0
 24,3,2026-09-06,Everton,Man Utd,
 21,3,2026-09-06,Arsenal,Chelsea,
 31,4,2026-09-12,Bournemouth,Brentford,
@@ -43,11 +43,11 @@ Match Number,Round Number,Date,Home Team,Away Team,Result
 50,5,2026-09-19,Spurs,Aston Villa,
 43,5,2026-09-19,Brighton,Arsenal,
 44,5,2026-09-19,Everton,Ipswich,
-46,5,2026-09-19,Leeds,Crystal Palace,
-47,5,2026-09-19,Man City,Sunderland,
 48,5,2026-09-19,Newcastle,Hull,
 49,5,2026-09-19,Nott'm Forest,Coventry,
 41,5,2026-09-20,Bournemouth,Liverpool,
+46,5,2026-09-20,Leeds,Crystal Palace,
+47,5,2026-09-20,Man City,Sunderland,
 45,5,2026-09-20,Fulham,Man Utd,
 51,6,2026-10-10,Arsenal,Leeds,
 52,6,2026-10-10,Aston Villa,Brentford,
@@ -73,10 +73,10 @@ Match Number,Round Number,Date,Home Team,Away Team,Result
 72,8,2026-10-24,Aston Villa,Man City,
 71,8,2026-10-24,Arsenal,Everton,
 74,8,2026-10-24,Coventry,Fulham,
-78,8,2026-10-24,Liverpool,Brighton,
 73,8,2026-10-24,Chelsea,Spurs,
 75,8,2026-10-25,Crystal Palace,Newcastle,
 76,8,2026-10-25,Hull,Brentford,
+78,8,2026-10-25,Liverpool,Brighton,
 79,8,2026-10-25,Man Utd,Bournemouth,
 80,8,2026-10-25,Sunderland,Leeds,
 84,9,2026-10-31,Chelsea,Man Utd,
@@ -86,7 +86,7 @@ Match Number,Round Number,Date,Home Team,Away Team,Result
 86,9,2026-10-31,Hull,Ipswich,
 88,9,2026-10-31,Man City,Brighton,
 90,9,2026-10-31,Spurs,Crystal Palace,
-82,9,2026-11-01,Aston Villa,Fulham,
+82,9,2026-10-31,Aston Villa,Fulham,
 87,9,2026-11-01,Liverpool,Arsenal,
 89,9,2026-11-02,Newcastle,Everton,
 91,10,2026-11-07,Arsenal,Hull,

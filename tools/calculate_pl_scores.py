@@ -15,9 +15,15 @@ games.txt):
   Fixture,Score
   Arsenal - Coventry,3-0
 
+pl/previous_league_table.csv carries over points from earlier rounds (same
+columns as the output CSV). Players are matched by name (the "Player"
+column); rows are added into that player's running total before this round's
+selections are scored.
+
 Usage:
   python3 tools/calculate_pl_scores.py \
       --selections pl/selections.csv --scores pl/scores.csv \
+      --previous pl/previous_league_table.csv \
       --output pl/league_table.csv
 """
 
@@ -100,8 +106,38 @@ def load_selections(path: Path):
         return players, list(reader)
 
 
-def score(players, selections, by_fixture):
-    table = {p: {"Player": p.strip(), "1": 0, "3": 0, "5": 0, "Total": 0} for p in players}
+def load_previous(path: Path) -> dict[str, dict[str, int]]:
+    """Prior-rounds carry-over table (pl/previous_league_table.csv), keyed by
+    Player name. Same columns as the output CSV."""
+    previous: dict[str, dict[str, int]] = {}
+    if not path.exists():
+        return previous
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            player = (row.get("Player") or "").strip()
+            if not player:
+                continue
+            previous[player] = {
+                "Total": int(row.get("Score") or 0),
+                "5": int(row.get("5 Pointers") or 0),
+                "3": int(row.get("3 Pointers") or 0),
+                "1": int(row.get("1 Pointers") or 0),
+            }
+    return previous
+
+
+def score(players, selections, by_fixture, previous=None):
+    previous = previous or {}
+    table = {
+        p: {
+            "Player": p.strip(),
+            "1": previous.get(p.strip(), {}).get("1", 0),
+            "3": previous.get(p.strip(), {}).get("3", 0),
+            "5": previous.get(p.strip(), {}).get("5", 0),
+            "Total": previous.get(p.strip(), {}).get("Total", 0),
+        }
+        for p in players
+    }
     scored = 0
     for row in selections:
         fixture_txt = row.get("FIXTURE", "")
@@ -173,13 +209,15 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build the pl/ prediction league table.")
     ap.add_argument("--selections", type=Path, default=ROOT / "pl" / "selections.csv")
     ap.add_argument("--scores", type=Path, default=ROOT / "pl" / "scores.csv")
+    ap.add_argument("--previous", type=Path, default=ROOT / "pl" / "previous_league_table.csv")
     ap.add_argument("--output", type=Path, default=ROOT / "pl" / "league_table.csv")
     args = ap.parse_args()
 
     try:
         by_fixture = load_scores(args.scores)
         players, selections = load_selections(args.selections)
-        rows, scored = score(players, selections, by_fixture)
+        previous = load_previous(args.previous)
+        rows, scored = score(players, selections, by_fixture, previous)
     except (OSError, ValueError, KeyError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1

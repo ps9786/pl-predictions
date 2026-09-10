@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Results</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">Full-time scores &amp; match stats</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="results.html" class="active">Results</a>
+  <a href="stats.html">Stats</a>
+  <a href="player.html">Player</a>
+</nav>
+
+<div class="content">
+  <div class="section-hint" id="comeback-hint" style="display:none">
+    🔄 <strong>Comeback win</strong> — the team trailing at half-time went on to win the match.
+  </div>
+  <div id="results"><div class="loading">Loading results…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+function outcome(h, a) {
+  return h > a ? 'H' : h < a ? 'A' : 'D';
+}
+
+function resultsCard(row) {
+  const [home, away] = (row.Fixture || '').split(/\s+-\s+/);
+  const [fh, fa] = (row.Score || '').split('-').map(n => parseInt(n, 10));
+  const hth = parseInt(row.HTHG, 10);
+  const hta = parseInt(row.HTAG, 10);
+  const hasHt = Number.isFinite(hth) && Number.isFinite(hta);
+
+  const ftr = outcome(fh, fa);
+  const htr = hasHt ? outcome(hth, hta) : null;
+  const comeback = hasHt && htr !== 'D' && ftr !== 'D' && htr !== ftr;
+
+  const homeWon = ftr === 'H', awayWon = ftr === 'A';
+
+  const statRow = (label, h, a) => (h === '' && a === '') ? '' : `
+    <tr><td>${label}</td><td class="num">${h}</td><td class="num">${a}</td></tr>`;
+
+  const statsHtml = `
+    <table class="tbl mini-tbl">
+      <thead><tr><th></th><th>${home}</th><th>${away}</th></tr></thead>
+      <tbody>
+        ${statRow('Shots', row.HS, row.AS)}
+        ${statRow('On target', row.HST, row.AST)}
+        ${statRow('Corners', row.HC, row.AC)}
+        ${statRow('Fouls', row.HF, row.AF)}
+        ${statRow('Yellow cards', row.HY, row.AY)}
+        ${statRow('Red cards', row.HR, row.AR)}
+      </tbody>
+    </table>
+    ${row.Referee ? `<div class="result-referee">Referee: ${row.Referee}</div>` : ''}`;
+
+  return `
+    <details class="result-card">
+      <summary>
+        <div class="result-summary">
+          <span class="result-date">${row.Date || ''}</span>
+          ${comeback ? '<span class="comeback-badge" title="Trailed at half-time, won the match">🔄 Comeback</span>' : ''}
+        </div>
+        <div class="result-fixture">
+          <span class="result-team${homeWon ? ' won' : ''}">${home}</span>
+          <span class="result-score">${row.Score || '–'}</span>
+          <span class="result-team${awayWon ? ' won' : ''}">${away}</span>
+        </div>
+        ${hasHt ? `<div class="result-ht">HT ${hth}-${hta}</div>` : ''}
+      </summary>
+      ${statsHtml}
+    </details>`;
+}
+
+async function main() {
+  const root = document.getElementById('results');
+  try {
+    const { rows } = await fetchCsv('scores.csv');
+    if (!rows.length) {
+      root.innerHTML = '<div class="empty">No results yet.</div>';
+      return;
+    }
+
+    root.innerHTML = rows.map(resultsCard).join('');
+
+    const anyComeback = rows.some(r => {
+      const [fh, fa] = (r.Score || '').split('-').map(n => parseInt(n, 10));
+      const hth = parseInt(r.HTHG, 10), hta = parseInt(r.HTAG, 10);
+      if (!Number.isFinite(hth) || !Number.isFinite(hta)) return false;
+      const ftr = outcome(fh, fa), htr = outcome(hth, hta);
+      return htr !== 'D' && ftr !== 'D' && htr !== ftr;
+    });
+    if (anyComeback) document.getElementById('comeback-hint').style.display = 'block';
+  } catch (err) {
+    root.innerHTML = `<div class="empty">😕 Could not load results.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

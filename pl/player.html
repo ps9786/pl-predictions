@@ -127,6 +127,11 @@ async function main() {
     ]);
 
     players = selections.header.slice(3);
+    players.sort((a, b) => {
+      const firstA = a.trim().split(/\s+/)[0];
+      const firstB = b.trim().split(/\s+/)[0];
+      return firstA.localeCompare(firstB) || a.localeCompare(b);
+    });
     rows = selections.rows;
 
     for (const row of scores.rows) {

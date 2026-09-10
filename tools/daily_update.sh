@@ -4,8 +4,10 @@
 #
 #   1. Pull the latest actual results  -> results_2026_27.csv   (no API key)
 #   2. Rebuild the scores table        -> league_table.csv      (if pl/selections.csv exists)
-#   3. Optionally refresh H2H + form    -> *_summary.csv         (only if SPORTSDB is set)
-#   4. Commit + push any changed data so AWS Amplify redeploys
+#   3. Pull pl/ actual results         -> pl/scores.csv          (no API key)
+#   4. Rebuild the pl/ league table    -> pl/league_table.csv    (if pl/selections.csv exists)
+#   5. Optionally refresh H2H + form    -> *_summary.csv         (only if SPORTSDB is set)
+#   6. Commit + push any changed data so AWS Amplify redeploys
 #
 # Results and the scores table need NO API key. Head-to-head / form need the
 # TheSportsDB premium key; set SPORTSDB in the crontab line to include them
@@ -37,7 +39,18 @@ else
   echo "[i] pl/selections.csv not found — skipping scores table"
 fi
 
-# 3. Optional: refresh head-to-head + form (needs premium key; the python
+# 3. pl/ actual results (football-data.co.uk feed, no key needed)
+python3 tools/fetch_pl_scores.py || echo "[!] pl/scores.csv fetch failed"
+
+# 4. pl/ league table (only if we have predictions to score)
+if [ -f pl/selections.csv ]; then
+  python3 tools/calculate_pl_scores.py --selections pl/selections.csv --scores pl/scores.csv \
+    --output pl/league_table.csv || echo "[!] pl/league_table.csv build failed"
+else
+  echo "[i] pl/selections.csv not found — skipping pl/league_table.csv"
+fi
+
+# 5. Optional: refresh head-to-head + form (needs premium key; the python
 #    script fails fast on an invalid/free key and never writes empty CSVs)
 if [ -n "${SPORTSDB:-}" ]; then
   ./tools/update_predictions_data.sh || echo "[!] H2H/form refresh failed"
@@ -45,10 +58,11 @@ else
   echo "[i] SPORTSDB not set — skipping H2H/form refresh"
 fi
 
-# 4. Commit + push only the game data files, only if something changed.
+# 6. Commit + push only the game data files, only if something changed.
 #    games.txt is included so the deployed fixtures always match the CSVs
 #    that were generated from them.
-DATA_FILES=(games.txt results_2026_27.csv league_table.csv matchup_summary.csv team_form_summary.csv)
+DATA_FILES=(games.txt results_2026_27.csv league_table.csv matchup_summary.csv team_form_summary.csv \
+            pl/scores.csv pl/league_table.csv)
 EXISTING=()
 for f in "${DATA_FILES[@]}"; do [ -f "$f" ] && EXISTING+=("$f"); done
 

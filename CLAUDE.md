@@ -119,6 +119,20 @@ FIXTURE,<players…>`, fixtures as `Home v Away`) + `results_2026_27.csv`
 join is only used with `--use-match-numbers` (requires official feed numbers
 1-380 — a per-round numbering would silently join wrong fixtures).
 
+There's a second, parallel scoring pipeline under `pl/` (same 5/3/1 rules, via
+`tools/calculate_pl_scores.py`), used by `pl/index.html` / `pl/player.html`.
+Inputs: `pl/selections.csv` (from `tools/build_pl_selections.py`) + `pl/scores.csv`
+(fixtures as `Home - Away`, from `tools/fetch_pl_scores.py`, which pulls
+played-match results from football-data.co.uk's `mmz4281/2627/E0.csv` feed —
+format at `football-data.co.uk/notes.txt` — and maps its team names through
+`tools/team_lookup.csv`). Output: `pl/league_table.csv`. `pl/scores.csv` is
+fully **replaced** each run (`fetch_pl_scores.py` is the source of truth for
+played results); its first two columns (`Fixture,Score`) must stay in that
+exact format/order since `plp.html`-style pages and the scoring scripts key
+off the `Fixture`/`Score` header names — later columns (half-time score,
+referee, shots/corners/cards) are extra detail, not required. Both this and
+the root pipeline run from `tools/daily_update.sh`, independently.
+
 `tools/check_scores.py` is an older 3/1/0 helper (no unique-exact bonus); the
 WC-era `tools/calculate_league_table.py` and the sibling
 `~/vscode/calculate_leaderboard` project are archived.

@@ -1,0 +1,60 @@
+Arsenal
+Hull
+Everton
+Ipswich
+Nott'm Forest
+Brentford
+Brighton
+Man City
+Newcastle
+Fulham
+Crystal Palace
+Liverpool
+Bournemouth
+Coventry
+Tottenham
+Chelsea
+Leeds
+Sunderland
+Man United
+Aston Villa
+Ipswich
+Newcastle
+Brentford
+Brighton
+Fulham
+Man City
+Nott'm Forest
+Hull
+Everton
+Arsenal
+Coventry
+Man United
+Crystal Palace
+Sunderland
+Leeds
+Tottenham
+Aston Villa
+Bournemouth
+Liverpool
+Chelsea
+Man City
+Nott'm Forest
+Everton
+Hull
+Newcastle
+Brighton
+Brentford
+Fulham
+Ipswich
+Arsenal
+Liverpool
+Bournemouth
+Sunderland
+Leeds
+Crystal Palace
+Coventry
+Tottenham
+Aston Villa
+Man United
+Chelsea

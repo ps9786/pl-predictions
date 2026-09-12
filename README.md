@@ -159,8 +159,12 @@ python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.j
 - Serve the repo (`python3 -m http.server 8000`) and browse to
   `pl/index.html` (one match at a time — pick a fixture, see predictions
   grouped by scoreline, "MAVERICK" badge for a lone prediction),
-  `pl/leaderboard.html` (5/3/1 table) and `pl/stats.html` (most unique/random/predictable/
-  repetitive picks, goal optimism, home/away bias, "prediction twins").
+  `pl/leaderboard.html` (5/3/1 table — a dropdown switches between the
+  cumulative "Overall" table from `pl/league_table.csv` and a per-round table
+  computed client-side from `pl/selections.csv` + `pl/scores.csv`, so no extra
+  build step is needed when a round finishes) and `pl/stats.html` (most
+  unique/random/predictable/repetitive picks, goal optimism, home/away bias,
+  "prediction twins").
 - Commit the regenerated `pl/selections.csv`, `pl/league_table.csv` and
   `pl/stats.json` (and `rounds/*.xlsm`) so Amplify serves the update.
 

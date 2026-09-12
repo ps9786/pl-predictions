@@ -28,56 +28,112 @@
 </nav>
 
 <div class="content">
+  <div class="card">
+    <div class="md-picker" style="margin-bottom:0">
+      <select id="scope-select"></select>
+    </div>
+  </div>
   <div class="card" id="board"><div class="loading">Loading leaderboard…</div></div>
 </div>
 
 <script src="assets/pl.js"></script>
 <script>
+let overallRows = [];
+let players = [];
+let selectionsByRound = {}; // round number -> rows
+let scoresMap = {};         // normFixture(fixture) -> [h, a]
+let rounds = [];
+
+function renderTable(rows, { emptyHint } = {}) {
+  const board = document.getElementById('board');
+  if (!rows.length) {
+    board.innerHTML = '<div class="empty">No players found.</div>';
+    return;
+  }
+
+  rows = rows.slice().sort((a, b) => Number(b.Score) - Number(a.Score) ||
+    Number(b['Correct Scores']) - Number(a['Correct Scores']) ||
+    Number(b['5 Pointers']) - Number(a['5 Pointers']) ||
+    Number(b['3 Pointers']) - Number(a['3 Pointers']) ||
+    Number(b['1 Pointers']) - Number(a['1 Pointers']) ||
+    a.Player.toLowerCase().localeCompare(b.Player.toLowerCase()));
+
+  const tieKey = r => [r.Score, r['Correct Scores'], r['5 Pointers'], r['3 Pointers'], r['1 Pointers']]
+    .map(Number).join('|');
+
+  let prevKey = null, prevPos = 0;
+  const bodyRows = rows.map((r, i) => {
+    const key = tieKey(r);
+    const pos = key === prevKey ? prevPos : i + 1;
+    prevKey = key; prevPos = pos;
+    return `<tr>
+      <td class="pos">${pos}</td>
+      <td class="player">${r.Player}</td>
+      <td class="total">${r.Score}</td>
+      <td>${r['Correct Scores']}</td>
+      <td>${r['5 Pointers']}</td>
+      <td>${r['3 Pointers']}</td>
+      <td>${r['1 Pointers']}</td>
+    </tr>`;
+  }).join('');
+
+  const allZero = rows.every(r => Number(r.Score) === 0);
+
+  document.getElementById('board').innerHTML = `
+    ${allZero ? `<div class="section-hint" style="margin-bottom:12px">${emptyHint || 'No results recorded yet.'}</div>` : ''}
+    <table class="tbl">
+      <thead><tr>
+        <th>#</th><th>Player</th><th>Pts</th><th>Correct</th><th>5s</th><th>3s</th><th>1s</th>
+      </tr></thead>
+      <tbody>${bodyRows}</tbody>
+    </table>`;
+}
+
+function renderScope(value) {
+  if (value === 'overall') {
+    renderTable(overallRows, {
+      emptyHint: 'No results recorded yet — the table will fill in once pl/scores.csv has actual scorelines.'
+    });
+  } else {
+    const round = Number(value);
+    const rows = scoreRows(players, selectionsByRound[round] || [], scoresMap);
+    renderTable(rows, {
+      emptyHint: `No results recorded yet for Round ${round}.`
+    });
+  }
+}
+
 async function main() {
   const board = document.getElementById('board');
   try {
-    const { rows } = await fetchCsv('league_table.csv');
-    if (!rows.length) {
-      board.innerHTML = '<div class="empty">No players found.</div>';
-      return;
+    const [overall, selections, scores] = await Promise.all([
+      fetchCsv('league_table.csv'),
+      fetchCsv('selections.csv'),
+      fetchCsv('scores.csv'),
+    ]);
+
+    overallRows = overall.rows;
+    players = selections.header.slice(3);
+
+    for (const row of selections.rows) {
+      const round = Number(row.Round);
+      (selectionsByRound[round] = selectionsByRound[round] || []).push(row);
+    }
+    rounds = Object.keys(selectionsByRound).map(Number).sort((a, b) => a - b);
+
+    for (const row of scores.rows) {
+      const parsed = parseScore(row.Score);
+      if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
     }
 
-    rows.sort((a, b) => Number(b.Score) - Number(a.Score) ||
-      Number(b['Correct Scores']) - Number(a['Correct Scores']) ||
-      Number(b['5 Pointers']) - Number(a['5 Pointers']) ||
-      Number(b['3 Pointers']) - Number(a['3 Pointers']) ||
-      Number(b['1 Pointers']) - Number(a['1 Pointers']) ||
-      a.Player.toLowerCase().localeCompare(b.Player.toLowerCase()));
+    const select = document.getElementById('scope-select');
+    select.innerHTML = `
+      <option value="overall">Overall — all rounds</option>
+      ${rounds.map(r => `<option value="${r}">Round ${r} only</option>`).join('')}
+    `;
+    select.addEventListener('change', () => renderScope(select.value));
 
-    const tieKey = r => [r.Score, r['Correct Scores'], r['5 Pointers'], r['3 Pointers'], r['1 Pointers']]
-      .map(Number).join('|');
-
-    let prevKey = null, prevPos = 0;
-    const bodyRows = rows.map((r, i) => {
-      const key = tieKey(r);
-      const pos = key === prevKey ? prevPos : i + 1;
-      prevKey = key; prevPos = pos;
-      return `<tr>
-        <td class="pos">${pos}</td>
-        <td class="player">${r.Player}</td>
-        <td class="total">${r.Score}</td>
-        <td>${r['Correct Scores']}</td>
-        <td>${r['5 Pointers']}</td>
-        <td>${r['3 Pointers']}</td>
-        <td>${r['1 Pointers']}</td>
-      </tr>`;
-    }).join('');
-
-    const allZero = rows.every(r => Number(r.Score) === 0);
-
-    board.innerHTML = `
-      ${allZero ? '<div class="section-hint" style="margin-bottom:12px">No results recorded yet — the table will fill in once pl/scores.csv has actual scorelines.</div>' : ''}
-      <table class="tbl">
-        <thead><tr>
-          <th>#</th><th>Player</th><th>Pts</th><th>Correct</th><th>5s</th><th>3s</th><th>1s</th>
-        </tr></thead>
-        <tbody>${bodyRows}</tbody>
-      </table>`;
+    renderScope('overall');
   } catch (err) {
     board.innerHTML = `<div class="empty">😕 Could not load the leaderboard.<br>${err.message}</div>`;
   }

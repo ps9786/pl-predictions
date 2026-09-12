@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Best Score</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">The single best scoreline to have picked every time</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="results.html">Results</a>
+  <a href="stats.html">Stats</a>
+  <a href="player.html">Player</a>
+  <a href="score-check.html">Score Check</a>
+  <a href="best-score.html" class="active">Best Score</a>
+</nav>
+
+<div class="content">
+  <div id="best" class="content"><div class="loading">Crunching every scoreline from 0-0 to 5-5…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+function render(players, selectionsByRound, scoresMap, roundsToCheck) {
+  const root = document.getElementById('best');
+
+  if (!roundsToCheck.length) {
+    root.innerHTML = '<div class="empty">No rounds listed in rounds_to_look_at.txt.</div>';
+    return;
+  }
+
+  const allRows = roundsToCheck.flatMap(r => selectionsByRound[r] || []);
+  if (!allRows.length) {
+    root.innerHTML = '<div class="empty">No matches found for those rounds.</div>';
+    return;
+  }
+
+  const candidates = [];
+  for (let h = 0; h <= 5; h++) {
+    for (let a = 0; a <= 5; a++) {
+      const { total } = hypotheticalScore([h, a], allRows, players, scoresMap);
+      candidates.push({ home: h, away: a, total });
+    }
+  }
+  candidates.sort((x, y) => y.total - x.total || x.home + x.away - (y.home + y.away));
+
+  const bestTotal = candidates[0].total;
+  let prevTotal = null, prevPos = 0;
+  const bodyRows = candidates.map((c, i) => {
+    const pos = c.total === prevTotal ? prevPos : i + 1;
+    prevTotal = c.total; prevPos = pos;
+    return `<tr${c.total === bestTotal ? ' class="best-row"' : ''}>
+      <td class="pos">${pos === 1 ? '🏆' : pos}</td>
+      <td class="player">${c.home}-${c.away}</td>
+      <td class="total">${c.total}</td>
+    </tr>`;
+  }).join('');
+
+  root.innerHTML = `
+    <div class="section-hint">Every scoreline from 0-0 to 5-5, checked against Round${roundsToCheck.length === 1 ? '' : 's'} ${roundsToCheck.join(', ')} as if predicted for every match.</div>
+    <div class="card">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Score</th><th>Pts</th></tr></thead>
+        <tbody>${bodyRows}</tbody>
+      </table>
+    </div>`;
+}
+
+async function main() {
+  const root = document.getElementById('best');
+  try {
+    const [selections, scores, roundsText] = await Promise.all([
+      fetchCsv('selections.csv'),
+      fetchCsv('scores.csv'),
+      fetch('rounds_to_look_at.txt').then(r => r.ok ? r.text() : '').catch(() => ''),
+    ]);
+
+    const players = selections.header.slice(3);
+    const selectionsByRound = {};
+    for (const row of selections.rows) {
+      const round = Number(row.Round);
+      (selectionsByRound[round] = selectionsByRound[round] || []).push(row);
+    }
+
+    const scoresMap = {};
+    for (const row of scores.rows) {
+      const parsed = parseScore(row.Score);
+      if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
+    }
+
+    const roundsToCheck = parseRoundsFile(roundsText);
+    render(players, selectionsByRound, scoresMap, roundsToCheck);
+  } catch (err) {
+    root.innerHTML = `<div class="empty">😕 Could not load the best-score table.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

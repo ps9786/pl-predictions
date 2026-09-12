@@ -306,3 +306,6 @@ table.mini-tbl th:not(:first-child), table.mini-tbl td:not(:first-child) { text-
 }
 .sc-dash { font-weight: 800; color: var(--text2); }
 .stat-row-total { font-weight: 700; color: var(--text2); font-size: 0.85rem; }
+
+table.tbl tr.best-row td { background: var(--green-bg); }
+table.tbl tr.best-row td.total { color: var(--green); }

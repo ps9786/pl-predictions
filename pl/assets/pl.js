@@ -91,3 +91,43 @@ function scoreRows(players, rows, scoresMap) {
     '1 Pointers': r['1'],
   }));
 }
+
+// Points a single hypothetical scoreline (e.g. [0, 0]) would have earned if
+// predicted for every match in `rows` (e.g. one round's selections.csv rows),
+// under the same 5/3/1 rules — unique exact score among the real players'
+// picks scores 5, shared exact scores 3, correct result only scores 1.
+function hypotheticalScore(hyp, rows, players, scoresMap) {
+  const outcome = resultType(hyp);
+
+  const matchRows = rows.map(row => {
+    const actual = scoresMap[normFixture(row.FIXTURE)];
+    if (!actual) return { fixture: row.FIXTURE, played: false };
+
+    let sameCount = 0;
+    for (const p of players) {
+      const parsed = parseScore(row[p]);
+      if (parsed && parsed[0] === hyp[0] && parsed[1] === hyp[1]) sameCount++;
+    }
+
+    let pts = 0;
+    if (hyp[0] === actual[0] && hyp[1] === actual[1]) {
+      pts = sameCount === 0 ? 5 : 3;
+    } else if (outcome === resultType(actual)) {
+      pts = 1;
+    }
+
+    return { fixture: row.FIXTURE, played: true, actual, pts, sameCount };
+  });
+
+  const total = matchRows.reduce((n, m) => n + (m.played ? m.pts : 0), 0);
+  return { matchRows, total };
+}
+
+// Parse pl/rounds_to_look_at.txt: one round number per line, blanks ignored.
+function parseRoundsFile(text) {
+  return (text || '').split(/\r?\n/)
+    .map(l => parseInt(l.trim(), 10))
+    .filter(n => Number.isFinite(n))
+    .filter((n, i, arr) => arr.indexOf(n) === i)
+    .sort((a, b) => a - b);
+}

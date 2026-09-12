@@ -294,3 +294,15 @@ table.mini-tbl th, table.mini-tbl td { padding: 6px 8px; }
 table.mini-tbl th:first-child, table.mini-tbl td:first-child { text-align: left; }
 table.mini-tbl th:not(:first-child), table.mini-tbl td:not(:first-child) { text-align: center; }
 .result-referee { font-size: 0.75rem; color: var(--text2); margin-top: 8px; text-align: right; }
+
+.sc-picker-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.sc-picker { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.sc-picker select {
+  width: 64px; text-align: center;
+  background: var(--input-bg); color: var(--text); border: 1px solid var(--border);
+  border-radius: 10px; padding: 9px 6px; font-size: 1rem; font-weight: 800;
+}
+.sc-dash { font-weight: 800; color: var(--text2); }
+.stat-row-total { font-weight: 700; color: var(--text2); font-size: 0.85rem; }

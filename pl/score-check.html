@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PL Predictions — Score Check</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/pl.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">⚽ PL Predictions 2026/27</div>
+    <div class="header-sub">What would that scoreline have got you?</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Timeline</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="results.html">Results</a>
+  <a href="stats.html">Stats</a>
+  <a href="player.html">Player</a>
+  <a href="score-check.html" class="active">Score Check</a>
+</nav>
+
+<div class="content">
+  <div class="card">
+    <div class="sc-picker-row">
+      <div>
+        <div class="toggle-label">Pick a scoreline</div>
+        <div class="toggle-hint">Applied to every match in the rounds below, as if you'd predicted it every time.</div>
+      </div>
+      <div class="sc-picker">
+        <select id="sc-home" aria-label="Home score"></select>
+        <span class="sc-dash">–</span>
+        <select id="sc-away" aria-label="Away score"></select>
+      </div>
+    </div>
+  </div>
+  <div id="checker" class="content"><div class="loading">Loading…</div></div>
+</div>
+
+<script src="assets/pl.js"></script>
+<script>
+let players = [];
+let selectionsByRound = {}; // round number -> rows
+let scoresMap = {};         // normFixture(fixture) -> [h, a]
+let roundsToCheck = [];     // round numbers from rounds_to_look_at.txt
+
+function pointsClass(pts) {
+  if (pts === 5 || pts === 3) return 'p5';
+  if (pts === 1) return 'p1';
+  return 'p0';
+}
+
+function checkRound(hyp, round) {
+  const rows = selectionsByRound[round] || [];
+  const outcome = resultType(hyp);
+
+  const matchRows = rows.map(row => {
+    const actual = scoresMap[normFixture(row.FIXTURE)];
+    if (!actual) return { fixture: row.FIXTURE, played: false };
+
+    let sameCount = 0;
+    for (const p of players) {
+      const parsed = parseScore(row[p]);
+      if (parsed && parsed[0] === hyp[0] && parsed[1] === hyp[1]) sameCount++;
+    }
+
+    let pts = 0;
+    if (hyp[0] === actual[0] && hyp[1] === actual[1]) {
+      pts = sameCount === 0 ? 5 : 3;
+    } else if (outcome === resultType(actual)) {
+      pts = 1;
+    }
+
+    return { fixture: row.FIXTURE, played: true, actual, pts, sameCount };
+  });
+
+  const total = matchRows.reduce((n, m) => n + (m.played ? m.pts : 0), 0);
+  return { matchRows, total };
+}
+
+function renderRound(round, hyp) {
+  const { matchRows, total } = checkRound(hyp, round);
+  if (!matchRows.length) return '';
+
+  const bodyRows = matchRows.map(m => {
+    if (!m.played) {
+      return `<tr><td class="player">${m.fixture}</td><td>–</td><td class="pts-cell p0">–</td></tr>`;
+    }
+    const label = m.pts === 5 ? '5 (unique)' : m.pts === 3 ? `3 (shared × ${m.sameCount + 1})` : m.pts === 1 ? '1' : '0';
+    return `<tr>
+      <td class="player">${m.fixture}</td>
+      <td>${m.actual[0]}-${m.actual[1]}</td>
+      <td class="pts-cell ${pointsClass(m.pts)}">${label}</td>
+    </tr>`;
+  }).join('');
+
+  return `
+    <h2 class="section-title">Round ${round} <span class="stat-row-total">— ${total} pt${total === 1 ? '' : 's'}</span></h2>
+    <div class="card">
+      <table class="tbl">
+        <thead><tr><th>Fixture</th><th>Actual</th><th>Points</th></tr></thead>
+        <tbody>${bodyRows}</tbody>
+      </table>
+    </div>`;
+}
+
+function render() {
+  const root = document.getElementById('checker');
+  const home = parseInt(document.getElementById('sc-home').value, 10);
+  const away = parseInt(document.getElementById('sc-away').value, 10);
+  const hyp = [home, away];
+
+  if (!roundsToCheck.length) {
+    root.innerHTML = '<div class="empty">No rounds listed in rounds_to_look_at.txt.</div>';
+    return;
+  }
+
+  const sections = roundsToCheck.map(r => renderRound(r, hyp)).filter(Boolean).join('');
+  const grandTotal = roundsToCheck.reduce((n, r) => n + checkRound(hyp, r).total, 0);
+
+  root.innerHTML = `
+    <div class="section-hint">Checking ${home}-${away} against Round${roundsToCheck.length === 1 ? '' : 's'} ${roundsToCheck.join(', ')}.</div>
+    <h2 class="section-title">Total <span class="stat-row-total">— ${grandTotal} pt${grandTotal === 1 ? '' : 's'}</span></h2>
+    ${sections || '<div class="empty">No matches found for those rounds.</div>'}`;
+}
+
+async function main() {
+  const root = document.getElementById('checker');
+  try {
+    const [selections, scores, roundsText] = await Promise.all([
+      fetchCsv('selections.csv'),
+      fetchCsv('scores.csv'),
+      fetch('rounds_to_look_at.txt').then(r => r.ok ? r.text() : '').catch(() => ''),
+    ]);
+
+    players = selections.header.slice(3);
+    for (const row of selections.rows) {
+      const round = Number(row.Round);
+      (selectionsByRound[round] = selectionsByRound[round] || []).push(row);
+    }
+
+    for (const row of scores.rows) {
+      const parsed = parseScore(row.Score);
+      if (row.Fixture && parsed) scoresMap[normFixture(row.Fixture)] = parsed;
+    }
+
+    roundsToCheck = roundsText.split(/\r?\n/)
+      .map(l => parseInt(l.trim(), 10))
+      .filter(n => Number.isFinite(n))
+      .filter((n, i, arr) => arr.indexOf(n) === i)
+      .sort((a, b) => a - b);
+
+    const homeSelect = document.getElementById('sc-home');
+    const awaySelect = document.getElementById('sc-away');
+    const options = Array.from({ length: 10 }, (_, i) => `<option value="${i}">${i}</option>`).join('');
+    homeSelect.innerHTML = options;
+    awaySelect.innerHTML = options;
+    homeSelect.addEventListener('change', render);
+    awaySelect.addEventListener('change', render);
+
+    render();
+  } catch (err) {
+    root.innerHTML = `<div class="empty">😕 Could not load the score checker.<br>${err.message}</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

@@ -123,6 +123,18 @@ Each round is a workbook `rounds/ROUND N.xlsm`: `Match Number`, `FIXTURE`
 (`Home - Away`), a blank `Actual Score` column, then one column per player
 with their `H-A` guess. A "round" typically bundles several gameweeks.
 
+**Starting a new round (e.g. `ROUND 3.xlsm`):**
+
+1. Copy the previous round's workbook to `rounds/ROUND N.xlsm`, clear the
+   `Actual Score` and pick columns, and fill in `Match Number`/`FIXTURE` for
+   the new fixtures (the player columns carry over — add or remove a column
+   if someone joined or dropped out).
+2. Share the workbook with the group and wait for everyone's picks.
+3. Run the weekly steps below, then point `pl/current_match.txt` at the new
+   round's first match number so `pl/index.html` opens on it by default.
+4. Commit & push `rounds/ROUND N.xlsm` and the regenerated
+   `pl/selections.csv` / `league_table.csv` / `stats.json`.
+
 **Weekly steps, once a round's picks are in:**
 
 `git pull` first if someone else added the new `rounds/ROUND N.xlsm` — the
@@ -136,9 +148,10 @@ python3 tools/calculate_pl_scores.py    # pl/selections.csv + pl/scores.csv -> p
 python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.json
 ```
 
-- `pl/scores.csv` (`Fixture,Score`, e.g. `Arsenal - Coventry,3-0`) is the
-  source of truth for actual results — it starts blank and is filled in
-  separately (not auto-generated from `results_2026_27.csv`).
+- `pl/scores.csv` (`Fixture,Score`, e.g. `Arsenal - Coventry,3-0`) holds
+  actual results. It's **not** hand-filled or generated from
+  `results_2026_27.csv` — it's fetched daily by cron; see "Daily score &
+  leaderboard updates" below.
 - `pl/current_match.txt` holds the match number (within the latest round)
   that `pl/index.html` shows by default — edit it to whichever match you
   want featured (e.g. today's fixture); players can still pick any other
@@ -150,6 +163,31 @@ python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.j
   repetitive picks, goal optimism, home/away bias, "prediction twins").
 - Commit the regenerated `pl/selections.csv`, `pl/league_table.csv` and
   `pl/stats.json` (and `rounds/*.xlsm`) so Amplify serves the update.
+
+**Daily score & leaderboard updates:**
+
+`tools/daily_update.sh` handles this — no manual steps needed once it's on
+cron. Run daily (e.g. 06:00), it needs no API key and:
+
+1. Fetches actual results for the root game (`tools/fetch_pl_results.sh` ->
+   `results_2026_27.csv`) and rebuilds `league_table.csv`.
+2. Fetches actual results for the `pl/` game (`tools/fetch_pl_scores.py` ->
+   `pl/scores.csv`, from football-data.co.uk's `mmz4281/2627/E0.csv` feed —
+   this **fully replaces** the file each run) and rebuilds
+   `pl/league_table.csv` via `tools/calculate_pl_scores.py`.
+3. If `SPORTSDB` is set in the crontab line, also refreshes head-to-head/form
+   (`matchup_summary.csv` / `team_form_summary.csv`) for the root game.
+4. Commits and pushes any changed data files so Amplify redeploys.
+
+It does **not** touch `pl/selections.csv` or `pl/stats.json` — those only
+change when a new round's picks are in (see above), not daily.
+
+Example crontab line:
+```
+0 6 * * * SPORTSDB=<key> /path/to/pl-predictions/tools/daily_update.sh >> /path/to/pl-predictions/tools/daily_update.log 2>&1
+```
+Logs go to `tools/daily_update.log` (gitignored). `SPORTSDB` is optional —
+omit it to skip the head-to-head/form refresh (step 3).
 
 ---
 
@@ -168,6 +206,10 @@ Active (Premier League 2026/27):
 | `tools/build_pl_selections.py` | Build `pl/selections.csv` from `rounds/ROUND *.xlsm`. |
 | `tools/calculate_pl_scores.py` | Build `pl/league_table.csv` (5/3/1 scoring) from `pl/selections.csv` + `pl/scores.csv`. |
 | `tools/calculate_pl_stats.py` | Build `pl/stats.json` (pick-behaviour stats) from `pl/selections.csv`. |
+| `tools/fetch_pl_results.sh` | Download actual results → `results_2026_27.csv` (root game). |
+| `tools/calculate_scores_table.py` | Build `league_table.csv` (5/3/1 scoring) from `selections.csv` + `results_2026_27.csv` (root game). |
+| `tools/fetch_pl_scores.py` | Download actual results → `pl/scores.csv` (football-data.co.uk feed). |
+| `tools/daily_update.sh` | Cron entry point — runs the above results/scoring steps for both games daily and pushes any changed data. |
 
 Archived (World Cup 2026):
 `tools/world_cup_*.py`, `tools/quirky.py`, `tools/calculate_league_table.py`,

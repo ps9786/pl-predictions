@@ -1,799 +1,799 @@
 {
-  "generated_at": "2026-08-21T16:49:47.643946+00:00",
-  "total_matches": 30,
+  "generated_at": "2026-09-12T09:05:43.607662+00:00",
+  "total_matches": 60,
   "total_players": 31,
   "by_score": {
     "unique": [
       {
-        "player": "Amber  Martingell",
-        "count": 11,
-        "picks": 30
+        "player": "Richard Drake",
+        "count": 23,
+        "picks": 60
       },
       {
-        "player": "Richard Drake",
-        "count": 10,
-        "picks": 30
+        "player": "Amber  Martingell",
+        "count": 18,
+        "picks": 60
       },
       {
         "player": "Reynold",
-        "count": 7,
-        "picks": 30
+        "count": 13,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "count": 6,
-        "picks": 30
-      },
-      {
-        "player": "Adam Martingell",
-        "count": 5,
-        "picks": 30
-      },
-      {
-        "player": "Ben Knipe",
-        "count": 5,
-        "picks": 30
-      },
-      {
-        "player": "Harry Smith",
-        "count": 5,
-        "picks": 30
+        "count": 9,
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
-        "count": 5,
-        "picks": 30
+        "count": 9,
+        "picks": 60
       },
       {
-        "player": "Harry Knipe",
-        "count": 4,
-        "picks": 30
+        "player": "Adam Martingell",
+        "count": 8,
+        "picks": 60
+      },
+      {
+        "player": "Ben Knipe",
+        "count": 8,
+        "picks": 60
+      },
+      {
+        "player": "Harry Smith",
+        "count": 8,
+        "picks": 60
       },
       {
         "player": "Rhys Knipe",
-        "count": 4,
-        "picks": 30
+        "count": 8,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "count": 7,
+        "picks": 60
       },
       {
         "player": "Stuart Ellis",
-        "count": 4,
-        "picks": 30
+        "count": 7,
+        "picks": 60
       },
       {
-        "player": "Ben Viney",
-        "count": 3,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "count": 3,
-        "picks": 30
-      },
-      {
-        "player": "Dave Hannam",
-        "count": 3,
-        "picks": 30
+        "player": "Harry Knipe",
+        "count": 6,
+        "picks": 60
       },
       {
         "player": "Mike Bowden",
+        "count": 6,
+        "picks": 60
+      },
+      {
+        "player": "Ben Viney",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Dave Hannam",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "count": 4,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "count": 4,
+        "picks": 60
+      },
+      {
+        "player": "Roger May",
+        "count": 4,
+        "picks": 60
+      },
+      {
+        "player": "Billy Darby",
         "count": 3,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Owen Hare",
         "count": 3,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Roger May",
+        "player": "Simon Hughes",
         "count": 3,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Steve Whieldon",
         "count": 3,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Hohn Shead",
+        "player": "Dave Poulton",
         "count": 2,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "James Poulton",
+        "player": "DJ Coombs",
         "count": 2,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Paul Knipe",
+        "player": "ED",
         "count": 2,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Mark Darby",
+        "count": 2,
+        "picks": 60
       },
       {
         "player": "Andrew Rennison",
         "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "Billy Darby",
-        "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "ED",
-        "count": 1,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Gary Southgate",
         "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "Mark Darby",
-        "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "Dave Poulton",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "count": 0,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Kevin Sherrott",
-        "count": 0,
-        "picks": 30
+        "count": 1,
+        "picks": 60
       },
       {
         "player": "Paul Seward",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Simon Hughes",
-        "count": 0,
-        "picks": 30
+        "count": 1,
+        "picks": 60
       }
     ],
     "predictable": [
       {
         "player": "Gary Southgate",
-        "count": 15,
-        "picks": 30
-      },
-      {
-        "player": "Dave Poulton",
-        "count": 13,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "count": 13,
-        "picks": 30
-      },
-      {
-        "player": "Simon Hughes",
-        "count": 13,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "Steve Whieldon",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "Dave Hannam",
-        "count": 11,
-        "picks": 30
+        "count": 33,
+        "picks": 60
       },
       {
         "player": "ED",
-        "count": 11,
-        "picks": 30
+        "count": 26,
+        "picks": 60
       },
       {
-        "player": "Hohn Shead",
-        "count": 11,
-        "picks": 30
+        "player": "DJ Coombs",
+        "count": 25,
+        "picks": 60
       },
       {
-        "player": "James Poulton",
-        "count": 11,
-        "picks": 30
+        "player": "Steve Whieldon",
+        "count": 25,
+        "picks": 60
       },
       {
-        "player": "Mark Darby",
-        "count": 11,
-        "picks": 30
-      },
-      {
-        "player": "Owen Hare",
-        "count": 10,
-        "picks": 30
+        "player": "Paul Seward",
+        "count": 24,
+        "picks": 60
       },
       {
         "player": "Stuart Ellis",
-        "count": 10,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "count": 8,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "count": 8,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
-        "count": 8,
-        "picks": 30
-      },
-      {
-        "player": "Mike Bowden",
-        "count": 8,
-        "picks": 30
+        "count": 23,
+        "picks": 60
       },
       {
         "player": "Andrew Rennison",
-        "count": 7,
-        "picks": 30
+        "count": 22,
+        "picks": 60
       },
       {
-        "player": "Billy Darby",
-        "count": 7,
-        "picks": 30
+        "player": "Mark Darby",
+        "count": 22,
+        "picks": 60
       },
       {
-        "player": "Roger May",
-        "count": 7,
-        "picks": 30
+        "player": "Dave Poulton",
+        "count": 21,
+        "picks": 60
       },
       {
-        "player": "Harry Knipe",
-        "count": 6,
-        "picks": 30
+        "player": "Dave Hannam",
+        "count": 20,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "count": 19,
+        "picks": 60
+      },
+      {
+        "player": "Kevin Sherrott",
+        "count": 19,
+        "picks": 60
+      },
+      {
+        "player": "Simon Hughes",
+        "count": 18,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "count": 17,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "count": 16,
+        "picks": 60
+      },
+      {
+        "player": "Owen Hare",
+        "count": 16,
+        "picks": 60
       },
       {
         "player": "Paul Knipe",
-        "count": 6,
-        "picks": 30
+        "count": 16,
+        "picks": 60
       },
       {
-        "player": "Reynold",
-        "count": 6,
-        "picks": 30
+        "player": "Ben Viney",
+        "count": 15,
+        "picks": 60
       },
       {
         "player": "Harry Smith",
-        "count": 4,
-        "picks": 30
+        "count": 15,
+        "picks": 60
       },
       {
-        "player": "Rhys Knipe",
-        "count": 4,
-        "picks": 30
+        "player": "Roger May",
+        "count": 15,
+        "picks": 60
       },
       {
-        "player": "Richard Drake",
-        "count": 4,
-        "picks": 30
+        "player": "Billy Darby",
+        "count": 14,
+        "picks": 60
+      },
+      {
+        "player": "Harry Knipe",
+        "count": 14,
+        "picks": 60
+      },
+      {
+        "player": "Mike Bowden",
+        "count": 13,
+        "picks": 60
+      },
+      {
+        "player": "Reynold",
+        "count": 13,
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
-        "count": 4,
-        "picks": 30
+        "count": 12,
+        "picks": 60
+      },
+      {
+        "player": "Rhys Knipe",
+        "count": 8,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "count": 3,
-        "picks": 30
+        "count": 7,
+        "picks": 60
+      },
+      {
+        "player": "Ben Knipe",
+        "count": 6,
+        "picks": 60
+      },
+      {
+        "player": "Richard Drake",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Amber  Martingell",
+        "count": 4,
+        "picks": 60
       },
       {
         "player": "Adam Martingell",
         "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "Amber  Martingell",
-        "count": 1,
-        "picks": 30
-      },
-      {
-        "player": "Ben Knipe",
-        "count": 1,
-        "picks": 30
+        "picks": 60
       }
     ],
     "random": [
       {
+        "player": "Reynold",
+        "entropy": 4.029,
+        "normalised": 0.682,
+        "picks": 60
+      },
+      {
         "player": "Richard Drake",
         "entropy": 3.923,
-        "normalised": 0.8,
-        "picks": 30
+        "normalised": 0.664,
+        "picks": 60
       },
       {
         "player": "Harry Smith",
-        "entropy": 3.815,
-        "normalised": 0.777,
-        "picks": 30
-      },
-      {
-        "player": "Reynold",
-        "entropy": 3.765,
-        "normalised": 0.767,
-        "picks": 30
-      },
-      {
-        "player": "Amber  Martingell",
-        "entropy": 3.657,
-        "normalised": 0.745,
-        "picks": 30
+        "entropy": 3.89,
+        "normalised": 0.658,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "entropy": 3.553,
-        "normalised": 0.724,
-        "picks": 30
+        "entropy": 3.818,
+        "normalised": 0.646,
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
-        "entropy": 3.54,
-        "normalised": 0.721,
-        "picks": 30
+        "entropy": 3.781,
+        "normalised": 0.64,
+        "picks": 60
       },
       {
-        "player": "Stuart Ellis",
-        "entropy": 3.511,
-        "normalised": 0.716,
-        "picks": 30
-      },
-      {
-        "player": "Owen Hare",
-        "entropy": 3.374,
-        "normalised": 0.688,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "entropy": 3.286,
-        "normalised": 0.67,
-        "picks": 30
-      },
-      {
-        "player": "James Poulton",
-        "entropy": 3.216,
-        "normalised": 0.655,
-        "picks": 30
-      },
-      {
-        "player": "Paul Knipe",
-        "entropy": 3.21,
-        "normalised": 0.654,
-        "picks": 30
-      },
-      {
-        "player": "ED",
-        "entropy": 3.181,
-        "normalised": 0.648,
-        "picks": 30
-      },
-      {
-        "player": "Billy Darby",
-        "entropy": 3.148,
-        "normalised": 0.642,
-        "picks": 30
-      },
-      {
-        "player": "Roger May",
-        "entropy": 3.095,
-        "normalised": 0.631,
-        "picks": 30
-      },
-      {
-        "player": "Mike Bowden",
-        "entropy": 3.07,
-        "normalised": 0.626,
-        "picks": 30
-      },
-      {
-        "player": "Hohn Shead",
-        "entropy": 3.057,
-        "normalised": 0.623,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
-        "entropy": 3.043,
-        "normalised": 0.62,
-        "picks": 30
+        "player": "Amber  Martingell",
+        "entropy": 3.734,
+        "normalised": 0.632,
+        "picks": 60
       },
       {
         "player": "Simon Hughes",
-        "entropy": 3.044,
-        "normalised": 0.62,
-        "picks": 30
+        "entropy": 3.596,
+        "normalised": 0.609,
+        "picks": 60
+      },
+      {
+        "player": "Billy Darby",
+        "entropy": 3.549,
+        "normalised": 0.601,
+        "picks": 60
+      },
+      {
+        "player": "Stuart Ellis",
+        "entropy": 3.524,
+        "normalised": 0.597,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "entropy": 3.439,
+        "normalised": 0.582,
+        "picks": 60
+      },
+      {
+        "player": "Paul Seward",
+        "entropy": 3.409,
+        "normalised": 0.577,
+        "picks": 60
       },
       {
         "player": "Ben Viney",
-        "entropy": 3.002,
-        "normalised": 0.612,
-        "picks": 30
+        "entropy": 3.387,
+        "normalised": 0.573,
+        "picks": 60
       },
       {
-        "player": "Mark Darby",
-        "entropy": 2.922,
-        "normalised": 0.595,
-        "picks": 30
+        "player": "Owen Hare",
+        "entropy": 3.355,
+        "normalised": 0.568,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "entropy": 3.334,
+        "normalised": 0.564,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "entropy": 3.277,
+        "normalised": 0.555,
+        "picks": 60
+      },
+      {
+        "player": "Kevin Sherrott",
+        "entropy": 3.225,
+        "normalised": 0.546,
+        "picks": 60
+      },
+      {
+        "player": "Roger May",
+        "entropy": 3.203,
+        "normalised": 0.542,
+        "picks": 60
       },
       {
         "player": "Dave Hannam",
-        "entropy": 2.873,
-        "normalised": 0.585,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "entropy": 2.84,
-        "normalised": 0.579,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "entropy": 2.785,
-        "normalised": 0.568,
-        "picks": 30
-      },
-      {
-        "player": "Steve Whieldon",
-        "entropy": 2.736,
-        "normalised": 0.558,
-        "picks": 30
-      },
-      {
-        "player": "Dave Poulton",
-        "entropy": 2.718,
-        "normalised": 0.554,
-        "picks": 30
-      },
-      {
-        "player": "Rhys Knipe",
-        "entropy": 2.668,
-        "normalised": 0.544,
-        "picks": 30
-      },
-      {
-        "player": "Andrew Rennison",
-        "entropy": 2.666,
-        "normalised": 0.543,
-        "picks": 30
+        "entropy": 3.197,
+        "normalised": 0.541,
+        "picks": 60
       },
       {
         "player": "Ben Knipe",
-        "entropy": 2.619,
-        "normalised": 0.534,
-        "picks": 30
+        "entropy": 3.147,
+        "normalised": 0.533,
+        "picks": 60
+      },
+      {
+        "player": "Dave Poulton",
+        "entropy": 3.148,
+        "normalised": 0.533,
+        "picks": 60
+      },
+      {
+        "player": "ED",
+        "entropy": 3.07,
+        "normalised": 0.52,
+        "picks": 60
+      },
+      {
+        "player": "Mike Bowden",
+        "entropy": 3.066,
+        "normalised": 0.519,
+        "picks": 60
+      },
+      {
+        "player": "DJ Coombs",
+        "entropy": 3.047,
+        "normalised": 0.516,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "entropy": 3.034,
+        "normalised": 0.514,
+        "picks": 60
+      },
+      {
+        "player": "Mark Darby",
+        "entropy": 3.014,
+        "normalised": 0.51,
+        "picks": 60
+      },
+      {
+        "player": "Rhys Knipe",
+        "entropy": 2.904,
+        "normalised": 0.492,
+        "picks": 60
+      },
+      {
+        "player": "Steve Whieldon",
+        "entropy": 2.887,
+        "normalised": 0.489,
+        "picks": 60
+      },
+      {
+        "player": "Andrew Rennison",
+        "entropy": 2.859,
+        "normalised": 0.484,
+        "picks": 60
       },
       {
         "player": "Gary Southgate",
-        "entropy": 2.492,
-        "normalised": 0.508,
-        "picks": 30
+        "entropy": 2.561,
+        "normalised": 0.434,
+        "picks": 60
       },
       {
         "player": "Adam Martingell",
-        "entropy": 1.0,
-        "normalised": 0.204,
-        "picks": 30
+        "entropy": 0.999,
+        "normalised": 0.169,
+        "picks": 60
       },
       {
         "player": "Harry Knipe",
-        "entropy": 0.987,
-        "normalised": 0.201,
-        "picks": 30
+        "entropy": 0.993,
+        "normalised": 0.168,
+        "picks": 60
       }
     ],
     "similar": [
       {
         "player": "Harry Knipe",
         "favourite_score": "0-2",
-        "count": 17,
-        "share": 0.567,
-        "picks": 30
+        "count": 33,
+        "share": 0.55,
+        "picks": 60
       },
       {
         "player": "Adam Martingell",
         "favourite_score": "1-0",
-        "count": 15,
-        "share": 0.5,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "favourite_score": "1-1",
-        "count": 11,
-        "share": 0.367,
-        "picks": 30
-      },
-      {
-        "player": "Gary Southgate",
-        "favourite_score": "2-1",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
-      },
-      {
-        "player": "Mark Darby",
-        "favourite_score": "2-1",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
+        "count": 31,
+        "share": 0.517,
+        "picks": 60
       },
       {
         "player": "Rhys Knipe",
         "favourite_score": "0-1",
-        "count": 9,
+        "count": 18,
         "share": 0.3,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Andrew Rennison",
-        "favourite_score": "2-0",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Ben Knipe",
-        "favourite_score": "3-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "favourite_score": "1-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Billy Darby",
-        "favourite_score": "1-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Dave Hannam",
-        "favourite_score": "1-0",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Roger May",
+        "player": "Gary Southgate",
         "favourite_score": "1-2",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Simon Hughes",
-        "favourite_score": "1-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
       },
       {
         "player": "Steve Whieldon",
         "favourite_score": "1-1",
-        "count": 8,
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "favourite_score": "1-1",
+        "count": 16,
         "share": 0.267,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Dave Poulton",
-        "favourite_score": "1-2",
-        "count": 7,
-        "share": 0.233,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "favourite_score": "1-2",
-        "count": 7,
-        "share": 0.233,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
+        "player": "Mark Darby",
         "favourite_score": "2-1",
-        "count": 7,
+        "count": 15,
+        "share": 0.25,
+        "picks": 60
+      },
+      {
+        "player": "Andrew Rennison",
+        "favourite_score": "2-0",
+        "count": 14,
         "share": 0.233,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "ED",
         "favourite_score": "1-2",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
+        "count": 14,
+        "share": 0.233,
+        "picks": 60
       },
       {
-        "player": "Hohn Shead",
-        "favourite_score": "1-1",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
-      },
-      {
-        "player": "Mike Bowden",
-        "favourite_score": "1-2",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
-      },
-      {
-        "player": "Paul Knipe",
+        "player": "Roger May",
         "favourite_score": "2-1",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "favourite_score": "1-1",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
-      },
-      {
-        "player": "Rob Matthews",
-        "favourite_score": "0-2",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
-      },
-      {
-        "player": "Emily Martingell",
-        "favourite_score": "2-0",
-        "count": 5,
-        "share": 0.167,
-        "picks": 30
-      },
-      {
-        "player": "James Poulton",
-        "favourite_score": "0-2",
-        "count": 5,
-        "share": 0.167,
-        "picks": 30
-      },
-      {
-        "player": "Owen Hare",
-        "favourite_score": "1-2",
-        "count": 5,
-        "share": 0.167,
-        "picks": 30
+        "count": 14,
+        "share": 0.233,
+        "picks": 60
       },
       {
         "player": "Stuart Ellis",
         "favourite_score": "1-1",
-        "count": 5,
+        "count": 14,
+        "share": 0.233,
+        "picks": 60
+      },
+      {
+        "player": "Billy Darby",
+        "favourite_score": "1-1",
+        "count": 13,
+        "share": 0.217,
+        "picks": 60
+      },
+      {
+        "player": "Dave Poulton",
+        "favourite_score": "2-1",
+        "count": 13,
+        "share": 0.217,
+        "picks": 60
+      },
+      {
+        "player": "Kevin Sherrott",
+        "favourite_score": "1-2",
+        "count": 13,
+        "share": 0.217,
+        "picks": 60
+      },
+      {
+        "player": "Ben Knipe",
+        "favourite_score": "1-2",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Ben Viney",
+        "favourite_score": "1-1",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Dave Hannam",
+        "favourite_score": "2-1",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "DJ Coombs",
+        "favourite_score": "1-2",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "favourite_score": "1-1",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Mike Bowden",
+        "favourite_score": "1-1",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Owen Hare",
+        "favourite_score": "2-1",
+        "count": 12,
+        "share": 0.2,
+        "picks": 60
+      },
+      {
+        "player": "Rob Matthews",
+        "favourite_score": "2-0",
+        "count": 11,
+        "share": 0.183,
+        "picks": 60
+      },
+      {
+        "player": "Simon Hughes",
+        "favourite_score": "2-1",
+        "count": 11,
+        "share": 0.183,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "favourite_score": "2-1",
+        "count": 10,
         "share": 0.167,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Paul Seward",
+        "favourite_score": "2-1",
+        "count": 10,
+        "share": 0.167,
+        "picks": 60
+      },
+      {
+        "player": "Harry Smith",
+        "favourite_score": "1-2",
+        "count": 9,
+        "share": 0.15,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "favourite_score": "1-0",
+        "count": 9,
+        "share": 0.15,
+        "picks": 60
       },
       {
         "player": "Amber  Martingell",
         "favourite_score": "1-3",
-        "count": 4,
+        "count": 8,
         "share": 0.133,
-        "picks": 30
-      },
-      {
-        "player": "Harry Smith",
-        "favourite_score": "1-1",
-        "count": 4,
-        "share": 0.133,
-        "picks": 30
-      },
-      {
-        "player": "Reynold",
-        "favourite_score": "2-3",
-        "count": 4,
-        "share": 0.133,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Richard Drake",
         "favourite_score": "0-1",
-        "count": 4,
+        "count": 8,
         "share": 0.133,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Emily Martingell",
+        "favourite_score": "2-0",
+        "count": 7,
+        "share": 0.117,
+        "picks": 60
+      },
+      {
+        "player": "Reynold",
+        "favourite_score": "1-1",
+        "count": 6,
+        "share": 0.1,
+        "picks": 60
       }
     ],
     "twins": [
       {
         "player_a": "Gary Southgate",
         "player_b": "Paul Seward",
-        "matches": 17,
-        "shared_considered": 30,
-        "agreement_pct": 56.7
+        "matches": 27,
+        "shared_considered": 60,
+        "agreement_pct": 45.0
       },
       {
-        "player_a": "Gary Southgate",
-        "player_b": "Simon Hughes",
-        "matches": 12,
-        "shared_considered": 30,
-        "agreement_pct": 40.0
+        "player_a": "ED",
+        "player_b": "Gary Southgate",
+        "matches": 22,
+        "shared_considered": 60,
+        "agreement_pct": 36.7
       },
       {
         "player_a": "Dave Poulton",
         "player_b": "Gary Southgate",
-        "matches": 12,
-        "shared_considered": 30,
-        "agreement_pct": 40.0
+        "matches": 21,
+        "shared_considered": 60,
+        "agreement_pct": 35.0
       },
       {
-        "player_a": "Dave Poulton",
-        "player_b": "Kevin Sherrott",
-        "matches": 12,
-        "shared_considered": 30,
-        "agreement_pct": 40.0
+        "player_a": "Gary Southgate",
+        "player_b": "Simon Hughes",
+        "matches": 20,
+        "shared_considered": 60,
+        "agreement_pct": 33.3
       },
       {
-        "player_a": "Adam Martingell",
-        "player_b": "Rhys Knipe",
-        "matches": 11,
-        "shared_considered": 30,
-        "agreement_pct": 36.7
-      },
-      {
-        "player_a": "Billy Darby",
+        "player_a": "Gary Southgate",
         "player_b": "Owen Hare",
-        "matches": 11,
-        "shared_considered": 30,
-        "agreement_pct": 36.7
+        "matches": 20,
+        "shared_considered": 60,
+        "agreement_pct": 33.3
       },
       {
-        "player_a": "Dave Hannam",
-        "player_b": "Hohn Shead",
-        "matches": 11,
-        "shared_considered": 30,
-        "agreement_pct": 36.7
+        "player_a": "Gary Southgate",
+        "player_b": "Kevin Sherrott",
+        "matches": 20,
+        "shared_considered": 60,
+        "agreement_pct": 33.3
       },
       {
-        "player_a": "Adam Martingell",
-        "player_b": "Dave Hannam",
-        "matches": 11,
-        "shared_considered": 30,
-        "agreement_pct": 36.7
+        "player_a": "Steve Whieldon",
+        "player_b": "Stuart Ellis",
+        "matches": 20,
+        "shared_considered": 60,
+        "agreement_pct": 33.3
       },
       {
         "player_a": "DJ Coombs",
-        "player_b": "ED",
-        "matches": 11,
-        "shared_considered": 30,
-        "agreement_pct": 36.7
+        "player_b": "Steve Whieldon",
+        "matches": 20,
+        "shared_considered": 60,
+        "agreement_pct": 33.3
       },
       {
-        "player_a": "Dave Hannam",
-        "player_b": "Rhys Knipe",
-        "matches": 10,
-        "shared_considered": 30,
-        "agreement_pct": 33.3
+        "player_a": "Paul Seward",
+        "player_b": "Simon Hughes",
+        "matches": 19,
+        "shared_considered": 60,
+        "agreement_pct": 31.7
+      },
+      {
+        "player_a": "Billy Darby",
+        "player_b": "Mark Darby",
+        "matches": 18,
+        "shared_considered": 60,
+        "agreement_pct": 30.0
       }
     ]
   },
@@ -801,1123 +801,1123 @@
     "unique": [
       {
         "player": "Richard Drake",
-        "count": 8,
-        "picks": 30
+        "count": 13,
+        "picks": 60
       },
       {
         "player": "Amber  Martingell",
-        "count": 5,
-        "picks": 30
+        "count": 10,
+        "picks": 60
       },
       {
         "player": "Reynold",
-        "count": 5,
-        "picks": 30
-      },
-      {
-        "player": "Ben Knipe",
-        "count": 4,
-        "picks": 30
+        "count": 9,
+        "picks": 60
       },
       {
         "player": "Stuart Ellis",
-        "count": 4,
-        "picks": 30
+        "count": 7,
+        "picks": 60
       },
       {
-        "player": "Adam Martingell",
-        "count": 3,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "count": 3,
-        "picks": 30
-      },
-      {
-        "player": "Harry Smith",
-        "count": 3,
-        "picks": 30
+        "player": "Ben Knipe",
+        "count": 6,
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
-        "count": 3,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "count": 2,
-        "picks": 30
+        "count": 6,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "count": 2,
-        "picks": 30
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Harry Smith",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Rhys Knipe",
+        "count": 5,
+        "picks": 60
+      },
+      {
+        "player": "Adam Martingell",
+        "count": 4,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "count": 4,
+        "picks": 60
       },
       {
         "player": "James Poulton",
-        "count": 2,
-        "picks": 30
+        "count": 4,
+        "picks": 60
+      },
+      {
+        "player": "Ben Viney",
+        "count": 3,
+        "picks": 60
+      },
+      {
+        "player": "Billy Darby",
+        "count": 3,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "count": 3,
+        "picks": 60
       },
       {
         "player": "Mike Bowden",
+        "count": 3,
+        "picks": 60
+      },
+      {
+        "player": "Simon Hughes",
+        "count": 3,
+        "picks": 60
+      },
+      {
+        "player": "Dave Poulton",
         "count": 2,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "DJ Coombs",
+        "count": 2,
+        "picks": 60
       },
       {
         "player": "Owen Hare",
         "count": 2,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Roger May",
         "count": 2,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Steve Whieldon",
         "count": 2,
-        "picks": 30
-      },
-      {
-        "player": "Billy Darby",
-        "count": 1,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Dave Hannam",
         "count": 1,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "ED",
         "count": 1,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Hohn Shead",
+        "player": "Harry Knipe",
         "count": 1,
-        "picks": 30
+        "picks": 60
       },
       {
-        "player": "Rhys Knipe",
+        "player": "Kevin Sherrott",
         "count": 1,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Mark Darby",
+        "count": 1,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "count": 1,
+        "picks": 60
+      },
+      {
+        "player": "Paul Seward",
+        "count": 1,
+        "picks": 60
       },
       {
         "player": "Andrew Rennison",
         "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Dave Poulton",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "count": 0,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Gary Southgate",
         "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Harry Knipe",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Mark Darby",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Paul Knipe",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "count": 0,
-        "picks": 30
-      },
-      {
-        "player": "Simon Hughes",
-        "count": 0,
-        "picks": 30
+        "picks": 60
       }
     ],
     "predictable": [
       {
-        "player": "Dave Poulton",
-        "count": 18,
-        "picks": 30
+        "player": "Gary Southgate",
+        "count": 34,
+        "picks": 60
       },
       {
-        "player": "Gary Southgate",
-        "count": 18,
-        "picks": 30
+        "player": "Dave Poulton",
+        "count": 27,
+        "picks": 60
       },
       {
         "player": "DJ Coombs",
-        "count": 16,
-        "picks": 30
+        "count": 26,
+        "picks": 60
       },
       {
         "player": "Kevin Sherrott",
-        "count": 14,
-        "picks": 30
+        "count": 26,
+        "picks": 60
       },
       {
         "player": "Mark Darby",
-        "count": 14,
-        "picks": 30
-      },
-      {
-        "player": "Owen Hare",
-        "count": 14,
-        "picks": 30
-      },
-      {
-        "player": "ED",
-        "count": 13,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "count": 13,
-        "picks": 30
-      },
-      {
-        "player": "Roger May",
-        "count": 13,
-        "picks": 30
+        "count": 26,
+        "picks": 60
       },
       {
         "player": "Dave Hannam",
-        "count": 12,
-        "picks": 30
+        "count": 25,
+        "picks": 60
       },
       {
-        "player": "Hohn Shead",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "James Poulton",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "Mike Bowden",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "Simon Hughes",
-        "count": 12,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "count": 11,
-        "picks": 30
-      },
-      {
-        "player": "Steve Whieldon",
-        "count": 11,
-        "picks": 30
-      },
-      {
-        "player": "Stuart Ellis",
-        "count": 11,
-        "picks": 30
-      },
-      {
-        "player": "Paul Knipe",
-        "count": 10,
-        "picks": 30
-      },
-      {
-        "player": "Rhys Knipe",
-        "count": 10,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "count": 9,
-        "picks": 30
+        "player": "ED",
+        "count": 25,
+        "picks": 60
       },
       {
         "player": "Andrew Rennison",
-        "count": 7,
-        "picks": 30
+        "count": 24,
+        "picks": 60
+      },
+      {
+        "player": "Steve Whieldon",
+        "count": 23,
+        "picks": 60
+      },
+      {
+        "player": "Owen Hare",
+        "count": 22,
+        "picks": 60
+      },
+      {
+        "player": "Paul Seward",
+        "count": 22,
+        "picks": 60
+      },
+      {
+        "player": "Roger May",
+        "count": 22,
+        "picks": 60
+      },
+      {
+        "player": "Stuart Ellis",
+        "count": 22,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "count": 21,
+        "picks": 60
       },
       {
         "player": "Harry Smith",
-        "count": 7,
-        "picks": 30
+        "count": 20,
+        "picks": 60
       },
       {
-        "player": "Ben Knipe",
-        "count": 6,
-        "picks": 30
+        "player": "Paul Knipe",
+        "count": 20,
+        "picks": 60
       },
       {
-        "player": "Billy Darby",
-        "count": 6,
-        "picks": 30
+        "player": "Ben Viney",
+        "count": 19,
+        "picks": 60
       },
       {
-        "player": "Harry Knipe",
-        "count": 6,
-        "picks": 30
+        "player": "Hohn Shead",
+        "count": 19,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "count": 19,
+        "picks": 60
+      },
+      {
+        "player": "Mike Bowden",
+        "count": 17,
+        "picks": 60
+      },
+      {
+        "player": "Simon Hughes",
+        "count": 17,
+        "picks": 60
+      },
+      {
+        "player": "Rhys Knipe",
+        "count": 16,
+        "picks": 60
       },
       {
         "player": "Reynold",
-        "count": 6,
-        "picks": 30
+        "count": 14,
+        "picks": 60
       },
       {
-        "player": "Richard Drake",
-        "count": 6,
-        "picks": 30
-      },
-      {
-        "player": "Amber  Martingell",
-        "count": 5,
-        "picks": 30
+        "player": "Harry Knipe",
+        "count": 13,
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
-        "count": 5,
-        "picks": 30
+        "count": 13,
+        "picks": 60
       },
       {
-        "player": "Adam Martingell",
-        "count": 4,
-        "picks": 30
+        "player": "Billy Darby",
+        "count": 12,
+        "picks": 60
+      },
+      {
+        "player": "Ben Knipe",
+        "count": 11,
+        "picks": 60
+      },
+      {
+        "player": "Amber  Martingell",
+        "count": 10,
+        "picks": 60
+      },
+      {
+        "player": "Richard Drake",
+        "count": 8,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "count": 4,
-        "picks": 30
+        "count": 7,
+        "picks": 60
+      },
+      {
+        "player": "Adam Martingell",
+        "count": 6,
+        "picks": 60
       }
     ],
     "random": [
       {
-        "player": "Richard Drake",
-        "entropy": 3.289,
-        "normalised": 0.67,
-        "picks": 30
+        "player": "Reynold",
+        "entropy": 3.41,
+        "normalised": 0.577,
+        "picks": 60
       },
       {
-        "player": "Reynold",
-        "entropy": 3.283,
-        "normalised": 0.669,
-        "picks": 30
+        "player": "Richard Drake",
+        "entropy": 3.289,
+        "normalised": 0.557,
+        "picks": 60
       },
       {
         "player": "Harry Smith",
-        "entropy": 3.206,
-        "normalised": 0.653,
-        "picks": 30
-      },
-      {
-        "player": "Rob Matthews",
-        "entropy": 3.144,
-        "normalised": 0.641,
-        "picks": 30
-      },
-      {
-        "player": "Stuart Ellis",
-        "entropy": 3.053,
-        "normalised": 0.622,
-        "picks": 30
-      },
-      {
-        "player": "Amber  Martingell",
-        "entropy": 3.019,
-        "normalised": 0.615,
-        "picks": 30
+        "entropy": 3.227,
+        "normalised": 0.546,
+        "picks": 60
       },
       {
         "player": "Emily Martingell",
-        "entropy": 2.964,
-        "normalised": 0.604,
-        "picks": 30
+        "entropy": 3.112,
+        "normalised": 0.527,
+        "picks": 60
+      },
+      {
+        "player": "Rob Matthews",
+        "entropy": 3.109,
+        "normalised": 0.526,
+        "picks": 60
       },
       {
         "player": "Billy Darby",
-        "entropy": 2.735,
-        "normalised": 0.557,
-        "picks": 30
+        "entropy": 3.065,
+        "normalised": 0.519,
+        "picks": 60
       },
       {
-        "player": "Owen Hare",
-        "entropy": 2.68,
-        "normalised": 0.546,
-        "picks": 30
+        "player": "Amber  Martingell",
+        "entropy": 3.011,
+        "normalised": 0.51,
+        "picks": 60
       },
       {
-        "player": "Mike Bowden",
-        "entropy": 2.654,
-        "normalised": 0.541,
-        "picks": 30
-      },
-      {
-        "player": "ED",
-        "entropy": 2.643,
-        "normalised": 0.539,
-        "picks": 30
-      },
-      {
-        "player": "Paul Seward",
-        "entropy": 2.63,
-        "normalised": 0.536,
-        "picks": 30
-      },
-      {
-        "player": "Paul Knipe",
-        "entropy": 2.627,
-        "normalised": 0.535,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "entropy": 2.61,
-        "normalised": 0.532,
-        "picks": 30
-      },
-      {
-        "player": "Roger May",
-        "entropy": 2.586,
-        "normalised": 0.527,
-        "picks": 30
-      },
-      {
-        "player": "Hohn Shead",
-        "entropy": 2.534,
-        "normalised": 0.516,
-        "picks": 30
-      },
-      {
-        "player": "James Poulton",
-        "entropy": 2.464,
-        "normalised": 0.502,
-        "picks": 30
+        "player": "Stuart Ellis",
+        "entropy": 2.994,
+        "normalised": 0.507,
+        "picks": 60
       },
       {
         "player": "Simon Hughes",
-        "entropy": 2.457,
-        "normalised": 0.501,
-        "picks": 30
+        "entropy": 2.934,
+        "normalised": 0.497,
+        "picks": 60
       },
       {
-        "player": "Mark Darby",
-        "entropy": 2.436,
-        "normalised": 0.496,
-        "picks": 30
+        "player": "Ben Viney",
+        "entropy": 2.773,
+        "normalised": 0.469,
+        "picks": 60
+      },
+      {
+        "player": "Hohn Shead",
+        "entropy": 2.737,
+        "normalised": 0.463,
+        "picks": 60
+      },
+      {
+        "player": "Paul Seward",
+        "entropy": 2.693,
+        "normalised": 0.456,
+        "picks": 60
+      },
+      {
+        "player": "Owen Hare",
+        "entropy": 2.658,
+        "normalised": 0.45,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "entropy": 2.653,
+        "normalised": 0.449,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "entropy": 2.604,
+        "normalised": 0.441,
+        "picks": 60
+      },
+      {
+        "player": "ED",
+        "entropy": 2.591,
+        "normalised": 0.439,
+        "picks": 60
       },
       {
         "player": "Dave Coombs",
-        "entropy": 2.287,
-        "normalised": 0.466,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
-        "entropy": 2.266,
-        "normalised": 0.462,
-        "picks": 30
-      },
-      {
-        "player": "Steve Whieldon",
-        "entropy": 2.223,
-        "normalised": 0.453,
-        "picks": 30
+        "entropy": 2.541,
+        "normalised": 0.43,
+        "picks": 60
       },
       {
         "player": "Dave Hannam",
-        "entropy": 2.089,
-        "normalised": 0.426,
-        "picks": 30
+        "entropy": 2.529,
+        "normalised": 0.428,
+        "picks": 60
       },
       {
-        "player": "DJ Coombs",
-        "entropy": 2.034,
+        "player": "Mike Bowden",
+        "entropy": 2.525,
+        "normalised": 0.427,
+        "picks": 60
+      },
+      {
+        "player": "Kevin Sherrott",
+        "entropy": 2.502,
+        "normalised": 0.424,
+        "picks": 60
+      },
+      {
+        "player": "Roger May",
+        "entropy": 2.5,
+        "normalised": 0.423,
+        "picks": 60
+      },
+      {
+        "player": "Mark Darby",
+        "entropy": 2.444,
         "normalised": 0.414,
-        "picks": 30
-      },
-      {
-        "player": "Andrew Rennison",
-        "entropy": 1.945,
-        "normalised": 0.396,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Dave Poulton",
-        "entropy": 1.887,
-        "normalised": 0.385,
-        "picks": 30
-      },
-      {
-        "player": "Gary Southgate",
-        "entropy": 1.765,
-        "normalised": 0.36,
-        "picks": 30
-      },
-      {
-        "player": "Rhys Knipe",
-        "entropy": 1.766,
-        "normalised": 0.36,
-        "picks": 30
+        "entropy": 2.389,
+        "normalised": 0.404,
+        "picks": 60
       },
       {
         "player": "Ben Knipe",
-        "entropy": 1.736,
-        "normalised": 0.354,
-        "picks": 30
+        "entropy": 2.328,
+        "normalised": 0.394,
+        "picks": 60
+      },
+      {
+        "player": "DJ Coombs",
+        "entropy": 2.326,
+        "normalised": 0.394,
+        "picks": 60
+      },
+      {
+        "player": "Steve Whieldon",
+        "entropy": 2.329,
+        "normalised": 0.394,
+        "picks": 60
+      },
+      {
+        "player": "Andrew Rennison",
+        "entropy": 2.215,
+        "normalised": 0.375,
+        "picks": 60
+      },
+      {
+        "player": "Rhys Knipe",
+        "entropy": 2.155,
+        "normalised": 0.365,
+        "picks": 60
+      },
+      {
+        "player": "Gary Southgate",
+        "entropy": 1.832,
+        "normalised": 0.31,
+        "picks": 60
       },
       {
         "player": "Adam Martingell",
         "entropy": -0.0,
         "normalised": -0.0,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Harry Knipe",
         "entropy": -0.0,
         "normalised": -0.0,
-        "picks": 30
+        "picks": 60
       }
     ],
     "similar": [
       {
         "player": "Adam Martingell",
         "favourite_score": "1-0",
-        "count": 30,
+        "count": 60,
         "share": 1.0,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Harry Knipe",
         "favourite_score": "2-0",
-        "count": 30,
+        "count": 60,
         "share": 1.0,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Gary Southgate",
         "favourite_score": "2-1",
-        "count": 15,
-        "share": 0.5,
-        "picks": 30
+        "count": 31,
+        "share": 0.517,
+        "picks": 60
       },
       {
         "player": "Rhys Knipe",
         "favourite_score": "1-0",
-        "count": 15,
-        "share": 0.5,
-        "picks": 30
-      },
-      {
-        "player": "Dave Hannam",
-        "favourite_score": "1-0",
-        "count": 14,
-        "share": 0.467,
-        "picks": 30
-      },
-      {
-        "player": "Dave Poulton",
-        "favourite_score": "2-1",
-        "count": 14,
-        "share": 0.467,
-        "picks": 30
-      },
-      {
-        "player": "Ben Knipe",
-        "favourite_score": "3-1",
-        "count": 13,
+        "count": 26,
         "share": 0.433,
-        "picks": 30
-      },
-      {
-        "player": "Kevin Sherrott",
-        "favourite_score": "2-1",
-        "count": 13,
-        "share": 0.433,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Roger May",
         "favourite_score": "2-1",
-        "count": 13,
-        "share": 0.433,
-        "picks": 30
+        "count": 25,
+        "share": 0.417,
+        "picks": 60
+      },
+      {
+        "player": "Ben Knipe",
+        "favourite_score": "2-1",
+        "count": 24,
+        "share": 0.4,
+        "picks": 60
       },
       {
         "player": "Mark Darby",
         "favourite_score": "2-1",
-        "count": 12,
+        "count": 24,
         "share": 0.4,
-        "picks": 30
-      },
-      {
-        "player": "Dave Coombs",
-        "favourite_score": "1-1",
-        "count": 11,
-        "share": 0.367,
-        "picks": 30
-      },
-      {
-        "player": "DJ Coombs",
-        "favourite_score": "2-1",
-        "count": 11,
-        "share": 0.367,
-        "picks": 30
-      },
-      {
-        "player": "Andrew Rennison",
-        "favourite_score": "2-0",
-        "count": 10,
-        "share": 0.333,
-        "picks": 30
-      },
-      {
-        "player": "Mike Bowden",
-        "favourite_score": "2-1",
-        "count": 10,
-        "share": 0.333,
-        "picks": 30
-      },
-      {
-        "player": "Ben Viney",
-        "favourite_score": "2-1",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
-      },
-      {
-        "player": "James Poulton",
-        "favourite_score": "1-0",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Owen Hare",
         "favourite_score": "2-1",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
+        "count": 23,
+        "share": 0.383,
+        "picks": 60
       },
       {
-        "player": "Paul Knipe",
+        "player": "Dave Poulton",
         "favourite_score": "2-1",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
+        "count": 21,
+        "share": 0.35,
+        "picks": 60
+      },
+      {
+        "player": "Kevin Sherrott",
+        "favourite_score": "2-1",
+        "count": 21,
+        "share": 0.35,
+        "picks": 60
+      },
+      {
+        "player": "Dave Coombs",
+        "favourite_score": "2-1",
+        "count": 20,
+        "share": 0.333,
+        "picks": 60
+      },
+      {
+        "player": "Dave Hannam",
+        "favourite_score": "2-1",
+        "count": 20,
+        "share": 0.333,
+        "picks": 60
+      },
+      {
+        "player": "DJ Coombs",
+        "favourite_score": "2-1",
+        "count": 19,
+        "share": 0.317,
+        "picks": 60
       },
       {
         "player": "Paul Seward",
         "favourite_score": "2-1",
-        "count": 9,
+        "count": 19,
+        "share": 0.317,
+        "picks": 60
+      },
+      {
+        "player": "Mike Bowden",
+        "favourite_score": "2-1",
+        "count": 18,
         "share": 0.3,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Rob Matthews",
         "favourite_score": "2-0",
-        "count": 9,
+        "count": 18,
         "share": 0.3,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Andrew Rennison",
+        "favourite_score": "1-0",
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
+      },
+      {
+        "player": "James Poulton",
+        "favourite_score": "1-0",
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
+      },
+      {
+        "player": "Paul Knipe",
+        "favourite_score": "2-1",
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
       },
       {
         "player": "Steve Whieldon",
-        "favourite_score": "2-0",
-        "count": 9,
-        "share": 0.3,
-        "picks": 30
-      },
-      {
-        "player": "Billy Darby",
         "favourite_score": "1-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
+        "count": 17,
+        "share": 0.283,
+        "picks": 60
       },
       {
         "player": "ED",
         "favourite_score": "2-1",
-        "count": 8,
+        "count": 16,
         "share": 0.267,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Simon Hughes",
-        "favourite_score": "1-1",
-        "count": 8,
-        "share": 0.267,
-        "picks": 30
-      },
-      {
-        "player": "Emily Martingell",
         "favourite_score": "2-1",
-        "count": 7,
-        "share": 0.233,
-        "picks": 30
+        "count": 16,
+        "share": 0.267,
+        "picks": 60
       },
       {
         "player": "Hohn Shead",
+        "favourite_score": "1-0",
+        "count": 15,
+        "share": 0.25,
+        "picks": 60
+      },
+      {
+        "player": "Ben Viney",
         "favourite_score": "2-1",
-        "count": 7,
+        "count": 14,
         "share": 0.233,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Billy Darby",
+        "favourite_score": "2-1",
+        "count": 14,
+        "share": 0.233,
+        "picks": 60
       },
       {
         "player": "Stuart Ellis",
-        "favourite_score": "2-1",
-        "count": 7,
+        "favourite_score": "1-1",
+        "count": 14,
         "share": 0.233,
-        "picks": 30
-      },
-      {
-        "player": "Amber  Martingell",
-        "favourite_score": "3-1",
-        "count": 6,
-        "share": 0.2,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Harry Smith",
         "favourite_score": "2-1",
-        "count": 6,
+        "count": 13,
+        "share": 0.217,
+        "picks": 60
+      },
+      {
+        "player": "Amber  Martingell",
+        "favourite_score": "2-0",
+        "count": 12,
         "share": 0.2,
-        "picks": 30
+        "picks": 60
       },
       {
         "player": "Richard Drake",
         "favourite_score": "1-0",
-        "count": 6,
+        "count": 12,
         "share": 0.2,
-        "picks": 30
+        "picks": 60
+      },
+      {
+        "player": "Emily Martingell",
+        "favourite_score": "2-1",
+        "count": 11,
+        "share": 0.183,
+        "picks": 60
       },
       {
         "player": "Reynold",
-        "favourite_score": "2-0",
-        "count": 5,
+        "favourite_score": "2-1",
+        "count": 10,
         "share": 0.167,
-        "picks": 30
+        "picks": 60
       }
     ],
     "twins": [
       {
         "player_a": "Gary Southgate",
         "player_b": "Paul Seward",
-        "matches": 18,
-        "shared_considered": 30,
-        "agreement_pct": 60.0
+        "matches": 30,
+        "shared_considered": 60,
+        "agreement_pct": 50.0
       },
       {
         "player_a": "Adam Martingell",
         "player_b": "Rhys Knipe",
-        "matches": 15,
-        "shared_considered": 30,
-        "agreement_pct": 50.0
+        "matches": 26,
+        "shared_considered": 60,
+        "agreement_pct": 43.3
+      },
+      {
+        "player_a": "Gary Southgate",
+        "player_b": "Kevin Sherrott",
+        "matches": 26,
+        "shared_considered": 60,
+        "agreement_pct": 43.3
       },
       {
         "player_a": "Dave Poulton",
         "player_b": "Gary Southgate",
-        "matches": 15,
-        "shared_considered": 30,
-        "agreement_pct": 50.0
+        "matches": 25,
+        "shared_considered": 60,
+        "agreement_pct": 41.7
       },
       {
-        "player_a": "Adam Martingell",
-        "player_b": "Dave Hannam",
-        "matches": 14,
-        "shared_considered": 30,
-        "agreement_pct": 46.7
+        "player_a": "ED",
+        "player_b": "Gary Southgate",
+        "matches": 25,
+        "shared_considered": 60,
+        "agreement_pct": 41.7
       },
       {
-        "player_a": "Dave Poulton",
-        "player_b": "Paul Knipe",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
+        "player_a": "Gary Southgate",
+        "player_b": "Owen Hare",
+        "matches": 24,
+        "shared_considered": 60,
+        "agreement_pct": 40.0
       },
       {
         "player_a": "Ben Knipe",
         "player_b": "Kevin Sherrott",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
+        "matches": 23,
+        "shared_considered": 60,
+        "agreement_pct": 38.3
       },
       {
         "player_a": "Gary Southgate",
         "player_b": "Simon Hughes",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
+        "matches": 23,
+        "shared_considered": 60,
+        "agreement_pct": 38.3
+      },
+      {
+        "player_a": "Paul Seward",
+        "player_b": "Simon Hughes",
+        "matches": 22,
+        "shared_considered": 60,
+        "agreement_pct": 36.7
       },
       {
         "player_a": "Kevin Sherrott",
         "player_b": "Mark Darby",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
-      },
-      {
-        "player_a": "Gary Southgate",
-        "player_b": "Kevin Sherrott",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
-      },
-      {
-        "player_a": "Gary Southgate",
-        "player_b": "Stuart Ellis",
-        "matches": 13,
-        "shared_considered": 30,
-        "agreement_pct": 43.3
+        "matches": 22,
+        "shared_considered": 60,
+        "agreement_pct": 36.7
       }
     ]
   },
   "goals_optimists": [
     {
       "player": "Ben Knipe",
-      "avg_goals": 3.6,
-      "picks": 30
-    },
-    {
-      "player": "Amber  Martingell",
-      "avg_goals": 3.33,
-      "picks": 30
+      "avg_goals": 3.52,
+      "picks": 60
     },
     {
       "player": "Roger May",
       "avg_goals": 3.23,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Reynold",
-      "avg_goals": 3.07,
-      "picks": 30
+      "avg_goals": 3.18,
+      "picks": 60
     },
     {
-      "player": "Billy Darby",
-      "avg_goals": 2.97,
-      "picks": 30
+      "player": "Amber  Martingell",
+      "avg_goals": 3.07,
+      "picks": 60
     },
     {
       "player": "Harry Smith",
-      "avg_goals": 2.97,
-      "picks": 30
+      "avg_goals": 3.03,
+      "picks": 60
     },
     {
       "player": "Kevin Sherrott",
-      "avg_goals": 2.97,
-      "picks": 30
+      "avg_goals": 2.92,
+      "picks": 60
     },
     {
-      "player": "Owen Hare",
-      "avg_goals": 2.9,
-      "picks": 30
+      "player": "Billy Darby",
+      "avg_goals": 2.85,
+      "picks": 60
     },
     {
-      "player": "Rob Matthews",
-      "avg_goals": 2.77,
-      "picks": 30
+      "player": "Paul Seward",
+      "avg_goals": 2.82,
+      "picks": 60
     },
     {
       "player": "Paul Knipe",
+      "avg_goals": 2.77,
+      "picks": 60
+    },
+    {
+      "player": "Owen Hare",
       "avg_goals": 2.73,
-      "picks": 30
+      "picks": 60
     }
   ],
   "goals_pessimists": [
     {
       "player": "Adam Martingell",
       "avg_goals": 1.0,
-      "picks": 30
-    },
-    {
-      "player": "Steve Whieldon",
-      "avg_goals": 1.7,
-      "picks": 30
-    },
-    {
-      "player": "Dave Hannam",
-      "avg_goals": 1.8,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Rhys Knipe",
-      "avg_goals": 1.83,
-      "picks": 30
+      "avg_goals": 1.68,
+      "picks": 60
     },
     {
-      "player": "Andrew Rennison",
-      "avg_goals": 1.9,
-      "picks": 30
+      "player": "Steve Whieldon",
+      "avg_goals": 1.88,
+      "picks": 60
     },
     {
       "player": "Harry Knipe",
       "avg_goals": 2.0,
-      "picks": 30
+      "picks": 60
+    },
+    {
+      "player": "Andrew Rennison",
+      "avg_goals": 2.1,
+      "picks": 60
     },
     {
       "player": "James Poulton",
-      "avg_goals": 2.1,
-      "picks": 30
+      "avg_goals": 2.13,
+      "picks": 60
     },
     {
       "player": "Mike Bowden",
-      "avg_goals": 2.13,
-      "picks": 30
-    },
-    {
-      "player": "Simon Hughes",
-      "avg_goals": 2.17,
-      "picks": 30
+      "avg_goals": 2.15,
+      "picks": 60
     },
     {
       "player": "DJ Coombs",
-      "avg_goals": 2.27,
-      "picks": 30
+      "avg_goals": 2.23,
+      "picks": 60
+    },
+    {
+      "player": "Ben Viney",
+      "avg_goals": 2.38,
+      "picks": 60
+    },
+    {
+      "player": "Hohn Shead",
+      "avg_goals": 2.42,
+      "picks": 60
     }
   ],
   "bias": [
     {
       "player": "Adam Martingell",
-      "home_pct": 50.0,
+      "home_pct": 51.7,
       "draw_pct": 0.0,
-      "away_pct": 50.0,
-      "picks": 30
+      "away_pct": 48.3,
+      "picks": 60
     },
     {
       "player": "Amber  Martingell",
       "home_pct": 46.7,
       "draw_pct": 10.0,
       "away_pct": 43.3,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Andrew Rennison",
-      "home_pct": 46.7,
-      "draw_pct": 16.7,
+      "home_pct": 48.3,
+      "draw_pct": 15.0,
       "away_pct": 36.7,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Ben Knipe",
-      "home_pct": 56.7,
-      "draw_pct": 3.3,
-      "away_pct": 40.0,
-      "picks": 30
+      "home_pct": 50.0,
+      "draw_pct": 6.7,
+      "away_pct": 43.3,
+      "picks": 60
     },
     {
       "player": "Ben Viney",
-      "home_pct": 43.3,
-      "draw_pct": 33.3,
-      "away_pct": 23.3,
-      "picks": 30
+      "home_pct": 36.7,
+      "draw_pct": 28.3,
+      "away_pct": 35.0,
+      "picks": 60
     },
     {
       "player": "Billy Darby",
-      "home_pct": 33.3,
-      "draw_pct": 36.7,
-      "away_pct": 30.0,
-      "picks": 30
+      "home_pct": 36.7,
+      "draw_pct": 35.0,
+      "away_pct": 28.3,
+      "picks": 60
     },
     {
       "player": "Dave Coombs",
-      "home_pct": 36.7,
-      "draw_pct": 40.0,
-      "away_pct": 23.3,
-      "picks": 30
+      "home_pct": 48.3,
+      "draw_pct": 31.7,
+      "away_pct": 20.0,
+      "picks": 60
     },
     {
       "player": "Dave Hannam",
       "home_pct": 46.7,
-      "draw_pct": 13.3,
-      "away_pct": 40.0,
-      "picks": 30
+      "draw_pct": 20.0,
+      "away_pct": 33.3,
+      "picks": 60
     },
     {
       "player": "Dave Poulton",
-      "home_pct": 50.0,
-      "draw_pct": 10.0,
-      "away_pct": 40.0,
-      "picks": 30
+      "home_pct": 45.0,
+      "draw_pct": 20.0,
+      "away_pct": 35.0,
+      "picks": 60
     },
     {
       "player": "DJ Coombs",
-      "home_pct": 36.7,
-      "draw_pct": 13.3,
-      "away_pct": 50.0,
-      "picks": 30
+      "home_pct": 38.3,
+      "draw_pct": 21.7,
+      "away_pct": 40.0,
+      "picks": 60
     },
     {
       "player": "ED",
-      "home_pct": 40.0,
-      "draw_pct": 20.0,
-      "away_pct": 40.0,
-      "picks": 30
+      "home_pct": 38.3,
+      "draw_pct": 23.3,
+      "away_pct": 38.3,
+      "picks": 60
     },
     {
       "player": "Emily Martingell",
-      "home_pct": 50.0,
-      "draw_pct": 16.7,
-      "away_pct": 33.3,
-      "picks": 30
+      "home_pct": 40.0,
+      "draw_pct": 18.3,
+      "away_pct": 41.7,
+      "picks": 60
     },
     {
       "player": "Gary Southgate",
-      "home_pct": 46.7,
-      "draw_pct": 23.3,
-      "away_pct": 30.0,
-      "picks": 30
+      "home_pct": 45.0,
+      "draw_pct": 18.3,
+      "away_pct": 36.7,
+      "picks": 60
     },
     {
       "player": "Harry Knipe",
-      "home_pct": 43.3,
+      "home_pct": 45.0,
       "draw_pct": 0.0,
-      "away_pct": 56.7,
-      "picks": 30
+      "away_pct": 55.0,
+      "picks": 60
     },
     {
       "player": "Harry Smith",
-      "home_pct": 46.7,
-      "draw_pct": 20.0,
+      "home_pct": 50.0,
+      "draw_pct": 16.7,
       "away_pct": 33.3,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Hohn Shead",
-      "home_pct": 60.0,
-      "draw_pct": 20.0,
+      "home_pct": 55.0,
+      "draw_pct": 25.0,
       "away_pct": 20.0,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "James Poulton",
-      "home_pct": 46.7,
+      "home_pct": 48.3,
       "draw_pct": 13.3,
-      "away_pct": 40.0,
-      "picks": 30
+      "away_pct": 38.3,
+      "picks": 60
     },
     {
       "player": "Kevin Sherrott",
-      "home_pct": 53.3,
-      "draw_pct": 10.0,
+      "home_pct": 51.7,
+      "draw_pct": 11.7,
       "away_pct": 36.7,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Mark Darby",
-      "home_pct": 56.7,
-      "draw_pct": 23.3,
-      "away_pct": 20.0,
-      "picks": 30
+      "home_pct": 50.0,
+      "draw_pct": 28.3,
+      "away_pct": 21.7,
+      "picks": 60
     },
     {
       "player": "Mike Bowden",
-      "home_pct": 23.3,
-      "draw_pct": 33.3,
-      "away_pct": 43.3,
-      "picks": 30
+      "home_pct": 26.7,
+      "draw_pct": 28.3,
+      "away_pct": 45.0,
+      "picks": 60
     },
     {
       "player": "Owen Hare",
-      "home_pct": 40.0,
-      "draw_pct": 13.3,
-      "away_pct": 46.7,
-      "picks": 30
+      "home_pct": 43.3,
+      "draw_pct": 16.7,
+      "away_pct": 40.0,
+      "picks": 60
     },
     {
       "player": "Paul Knipe",
-      "home_pct": 70.0,
+      "home_pct": 68.3,
       "draw_pct": 6.7,
-      "away_pct": 23.3,
-      "picks": 30
+      "away_pct": 25.0,
+      "picks": 60
     },
     {
       "player": "Paul Seward",
       "home_pct": 46.7,
-      "draw_pct": 23.3,
-      "away_pct": 30.0,
-      "picks": 30
+      "draw_pct": 21.7,
+      "away_pct": 31.7,
+      "picks": 60
     },
     {
       "player": "Reynold",
-      "home_pct": 33.3,
-      "draw_pct": 20.0,
-      "away_pct": 46.7,
-      "picks": 30
+      "home_pct": 38.3,
+      "draw_pct": 23.3,
+      "away_pct": 38.3,
+      "picks": 60
     },
     {
       "player": "Rhys Knipe",
-      "home_pct": 40.0,
-      "draw_pct": 6.7,
-      "away_pct": 53.3,
-      "picks": 30
+      "home_pct": 28.3,
+      "draw_pct": 15.0,
+      "away_pct": 56.7,
+      "picks": 60
     },
     {
       "player": "Richard Drake",
       "home_pct": 36.7,
       "draw_pct": 26.7,
       "away_pct": 36.7,
-      "picks": 30
+      "picks": 60
     },
     {
       "player": "Rob Matthews",
-      "home_pct": 46.7,
+      "home_pct": 53.3,
       "draw_pct": 20.0,
-      "away_pct": 33.3,
-      "picks": 30
+      "away_pct": 26.7,
+      "picks": 60
     },
     {
       "player": "Roger May",
-      "home_pct": 46.7,
-      "draw_pct": 20.0,
-      "away_pct": 33.3,
-      "picks": 30
+      "home_pct": 53.3,
+      "draw_pct": 15.0,
+      "away_pct": 31.7,
+      "picks": 60
     },
     {
       "player": "Simon Hughes",
-      "home_pct": 46.7,
-      "draw_pct": 26.7,
-      "away_pct": 26.7,
-      "picks": 30
+      "home_pct": 51.7,
+      "draw_pct": 18.3,
+      "away_pct": 30.0,
+      "picks": 60
     },
     {
       "player": "Steve Whieldon",
-      "home_pct": 36.7,
+      "home_pct": 35.0,
       "draw_pct": 33.3,
-      "away_pct": 30.0,
-      "picks": 30
+      "away_pct": 31.7,
+      "picks": 60
     },
     {
       "player": "Stuart Ellis",
-      "home_pct": 33.3,
-      "draw_pct": 33.3,
-      "away_pct": 33.3,
-      "picks": 30
+      "home_pct": 35.0,
+      "draw_pct": 40.0,
+      "away_pct": 25.0,
+      "picks": 60
     }
   ],
   "field_average": {
     "home_pct": 44.8,
-    "draw_pct": 18.9,
-    "away_pct": 36.2
+    "draw_pct": 19.6,
+    "away_pct": 35.6
   }
 }

@@ -125,6 +125,11 @@ with their `H-A` guess. A "round" typically bundles several gameweeks.
 
 **Weekly steps, once a round's picks are in:**
 
+`git pull` first if someone else added the new `rounds/ROUND N.xlsm` — the
+three scripts below only see what's on disk, so running them against a stale
+checkout regenerates `pl/selections.csv`/`league_table.csv`/`stats.json` from
+the *old* round and silently drops the new one.
+
 ```bash
 python3 tools/build_pl_selections.py    # rounds/*.xlsm            -> pl/selections.csv
 python3 tools/calculate_pl_scores.py    # pl/selections.csv + pl/scores.csv -> pl/league_table.csv

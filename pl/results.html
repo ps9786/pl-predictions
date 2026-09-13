@@ -48,6 +48,7 @@ function resultsCard(row) {
   const hth = parseInt(row.HTHG, 10);
   const hta = parseInt(row.HTAG, 10);
   const hasHt = Number.isFinite(hth) && Number.isFinite(hta);
+  const provisional = row.Provisional === 'yes';
 
   const ftr = outcome(fh, fa);
   const htr = hasHt ? outcome(hth, hta) : null;
@@ -58,7 +59,7 @@ function resultsCard(row) {
   const statRow = (label, h, a) => (h === '' && a === '') ? '' : `
     <tr><td>${label}</td><td class="num">${h}</td><td class="num">${a}</td></tr>`;
 
-  const statsHtml = `
+  const statsHtml = provisional ? '' : `
     <table class="tbl mini-tbl">
       <thead><tr><th></th><th>${home}</th><th>${away}</th></tr></thead>
       <tbody>
@@ -77,6 +78,7 @@ function resultsCard(row) {
       <summary>
         <div class="result-summary">
           <span class="result-date">${row.Date || ''}</span>
+          ${provisional ? '<span class="comeback-badge" title="Final score, but match stats aren\'t in yet">⏳ Provisional</span>' : ''}
           ${comeback ? '<span class="comeback-badge" title="Trailed at half-time, won the match">🔄 Comeback</span>' : ''}
         </div>
         <div class="result-fixture">

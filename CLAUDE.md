@@ -133,6 +133,18 @@ off the `Fixture`/`Score` header names — later columns (half-time score,
 referee, shots/corners/cards) are extra detail, not required. Both this and
 the root pipeline run from `tools/daily_update.sh`, independently.
 
+football-data.co.uk's feed typically lags fixturedownload.com by a day or
+more, so for any match fixturedownload already shows as played (via
+`results_2026_27.csv`, which `daily_update.sh` fetches first) but
+football-data.co.uk doesn't have yet, `fetch_pl_scores.py` adds a minimal
+fallback row — `Fixture,Score,Date` only, no match-stat columns — with a
+trailing `Provisional=yes` column (`pl/results.html` shows a "⏳ Provisional"
+badge for these and skips the stats table). This lets the leaderboard update
+within minutes of full time instead of waiting for football-data.co.uk. Since
+`pl/scores.csv` is rebuilt from scratch every run, once football-data.co.uk
+catches up its authoritative row (keyed by the same `home, away` short-name
+pair) simply replaces the fallback on the next run — no manual cleanup.
+
 `tools/check_scores.py` is an older 3/1/0 helper (no unique-exact bonus); the
 WC-era `tools/calculate_league_table.py` and the sibling
 `~/vscode/calculate_leaderboard` project are archived.

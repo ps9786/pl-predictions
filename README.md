@@ -35,6 +35,7 @@ For each fixture a player predicts a scoreline. Scoring (see
 | `tools/` | Python + bash scripts (see below). |
 | `rounds/` | Excel workbooks (`ROUND N.xlsm`) — a parallel, spreadsheet-based way for the group to submit predictions per round (see `pl/` below). |
 | `pl/` | **Round predictions site** — timeline of picks, leaderboard and stats built from `rounds/*.xlsm`. See "Excel-based round predictions" below. |
+| `pl/rounds_to_look_at.txt` | Round numbers (one per line) that `pl/score-check.html` and `pl/best-score.html` check hypothetical scorelines against. |
 | `wc/`, `plpb.html`, `*_b.*` | Archived World Cup edition. |
 
 ---
@@ -162,9 +163,18 @@ python3 tools/calculate_pl_stats.py     # pl/selections.csv        -> pl/stats.j
   `pl/leaderboard.html` (5/3/1 table — a dropdown switches between the
   cumulative "Overall" table from `pl/league_table.csv` and a per-round table
   computed client-side from `pl/selections.csv` + `pl/scores.csv`, so no extra
-  build step is needed when a round finishes) and `pl/stats.html` (most
+  build step is needed when a round finishes), `pl/results.html` (full-time
+  scores and match stats, with a "Provisional" badge — see below — and a
+  "Comeback" badge for HT-trailing wins), `pl/stats.html` (most
   unique/random/predictable/repetitive picks, goal optimism, home/away bias,
-  "prediction twins").
+  "prediction twins"), `pl/player.html` (one player's picks across rounds),
+  `pl/score-check.html` (pick a scoreline and see the 5/3/1 points it would
+  have earned against every match in the rounds listed in
+  `pl/rounds_to_look_at.txt`) and `pl/best-score.html` (sweeps every scoreline
+  from 0-0 to 5-5 against those same rounds and ranks them — "what single
+  guess would have scored best"). Both of the latter two read
+  `pl/rounds_to_look_at.txt` (one round number per line) to decide which
+  rounds to check — edit it to look further back.
 - Commit the regenerated `pl/selections.csv`, `pl/league_table.csv` and
   `pl/stats.json` (and `rounds/*.xlsm`) so Amplify serves the update.
 
@@ -178,7 +188,15 @@ cron. Run daily (e.g. 06:00), it needs no API key and:
 2. Fetches actual results for the `pl/` game (`tools/fetch_pl_scores.py` ->
    `pl/scores.csv`, from football-data.co.uk's `mmz4281/2627/E0.csv` feed —
    this **fully replaces** the file each run) and rebuilds
-   `pl/league_table.csv` via `tools/calculate_pl_scores.py`.
+   `pl/league_table.csv` via `tools/calculate_pl_scores.py`. football-data.co.uk
+   usually lags fixturedownload.com by a day or more, so for any match
+   `results_2026_27.csv` (step 1, fetched first) already shows as played but
+   football-data.co.uk doesn't have yet, a minimal fallback row (just
+   `Fixture,Score,Date`, no match-stat columns) is added and flagged
+   `Provisional=yes` — this lets the `pl/` leaderboard update within minutes
+   of full time instead of waiting on football-data.co.uk. No cleanup needed:
+   since `pl/scores.csv` is rebuilt from scratch every run, the authoritative
+   row simply replaces the fallback once football-data.co.uk catches up.
 3. If `SPORTSDB` is set in the crontab line, also refreshes head-to-head/form
    (`matchup_summary.csv` / `team_form_summary.csv`) for the root game.
 4. Commits and pushes any changed data files so Amplify redeploys.

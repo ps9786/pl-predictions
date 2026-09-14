@@ -21,16 +21,25 @@ Columns after Score are extra match detail (half-time score, referee, shots,
 corners, cards) kept in case the game wants them later; betting-odds columns
 from the source are dropped.
 
-football-data.co.uk typically lags a day or more behind full time — the
-fixturedownload.com feed (../results_2026_27.csv, written by
-fetch_pl_results.sh) usually has a final score within minutes. So for any
-match that fixturedownload shows as played but football-data.co.uk doesn't
-have yet, we add a minimal fallback row (Fixture, Score, Date only — no
-half-time/referee/shots detail, since fixturedownload doesn't provide it) and
-mark it "Provisional" so the leaderboard can update immediately instead of
-waiting. Because pl/scores.csv is rebuilt from scratch every run, once
-football-data.co.uk catches up its authoritative row simply replaces the
-fallback on the next run — no manual cleanup needed.
+football-data.co.uk typically lags a day or more behind full time. Two
+fallbacks fill matches it doesn't have yet, in order:
+
+  1. TheSportsDB (api/v1/json/<SPORTSDB key>/eventsseason.php), if the
+     SPORTSDB env var is set. With a premium key this returns the full
+     season in one call (the free key truncates to ~15 events, so this tier
+     is skipped without a real key) and, for each finished match not yet on
+     football-data.co.uk, a second call (lookupeventstats.php) fetches shots/
+     corners/fouls/cards — comparable detail to football-data.co.uk, just
+     from a different source.
+  2. The fixturedownload.com feed (../results_2026_27.csv, written by
+     fetch_pl_results.sh), which usually has a final score within minutes but
+     no match-stat detail — used as a last resort with just Fixture/Score/Date.
+
+Either way the fallback row is marked "Provisional" so the leaderboard can
+update immediately instead of waiting on football-data.co.uk. Because
+pl/scores.csv is rebuilt from scratch every run, once football-data.co.uk
+catches up its authoritative row simply replaces the fallback on the next
+run — no manual cleanup needed.
 
 Usage:
   python3 tools/fetch_pl_scores.py
@@ -39,7 +48,11 @@ Usage:
 from __future__ import annotations
 
 import csv
+import json
+import os
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import date, datetime
 from pathlib import Path
@@ -51,6 +64,18 @@ OUT = ROOT / "pl" / "scores.csv"
 FALLBACK_SRC = ROOT / "results_2026_27.csv"
 
 SRC = "https://football-data.co.uk/mmz4281/2627/E0.csv"
+
+SPORTSDB_KEY = os.environ.get("SPORTSDB")
+SPORTSDB_LEAGUE_ID = "4328"    # English Premier League
+SPORTSDB_SEASON = "2026-2027"
+SPORTSDB_STAT_MAP = {          # TheSportsDB strStat -> our (home field, away field)
+    "Total Shots": ("HS", "AS"),
+    "Shots on Goal": ("HST", "AST"),
+    "Fouls": ("HF", "AF"),
+    "Corner Kicks": ("HC", "AC"),
+    "Yellow Cards": ("HY", "AY"),
+    "Red Cards": ("HR", "AR"),
+}
 
 EXTRA_FIELDS = [
     "HTHG", "HTAG", "HTR", "Referee",
@@ -84,6 +109,61 @@ def short_name(team: str) -> str:
     if not short:
         sys.exit(f"[!] '{team}' not in tools/team_lookup.csv — add a short/alias for it")
     return short
+
+
+def sportsdb_get(path: str):
+    url = f"https://www.thesportsdb.com/api/v1/json/{SPORTSDB_KEY}/{path}"
+    with urllib.request.urlopen(url, timeout=25) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def load_thesportsdb_rows(known: set[tuple[str, str]]) -> list[tuple[date, str, dict]]:
+    """Fixture/Score/Date(+stats) rows from TheSportsDB, for finished matches
+    football-data.co.uk doesn't have yet. Needs a premium SPORTSDB key — the
+    free key truncates eventsseason.php to ~15 events, so this tier is
+    skipped entirely without one."""
+    if not SPORTSDB_KEY:
+        return []
+
+    try:
+        data = sportsdb_get(f"eventsseason.php?id={SPORTSDB_LEAGUE_ID}&s={SPORTSDB_SEASON}")
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+        print(f"[!] TheSportsDB eventsseason.php failed: {e}", file=sys.stderr)
+        return []
+
+    entries = []
+    for e in (data or {}).get("events") or []:
+        if e.get("strStatus") != "FT":
+            continue
+        hs, as_ = e.get("intHomeScore"), e.get("intAwayScore")
+        if hs is None or as_ is None:
+            continue
+        home = short_name(e["strHomeTeam"])
+        away = short_name(e["strAwayTeam"])
+        if (home, away) in known:
+            continue
+
+        out_row = {"Fixture": f"{home} - {away}", "Score": f"{hs}-{as_}", "Date": e.get("dateEvent") or ""}
+        for field in EXTRA_FIELDS:
+            out_row[field] = ""
+        out_row["Referee"] = (e.get("strOfficial") or "").strip()
+
+        try:
+            stats = sportsdb_get(f"lookupeventstats.php?id={e['idEvent']}").get("eventstats") or []
+            for s in stats:
+                fields = SPORTSDB_STAT_MAP.get(s.get("strStat"))
+                if fields:
+                    out_row[fields[0]] = s.get("intHome") or ""
+                    out_row[fields[1]] = s.get("intAway") or ""
+            time.sleep(0.3)
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError, AttributeError):
+            pass   # bare score is still useful without the extra stats
+
+        out_row["Provisional"] = "yes"
+        known.add((home, away))
+        match_date = datetime.strptime(e["dateEvent"], "%Y-%m-%d").date()
+        entries.append((match_date, "", out_row))
+    return entries
 
 
 def load_fallback_rows(known: set[tuple[str, str]]) -> list[tuple[date, str, dict]]:
@@ -138,9 +218,15 @@ def main() -> None:
         out_row["Provisional"] = ""
         rows.append((match_date, row.get("Time", ""), out_row))
 
+    sportsdb_rows = load_thesportsdb_rows(known)
+    if sportsdb_rows:
+        print(f"[i] {len(sportsdb_rows)} match(es) not yet on football-data.co.uk — "
+              f"using provisional TheSportsDB scores instead")
+    rows.extend(sportsdb_rows)
+
     fallback = load_fallback_rows(known)
     if fallback:
-        print(f"[i] {len(fallback)} match(es) not yet on football-data.co.uk — "
+        print(f"[i] {len(fallback)} match(es) not yet on football-data.co.uk or TheSportsDB — "
               f"using provisional fixturedownload.com scores instead")
     rows.extend(fallback)
 
@@ -152,7 +238,8 @@ def main() -> None:
         for _, _, out_row in rows:
             writer.writerow(out_row)
 
-    print(f"Wrote {len(rows)} results to {OUT} ({len(fallback)} provisional)")
+    provisional = len(sportsdb_rows) + len(fallback)
+    print(f"Wrote {len(rows)} results to {OUT} ({provisional} provisional)")
 
 
 if __name__ == "__main__":

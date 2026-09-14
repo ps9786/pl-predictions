@@ -189,14 +189,19 @@ cron. Run daily (e.g. 06:00), it needs no API key and:
    `pl/scores.csv`, from football-data.co.uk's `mmz4281/2627/E0.csv` feed —
    this **fully replaces** the file each run) and rebuilds
    `pl/league_table.csv` via `tools/calculate_pl_scores.py`. football-data.co.uk
-   usually lags fixturedownload.com by a day or more, so for any match
-   `results_2026_27.csv` (step 1, fetched first) already shows as played but
-   football-data.co.uk doesn't have yet, a minimal fallback row (just
-   `Fixture,Score,Date`, no match-stat columns) is added and flagged
-   `Provisional=yes` — this lets the `pl/` leaderboard update within minutes
-   of full time instead of waiting on football-data.co.uk. No cleanup needed:
-   since `pl/scores.csv` is rebuilt from scratch every run, the authoritative
-   row simply replaces the fallback once football-data.co.uk catches up.
+   usually lags by a day or more, so for any match it doesn't have yet, two
+   fallbacks fill the gap, in order — each flagged `Provisional=yes` so the
+   `pl/` leaderboard updates within minutes of full time instead of waiting,
+   and each self-heals (no cleanup needed) since `pl/scores.csv` is rebuilt
+   from scratch every run, so the authoritative row simply replaces whichever
+   fallback was used once football-data.co.uk catches up:
+   1. **TheSportsDB**, if `SPORTSDB` is set to a **premium** key (the free
+      key isn't enough — see "Environment variables" below) — pulls the
+      score plus shots/corners/fouls/cards for any finished match, comparable
+      detail to football-data.co.uk from a different source.
+   2. **fixturedownload.com** (`results_2026_27.csv`, already fetched in step
+      1) — a last resort with just `Fixture,Score,Date`, no match-stat
+      columns, for anything neither of the above has yet.
 3. If `SPORTSDB` is set in the crontab line, also refreshes head-to-head/form
    (`matchup_summary.csv` / `team_form_summary.csv`) for the root game.
 4. Commits and pushes any changed data files so Amplify redeploys.
@@ -258,5 +263,5 @@ If the builder prints `'<name>' not in team_lookup.csv`, add that club and re-ru
 
 | Variable | Used by | Notes |
 |----------|---------|-------|
-| `SPORTSDB` | `build_predictions_data.py` | TheSportsDB premium key (V1, key-in-path). Falls back to free `123`. |
+| `SPORTSDB` | `build_predictions_data.py`, `fetch_pl_scores.py` | TheSportsDB premium key (V1, key-in-path). `build_predictions_data.py` falls back to the free `123` key; `fetch_pl_scores.py` needs a real premium key and simply skips its TheSportsDB fallback tier without one (the free key truncates `eventsseason.php` to ~15 events). |
 | `API_FOOTBALL_KEY` | archived World Cup scripts | api-football key; free plan cannot access season 2026. |

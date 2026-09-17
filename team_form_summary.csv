@@ -1,7 +1,7 @@
 Team,Game 5,Game 4,Game 3,Game 2,Game 1
 Bournemouth,L,D,D,W,D
 Brentford,W,D,D,D,W
-Villa,L,L,D,W,L
+Villa,L,D,W,L,W
 Forest,W,W,L,L,L
 Chelsea,W,W,L,W,D
 Hull,D,W,D,L,D
@@ -10,12 +10,12 @@ Ipswich,W,L,L,W,L
 Liverpool,D,W,W,D,W
 Fulham,W,L,L,D,W
 Spurs,W,L,D,D,L
-Everton,W,W,D,D,D
-Sunderland,L,W,D,W,L
+Everton,W,D,D,D,W
+Sunderland,W,D,W,L,W
 Arsenal,W,W,W,W,W
-Coventry,L,W,L,L,L
-Brighton,W,W,L,D,W
-Man Utd,L,W,D,W,L
+Coventry,W,L,L,L,L
+Brighton,W,L,D,W,W
+Man Utd,W,D,W,L,L
 Man City,W,W,W,W,W
 Leeds,W,D,D,L,W
 Newcastle,W,W,D,W,L
